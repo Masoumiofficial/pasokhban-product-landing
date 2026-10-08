@@ -1,0 +1,468 @@
+/* ==========================================================================
+   پاسخ‌بان — mock.css
+   کامپوننت‌های «نمای محصول» (ماکت رابط): پنجرهٔ پیشخوان، فهرست گفتگو، رشتهٔ
+   مکالمه، حباب‌ها، واگذاری و ویجت مشتری.
+   این فایل مشترک است و در صفحهٔ محصول و صفحهٔ راهنما استفاده می‌شود.
+   نکته: ماکت‌ها توضیحی‌اند و هیچ عنصر تعاملی داخل آن‌ها قرار نمی‌گیرد.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   PRODUCT VISUAL — app window + widget
+   -------------------------------------------------------------------------- */
+.app {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-4);
+  background: var(--surface);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+}
+
+.app__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-5);
+  border-block-end: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.app__dots {
+  display: flex;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.app__dots i {
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.app__title {
+  color: var(--text-muted);
+  font-size: var(--fs-caption);
+  font-weight: var(--w-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app__title .icon {
+  inline-size: 0.9em;
+  block-size: 0.9em;
+  vertical-align: -0.15em;
+  color: var(--text-subtle);
+}
+
+.app__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-block-size: 340px;
+}
+
+@media (min-width: 44rem) {
+  .app__body {
+    grid-template-columns: 13rem minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 68rem) {
+  .app__body {
+    grid-template-columns: 10.5rem 13rem minmax(0, 1fr);
+  }
+}
+
+/* WordPress-style admin rail */
+.app__rail {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-4) var(--sp-3);
+  border-inline-end: 1px solid var(--line);
+  background: var(--ink-900);
+  color: var(--on-dark-muted);
+  font-size: var(--fs-caption);
+}
+
+@media (min-width: 68rem) {
+  .app__rail {
+    display: flex;
+  }
+}
+
+.app__rail-brand {
+  padding: var(--sp-2) var(--sp-3) var(--sp-4);
+  color: var(--on-dark);
+  font-weight: var(--w-semibold);
+}
+
+.app__rail-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-1);
+  line-height: 1.6;
+}
+
+.app__rail-item.is-active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: var(--w-medium);
+}
+
+/* conversation list */
+.app__list {
+  display: none;
+  flex-direction: column;
+  border-inline-end: 1px solid var(--line);
+  background: var(--surface);
+}
+
+@media (min-width: 44rem) {
+  .app__list {
+    display: flex;
+  }
+}
+
+.app__list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-4) var(--sp-3);
+  border-block-end: 1px solid var(--line);
+  color: var(--text-subtle);
+  font-size: var(--fs-micro);
+}
+
+.app__list-head strong {
+  color: var(--ink-900);
+  font-size: var(--fs-caption);
+  font-weight: var(--w-semibold);
+}
+
+.chat-row {
+  display: grid;
+  gap: 4px;
+  padding: var(--sp-3) var(--sp-4);
+  border-block-end: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: var(--fs-micro);
+  line-height: 1.7;
+}
+
+.chat-row.is-active {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.chat-row__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.chat-row__name {
+  color: var(--ink-900);
+  font-size: var(--fs-caption);
+  font-weight: var(--w-semibold);
+}
+
+.chat-row__time {
+  color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.chat-row__excerpt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chat-row__flag {
+  justify-self: start;
+  padding: 1px var(--sp-2);
+  border-radius: var(--r-pill);
+  font-size: 0.6875rem;
+  line-height: 1.9;
+}
+
+.chat-row__flag--ai {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.chat-row__flag--human {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+/* thread */
+.app__thread {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.thread-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-4) var(--sp-4);
+  border-block-end: 1px solid var(--line);
+}
+
+.thread-head__name {
+  display: grid;
+  gap: 2px;
+}
+
+.thread-head__name strong {
+  color: var(--ink-900);
+  font-size: var(--fs-caption);
+}
+
+.thread-head__name span {
+  color: var(--text-subtle);
+  font-size: var(--fs-micro);
+}
+
+.thread-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  border: 1px solid var(--ok-soft);
+  border-radius: var(--r-pill);
+  background: var(--ok-soft);
+  color: var(--ok);
+  font-size: var(--fs-micro);
+  font-weight: var(--w-medium);
+  white-space: nowrap;
+}
+
+.thread-status--accent {
+  border-color: var(--accent-soft-line);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.thread-status .dot {
+  inline-size: 5px;
+  block-size: 5px;
+}
+
+.thread-body {
+  display: grid;
+  gap: var(--sp-3);
+  align-content: start;
+  padding: var(--sp-5) var(--sp-4);
+  background: var(--surface);
+}
+
+.thread-body--soft {
+  background: var(--surface-2);
+}
+
+.bubble {
+  max-inline-size: 85%;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-2);
+  font-size: var(--fs-caption);
+  line-height: 1.85;
+}
+
+.bubble--in {
+  justify-self: start;
+  border: 1px solid var(--line);
+  border-start-start-radius: 4px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.bubble--out {
+  justify-self: end;
+  border-start-end-radius: 4px;
+  background: var(--ink-900);
+  color: var(--on-dark);
+}
+
+.bubble--ai {
+  justify-self: start;
+  border: 1px solid var(--accent-soft-line);
+  border-start-start-radius: 4px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.bubble__by {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-block-end: 2px;
+  font-size: var(--fs-micro);
+  font-weight: var(--w-semibold);
+  opacity: 0.85;
+}
+
+.bubble__by .icon {
+  inline-size: 0.95em;
+  block-size: 0.95em;
+}
+
+.handoff {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-block: var(--sp-1);
+  color: var(--text-subtle);
+  font-size: var(--fs-micro);
+}
+
+.handoff::before,
+.handoff::after {
+  content: "";
+  flex: 1;
+  block-size: 1px;
+  background: var(--line);
+}
+
+.handoff .icon {
+  inline-size: 1em;
+  block-size: 1em;
+  color: var(--accent);
+}
+
+.composer {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-block-start: auto;
+  padding: var(--sp-4);
+  border-block-start: 1px solid var(--line);
+}
+
+.composer__field {
+  flex: 1;
+  min-inline-size: 0;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-2);
+  background: var(--surface);
+  color: var(--text-subtle);
+  font-size: var(--fs-caption);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.composer__send {
+  display: grid;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: var(--r-1);
+  background: var(--accent);
+  color: #fff;
+}
+
+.composer__send .icon {
+  inline-size: 1.05em;
+  block-size: 1.05em;
+}
+
+/* visitor widget */
+.widget {
+  border: 1px solid var(--line);
+  border-radius: var(--r-3);
+  background: var(--surface);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+
+/*
+  ویجت مشتری زیر پنجرهٔ پیشخوان می‌نشیند و کمی «تو رفته» است: بخش بالایی آن
+  پشت پنجره پنهان می‌ماند. به این ترتیب هیچ محتوایی پوشانده نمی‌شود و ویجت
+  هرگز از لبهٔ صفحه بیرون نمی‌زند (روی نمایشگرهای باریک هم امن است).
+*/
+@media (min-width: 48rem) {
+  .app {
+    position: relative;
+    z-index: 1;
+  }
+
+  .widget {
+    inline-size: min(100%, 19rem);
+    margin-block-start: -2rem;
+    margin-inline-start: auto;
+  }
+}
+
+.widget__head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: var(--ink-900);
+  color: var(--on-dark);
+}
+
+.widget__avatar {
+  display: grid;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: var(--r-1);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent-on-dark);
+}
+
+.widget__avatar .icon {
+  inline-size: 1.1em;
+  block-size: 1.1em;
+}
+
+.widget__head strong {
+  display: block;
+  font-size: var(--fs-caption);
+  font-weight: var(--w-semibold);
+}
+
+.widget__head small {
+  display: block;
+  color: var(--on-dark-muted);
+  font-size: var(--fs-micro);
+}
+
+.widget__body {
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  background: var(--surface-2);
+}
+
+.widget__body .bubble {
+  max-inline-size: 100%;
+  font-size: var(--fs-micro);
+}
+
+.widget__foot {
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  border-block-start: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.widget__foot .composer {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.widget__foot .composer__field {
+  font-size: var(--fs-micro);
+}

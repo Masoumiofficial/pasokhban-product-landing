@@ -1,0 +1,8 @@
+Vazirmatn — SIL Open Font License, Version 1.1
+Copyright 2015 The Vazirmatn Project Authors (https://github.com/rastikerdar/vazirmatn)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Full license text: https://openfontlicense.org/open-font-license-official-text/
+
+نسخهٔ کامل مجوز در نشانی بالا در دسترس است. استفاده، تغییر و بازتوزیع این فونت
+با شرط حفظ همین فایل مجوز و نام نویسندگان اصلی مجاز است.
