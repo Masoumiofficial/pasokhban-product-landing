@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#081a1f" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>راهنمای پاسخ‌بان | نصب، تنظیمات، کانال‌ها و عیب‌یابی</title>
+    <meta
+      name="description"
+      content="راهنمای فارسی پاسخ‌بان: نصب افزونه، تنظیم اتصال هوش مصنوعی، ساخت دانش سایت، اعلان تلگرام و بله، کار روزمره با گفتگوها و عیب‌یابی استاندارد."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- canonical را پس از مشخص‌شدن دامنهٔ نهایی اضافه کنید. -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="پاسخ‌بان" />
+    <meta property="og:title" content="راهنمای پاسخ‌بان | از نصب تا عیب‌یابی" />
+    <meta
+      property="og:description"
+      content="مسیر دقیق منو، توضیح ساده، نمونهٔ تنظیم و چک‌لیست آزمون برای همهٔ بخش‌های افزونهٔ پاسخ‌بان."
+    />
+    <meta property="og:image" content="assets/img/og-cover.png" />
+
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+    <link
+      rel="preload"
+      href="assets/fonts/vazirmatn-arabic-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/vazirmatn-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/mock.css" />
+    <link rel="stylesheet" href="assets/css/guide.css" />
+
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TechArticle",
+            "headline": "راهنمای پاسخ‌بان: از نصب تا اولین پاسخ",
+            "inLanguage": "fa-IR",
+            "description": "راهنمای نصب، تنظیمات، کانال‌های اعلان و عیب‌یابی افزونهٔ پاسخ‌بان برای وردپرس.",
+            "about": "افزونهٔ چت هوشمند و پشتیبانی آنلاین پاسخ‌بان برای وردپرس",
+            "author": { "@type": "Organization", "name": "اتحاد وردپرس", "url": "https://etehadwp.com" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "صفحهٔ محصول", "item": "index.html" },
+              { "@type": "ListItem", "position": 2, "name": "راهنمای کامل" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#docs">پرش به محتوای راهنما</a>
+
+    <!-- ==================== SVG SPRITE ==================== -->
+    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 5 13.5h6L11 22l8-11.5h-6z" /></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24">
+        <path d="M12 3.5l1.9 4.8 4.8 1.9-4.8 1.9L12 17l-1.9-4.9L5.3 10.2l4.8-1.9z" />
+        <path d="M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" />
+      </symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24">
+        <path d="M4 13a8 8 0 0 1 16 0" />
+        <path d="M4 13h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2z" />
+        <path d="M20 13h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1a2 2 0 0 0 2-2z" />
+        <path d="M17 19.5a2.5 2.5 0 0 1-2.5 2.5H12" />
+      </symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24">
+        <path d="M20 15a4 4 0 0 1-4 4H8l-4.5 2.5V7A4 4 0 0 1 7.5 3H16a4 4 0 0 1 4 4z" />
+        <path d="M8.5 9h7M8.5 12.5h4" />
+      </symbol>
+      <symbol id="i-send" viewBox="0 0 24 24">
+        <path d="M21 3 10.5 13.5" />
+        <path d="M21 3l-6.5 18-4-8-8-4z" />
+      </symbol>
+      <symbol id="i-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="6" rx="7" ry="3" />
+        <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" />
+        <path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" />
+      </symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24">
+        <path d="M12 21a9 9 0 1 1 9-9c0 2-1.6 3.2-3.4 3.2h-1.8a2 2 0 0 0-1.5 3.3c.6.7.2 1.7-.7 2a9 9 0 0 1-1.6.5z" />
+        <circle cx="7.8" cy="12" r=".9" />
+        <circle cx="9.8" cy="8" r=".9" />
+        <circle cx="14.2" cy="8" r=".9" />
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7.5V12l3 2" />
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3.5" />
+        <path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+        <path d="M16.5 5.2a3.5 3.5 0 0 1 0 6.6" />
+        <path d="M18 20a6.6 6.6 0 0 0-1.6-4.4" />
+      </symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24">
+        <path d="M3 4h2l2.4 10.4A2 2 0 0 0 9.4 16h8.3a2 2 0 0 0 2-1.6L21 7H6" />
+        <circle cx="10" cy="20" r="1.4" />
+        <circle cx="17.5" cy="20" r="1.4" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 3l7 2.8V11c0 4.8-2.9 7.9-7 10-4.1-2.1-7-5.2-7-10V5.8z" />
+        <path d="M9 12l2.2 2.2L15.5 10" />
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+        <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" />
+      </symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24">
+        <path d="M6 9.5a6 6 0 0 1 12 0c0 4.5 1.8 5.5 1.8 5.5H4.2S6 14 6 9.5z" />
+        <path d="M10.2 19a2 2 0 0 0 3.6 0" />
+      </symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24">
+        <path d="M7.5 18.5h9.8a4.2 4.2 0 0 0 .6-8.4 5.6 5.6 0 0 0-10.7-1.4 4.5 4.5 0 0 0 .3 9.8z" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.5" />
+        <path d="M10.5 18.5h3" />
+      </symbol>
+      <symbol id="i-book" viewBox="0 0 24 24">
+        <path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3z" />
+        <path d="M8.5 3v18" />
+      </symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H7.5A2.5 2.5 0 0 0 5 5.5v13A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5V8z" />
+        <path d="M14 3v5h5" />
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path d="M12 3v11.5" />
+        <path d="M7.5 10 12 14.5 16.5 10" />
+        <path d="M4.5 20h15" />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="11.5" height="11.5" rx="2.5" />
+        <path d="M15 5.5V5A2 2 0 0 0 13 3H5.5A2 2 0 0 0 3.5 5v7.5a2 2 0 0 0 2 2H6" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5" /></symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M8 12.2l2.8 2.8L16.3 9.5" />
+      </symbol>
+      <symbol id="i-info" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 11v5.5M12 7.8v.2" />
+      </symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24">
+        <path d="M12 4.2 21 19.5H3z" />
+        <path d="M12 10v4M12 16.8v.2" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5.5v13M5.5 12h13" /></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9.5 12 15.5 18 9.5" /></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24">
+        <path d="M19 12H5" />
+        <path d="M11 6l-6 6 6 6" />
+      </symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14" />
+        <path d="M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24">
+        <path d="M14 4h6v6" />
+        <path d="M20 4l-8.5 8.5" />
+        <path d="M18.5 14.5v4A2.5 2.5 0 0 1 16 21H6.5A2.5 2.5 0 0 1 4 18.5V9A2.5 2.5 0 0 1 6.5 6.5h4" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" /></symbol>
+    </svg>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header" data-header>
+      <div class="container">
+        <div class="site-header__inner">
+          <a class="brand" href="index.html">
+            <span class="brand__mark" aria-hidden="true">پ</span>
+            <span class="brand__text">
+              پاسخ‌بان
+              <span class="brand__sub">راهنمای رسمی افزونه</span>
+            </span>
+          </a>
+
+          <nav class="site-nav" aria-label="فهرست راهنما">
+            <ul>
+              <li><a href="#start">شروع سریع</a></li>
+              <li><a href="#settings">تنظیمات</a></li>
+              <li><a href="#channels">کانال‌ها</a></li>
+              <li><a href="#trouble">عیب‌یابی</a></li>
+              <li><a href="#reference">مرجع مسیرها</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <a class="button button--ghost button--sm" href="index.html">
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+              صفحهٔ محصول
+            </a>
+            <a
+              class="button button--accent button--sm"
+              data-cta="buy"
+              href="https://www.rtl-theme.com/"
+              rel="noopener"
+            >
+              صفحهٔ فروش
+              <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
+            </a>
+            <button
+              class="nav-toggle"
+              type="button"
+              data-nav-toggle
+              aria-expanded="false"
+              aria-controls="nav-panel"
+            >
+              <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+              <span class="nav-toggle__label">فهرست</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-panel" id="nav-panel" data-nav-panel hidden>
+        <div class="container">
+          <ul>
+            <li><a href="#start">نصب و راه‌اندازی اولیه</a></li>
+            <li><a href="#settings">تنظیمات، تب‌به‌تب</a></li>
+            <li><a href="#channels">کانال‌های اعلان</a></li>
+            <li><a href="#daily">کار روزمره</a></li>
+            <li><a href="#trouble">عیب‌یابی</a></li>
+            <li><a href="#checklist">چک‌لیست انتشار</a></li>
+            <li><a href="#reference">جدول مرجع مسیرها</a></li>
+          </ul>
+          <a class="button button--ghost button--block" href="index.html">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+            بازگشت به صفحهٔ محصول
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="docs">
+      <!-- ==================== DOCS HERO ==================== -->
+      <section class="docs-hero" aria-labelledby="docs-title">
+        <div class="container">
+          <div class="docs-hero__inner">
+            <p class="eyebrow">راهنمای رسمی · نسخهٔ ۱.۰.۱</p>
+            <h1 id="docs-title">
+              از نصب تا اولین پاسخ،
+              <span class="accent">قدم‌به‌قدم کنار شما.</span>
+            </h1>
+            <p class="docs-hero__lead">
+              این راهنما همهٔ بخش‌های پاسخ‌بان را با مسیر دقیق منو، توضیح ساده، نمونهٔ تنظیم و چک‌لیست آزمون
+              پوشش می‌دهد؛ لازم نیست چیزی را حدس بزنید.
+            </p>
+            <ul class="docs-hero__meta">
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                مناسب مبتدی تا حرفه‌ای
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg>
+                راه‌اندازی پایه: حدود ۱۰ دقیقه
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg>
+                بدون حذف اطلاعات در غیرفعال‌سازی
+              </li>
+            </ul>
+            <div class="docs-hero__actions">
+              <a class="button button--on-dark" href="#start">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                شروع از فصل ۰۱
+              </a>
+              <a class="button button--ghost-on-dark" href="pasokhban-guide-fa.pdf" download>
+                <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+                دانلود نسخهٔ PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DOCS BODY ==================== -->
+      <div class="docs-main">
+        <div class="container">
+          <div class="docs-shell">
+            <!-- TOC -->
+            <details class="docs-toc" data-toc open>
+              <summary class="docs-toc__summary">
+                فهرست راهنما
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron-down" /></svg>
+              </summary>
+              <nav aria-label="فصل‌های راهنما">
+                <ul class="docs-toc__list" data-toc-list>
+                  <li><a href="#start">نصب و راه‌اندازی اولیه</a></li>
+                  <li><a href="#settings">تنظیمات، تب‌به‌تب</a></li>
+                  <li><a href="#channels">کانال‌های اعلان</a></li>
+                  <li><a href="#daily">کار روزمره: گفتگوها و مخاطبین</a></li>
+                  <li><a href="#trouble">عیب‌یابی استاندارد</a></li>
+                  <li><a href="#checklist">چک‌لیست انتشار</a></li>
+                  <li><a href="#reference">جدول مرجع مسیرها</a></li>
+                </ul>
+              </nav>
+            </details>
+
+            <!-- ARTICLE -->
+            <article class="docs-article">
+              <!-- 01 -->
+              <section class="doc-section" id="start" aria-labelledby="start-title">
+                <div class="doc-section__head">
+                  <p class="eyebrow">شروع از صفر</p>
+                  <h2 id="start-title">
+                    <span class="doc-section__num">۰۱</span>
+                    نصب و راه‌اندازی اولیه
+                  </h2>
+                  <p>
+                    چهار گام تا اولین پاسخ. ترتیب را رعایت کنید؛ هر گام پیش‌نیاز گام بعدی است.
+                  </p>
+                </div>
+
+                <div class="steps">
+                  <article class="step">
+                    <span class="step__num">گام ۱</span>
+                    <h3>بارگذاری فایل افزونه</h3>
+                    <p>فایل ZIP افزونه را از پیشخوان نصب کنید.</p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      پیشخوان
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      افزونه‌ها
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      افزودن
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      بارگذاری افزونه
+                    </span>
+                  </article>
+
+                  <article class="step">
+                    <span class="step__num">گام ۲</span>
+                    <h3>فعال‌سازی افزونه</h3>
+                    <p>پس از نصب، فعال‌سازی را بزنید تا منوی پاسخ‌بان در پیشخوان ظاهر شود.</p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      افزونه‌ها
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      فعال‌سازی
+                    </span>
+                  </article>
+
+                  <article class="step">
+                    <span class="step__num">گام ۳</span>
+                    <h3>تنظیم اتصال هوش مصنوعی</h3>
+                    <p>سرویس‌دهنده و مدل را انتخاب، کلید API را ذخیره و اتصال را آزمایش کنید.</p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      تنظیمات
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      اتصال
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      آزمایش اتصال
+                    </span>
+                  </article>
+
+                  <article class="step">
+                    <span class="step__num">گام ۴</span>
+                    <h3>فعال‌کردن چت آنلاین</h3>
+                    <p>ویجت را فعال کنید و یک مکالمهٔ آزمایشی روی سایت بسازید.</p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      چت آنلاین
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      فعال‌سازی ویجت
+                    </span>
+                  </article>
+                </div>
+
+                <div class="callout">
+                  <span class="callout__title">
+                    <svg class="icon" aria-hidden="true"><use href="#i-info" /></svg>
+                    نکتهٔ مهم دربارهٔ داده‌ها
+                  </span>
+                  غیرفعال‌کردن افزونه تنظیمات، مکالمات و جدول‌های دیتابیس را حذف نمی‌کند. حذف داده‌ها فقط با
+                  حذف کامل افزونه انجام می‌شود.
+                </div>
+              </section>
+
+              <!-- 02 -->
+              <section class="doc-section" id="settings" aria-labelledby="settings-title">
+                <div class="doc-section__head">
+                  <p class="eyebrow">مرکز کنترل</p>
+                  <h2 id="settings-title">
+                    <span class="doc-section__num">۰۲</span>
+                    تنظیمات، تب‌به‌تب
+                  </h2>
+                  <p>
+                    هر تب یک بخش از رفتار پاسخ‌بان را کنترل می‌کند. مسیر دقیق هر بخش زیر عنوان آمده است.
+                  </p>
+                </div>
+
+                <div class="setting-grid">
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-info" /></svg>
+                      </span>
+                      <h3>عمومی</h3>
+                    </div>
+                    <p>
+                      زبان رابط، تقویم شمسی، نمایش ارقام فارسی، فعال‌سازی ویجت و خروجی‌گرفتن یا بازگردانی
+                      تنظیمات.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      پاسخ‌بان
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      تنظیمات
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      عمومی
+                    </span>
+                  </article>
+
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-bolt" /></svg>
+                      </span>
+                      <h3>اتصال هوش مصنوعی</h3>
+                    </div>
+                    <p>
+                      سرویس‌دهنده، کلید API، نشانی پایه، مدل، دستور سیستم، تعداد توکن و میزان خلاقیت را تعیین
+                      کنید. بعد از هر تغییر ابتدا ذخیره و سپس آزمایش اتصال را اجرا کنید.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      اتصال
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      انتخاب سرویس
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      ذخیره
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      آزمایش اتصال
+                    </span>
+                  </article>
+
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-database" /></svg>
+                      </span>
+                      <h3>دستیار و دانش سایت</h3>
+                    </div>
+                    <p>
+                      پاسخ بر اساس محتوای سایت را فعال کنید. برای دقت بیشتر، پرس‌وجوی معنایی را روشن کنید، مدل
+                      و ابعاد جای‌گذاری را انتخاب کنید و ساخت ایندکس را اجرا کنید.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      دستیار و دانش
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      ساخت / به‌روزرسانی ایندکس
+                    </span>
+                  </article>
+
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg>
+                      </span>
+                      <h3>چت آنلاین</h3>
+                    </div>
+                    <p>
+                      عنوان، نام اپراتور، پیام خوش‌آمد، متن جای‌نگهدار، فرم پیش از گفتگو، ارسال فایل، پیام
+                      صوتی، تاریخچه و حالت انسان را تنظیم کنید.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      چت آنلاین
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      ذخیره
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      تست از سایت
+                    </span>
+                  </article>
+
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-palette" /></svg>
+                      </span>
+                      <h3>ظاهر</h3>
+                    </div>
+                    <p>
+                      حالت چت یا مغز، رنگ، جای حباب، عرض و ارتفاع پنل، گردی گوشه‌ها، شفافیت، تم روشن یا تاریک و
+                      پابرگ را کنترل کنید.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      ظاهر
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      پیش‌نمایش دسکتاپ و موبایل
+                    </span>
+                  </article>
+
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-users" /></svg>
+                      </span>
+                      <h3>تیم و ساعت کاری</h3>
+                    </div>
+                    <p>
+                      اپراتور پاسخ‌بان، واگذاری نوبتی، محدودکردن تعداد مکالمات هر اپراتور، روزها، ساعت شروع و
+                      پایان و رفتار هوش مصنوعی بیرون از ساعت کاری.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      تیم
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      ساخت نقش و آزمایش واگذاری
+                    </span>
+                  </article>
+
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+                      </span>
+                      <h3>ووکامرس</h3>
+                    </div>
+                    <p>
+                      ایندکس محصول، قیمت، موجودی و استعلام امن سفارش را فعال کنید. اطلاعات سفارش فقط بعد از
+                      احراز هویت مشتری نمایش داده می‌شود.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      دستیار و دانش
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      ووکامرس
+                    </span>
+                  </article>
+
+                  <article class="setting">
+                    <div class="setting__head">
+                      <span class="setting__icon">
+                        <svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg>
+                      </span>
+                      <h3>امنیت و داده</h3>
+                    </div>
+                    <p>
+                      محدودیت نرخ درخواست، مدت نگهداری مکالمات، نوع فایل مجاز و سیاست پاک‌سازی را تنظیم کنید.
+                      فایل‌های <span class="ltr">SVG</span> و اجرایی مجاز نیستند.
+                    </p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      امنیت و داده
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      محدودیت و نگهداری
+                    </span>
+                  </article>
+                </div>
+              </section>
+
+              <!-- 03 -->
+              <section class="doc-section" id="channels" aria-labelledby="channels-title">
+                <div class="doc-section__head">
+                  <p class="eyebrow">ارتباط با تیم</p>
+                  <h2 id="channels-title">
+                    <span class="doc-section__num">۰۳</span>
+                    کانال‌های اعلان
+                  </h2>
+                  <p>
+                    هر کانال را می‌توانید جداگانه فعال کنید. برای همهٔ کانال‌ها، ابتدا تنظیمات را ذخیره و سپس
+                    آزمون بگیرید.
+                  </p>
+                </div>
+
+                <div class="channel-doc">
+                  <article class="channel-block">
+                    <div class="channel-block__head">
+                      <svg class="icon" aria-hidden="true"><use href="#i-send" /></svg>
+                      <h3>تلگرام مستقیم</h3>
+                    </div>
+                    <ol class="steps-list">
+                      <li>در <span class="ltr">BotFather</span> ربات بسازید و توکن را بگیرید.</li>
+                      <li>ربات را به گروه اضافه کنید و دسترسی لازم را بدهید.</li>
+                      <li>
+                        توکن و شناسهٔ گفتگو (<span class="ltr">Chat ID</span>) را در تب اعلان‌ها وارد کنید.
+                      </li>
+                      <li>ذخیره کنید و تست اتصال را اجرا کنید.</li>
+                    </ol>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      پاسخ‌بان
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      تنظیمات
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      اعلان‌ها
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      تلگرام
+                    </span>
+                  </article>
+
+                  <article class="channel-block">
+                    <div class="channel-block__head">
+                      <svg class="icon" aria-hidden="true"><use href="#i-cloud" /></svg>
+                      <h3>رلهٔ گوگل برای تلگرام</h3>
+                    </div>
+                    <p class="prose prose--tight">
+                      سرورهای ایران معمولاً به <span class="code ltr">api.telegram.org</span> دسترسی ندارند؛
+                      رلهٔ گوگل این پیام‌ها را از مسیر در دسترس عبور می‌دهد. وردپرس پیام را به اسکریپت گوگل
+                      می‌فرستد و اسکریپت آن را به تلگرام می‌رساند.
+                    </p>
+                    <ol class="steps-list">
+                      <li>
+                        در <span class="ltr">script.google.com</span> یک پروژهٔ جدید بسازید.
+                      </li>
+                      <li>
+                        کل محتوای فایل <span class="code ltr">google-relay.gs</span> همراه افزونه را جای کد
+                        پیش‌فرض بگذارید.
+                      </li>
+                      <li>مقدار <span class="code ltr">SECRET</span> را با یک رشتهٔ تصادفی بلند عوض کنید.</li>
+                      <li>
+                        از مسیر <span class="ltr">Deploy</span> گزینهٔ
+                        <span class="ltr">New deployment</span> و نوع
+                        <span class="ltr">Web app</span> را انتخاب کنید.
+                      </li>
+                      <li>
+                        <span class="ltr">Execute as</span> را روی <span class="ltr">Me</span> و
+                        <span class="ltr">Who has access</span> را روی <span class="ltr">Anyone</span>
+                        بگذارید و دسترسی‌ها را تأیید کنید.
+                      </li>
+                      <li>
+                        آدرس پایان‌یافته با <span class="code ltr">/exec</span> را در تنظیمات وردپرس و در بخش
+                        «اعلان‌ها، رلهٔ گوگل» وارد کنید.
+                      </li>
+                      <li>همان <span class="code ltr">SECRET</span> را در وردپرس هم وارد کنید.</li>
+                      <li>
+                        پس از هر تغییر در کد، این مسیر را در اسکریپت گوگل طی کنید:
+                        <span class="path ltr">
+                          Manage deployments
+                          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+                          Edit
+                          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+                          New version
+                        </span>
+                      </li>
+                    </ol>
+
+                    <div class="doc-code">
+                      <span class="doc-code__label">
+                        <svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg>
+                        خطی که باید در اسکریپت گوگل عوض شود
+                      </span>
+                      <div class="code-block">
+                        <code id="relay-secret">var SECRET = 'یک-کلید-تصادفی-طولانی-اینجا';</code>
+                        <button class="code-copy" type="button" data-copy="#relay-secret">
+                          <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                          کپی
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="callout callout--warn">
+                      <span class="callout__title">
+                        <svg class="icon" aria-hidden="true"><use href="#i-alert" /></svg>
+                        دو اشتباه رایج
+                      </span>
+                      اول: گذاشتن آدرسی که به <span class="code ltr">/exec</span> ختم نمی‌شود. دوم: تغییر کد
+                      بدون ساخت نسخهٔ جدید؛ در این حالت تغییرات روی آدرس فعلی اعمال نمی‌شود.
+                    </div>
+                  </article>
+
+                  <article class="channel-block">
+                    <div class="channel-block__head">
+                      <svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg>
+                      <h3>کانال بله</h3>
+                    </div>
+                    <ol class="steps-list">
+                      <li>توکن ربات بله و شناسهٔ گفتگو را وارد کنید.</li>
+                      <li>اعلان یک‌طرفه یا پاسخ دوطرفهٔ اپراتور را انتخاب کنید.</li>
+                      <li>سایت باید روی <span class="ltr">HTTPS</span> عمومی در دسترس باشد.</li>
+                      <li>ثبت webhook را اجرا و نتیجه را آزمون کنید.</li>
+                    </ol>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      اعلان‌ها
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      بله
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      ثبت webhook
+                    </span>
+                  </article>
+
+                  <article class="channel-block">
+                    <div class="channel-block__head">
+                      <svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg>
+                      <h3>پیامک و ایمیل</h3>
+                    </div>
+                    <ol class="steps-list">
+                      <li>ارائه‌دهندهٔ پیامک را انتخاب کنید.</li>
+                      <li>کلید API، شمارهٔ فرستنده و شمارهٔ مدیر را وارد کنید.</li>
+                      <li>اعلان مدیر و بازدیدکننده را جداگانه فعال کنید.</li>
+                      <li>فاصلهٔ زمانی اعلان‌ها را برای جلوگیری از ارسال تکراری تعیین کنید.</li>
+                    </ol>
+                  </article>
+                </div>
+              </section>
+
+              <!-- 04 -->
+              <section class="doc-section" id="daily" aria-labelledby="daily-title">
+                <div class="doc-section__head">
+                  <p class="eyebrow">کار روزمره</p>
+                  <h2 id="daily-title">
+                    <span class="doc-section__num">۰۴</span>
+                    گفتگوها، مخاطبین و آمار
+                  </h2>
+                  <p>سه بخشی که هر روز با آن‌ها کار می‌کنید، همه داخل پیشخوان وردپرس.</p>
+                </div>
+
+                <div class="app app--compact" role="img" aria-label="نمای بخش گفتگوها در پیشخوان پاسخ‌بان">
+                  <div class="app__bar">
+                    <span class="app__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="app__title">
+                      پاسخ‌بان
+                      <span aria-hidden="true">·</span>
+                      گفتگوهای آنلاین
+                    </span>
+                  </div>
+                  <div class="app__body">
+                    <div class="app__list">
+                      <div class="app__list-head">
+                        <strong>گفتگوها</strong>
+                        <span>خوانده‌نشده: ۲</span>
+                      </div>
+                      <div class="chat-row is-active">
+                        <div class="chat-row__top">
+                          <span class="chat-row__name">مشتری مهمان</span>
+                          <span class="chat-row__time">۱۰:۲۴</span>
+                        </div>
+                        <span class="chat-row__excerpt">وضعیت سفارش را پیگیری می‌کنم…</span>
+                        <span class="chat-row__flag chat-row__flag--ai">پیشنهاد پاسخ</span>
+                      </div>
+                      <div class="chat-row">
+                        <div class="chat-row__top">
+                          <span class="chat-row__name">کاربر فروشگاه</span>
+                          <span class="chat-row__time">۰۹:۴۱</span>
+                        </div>
+                        <span class="chat-row__excerpt">برای این محصول گارانتی دارید؟</span>
+                      </div>
+                      <div class="chat-row">
+                        <div class="chat-row__top">
+                          <span class="chat-row__name">پشتیبانی پیش‌فروش</span>
+                          <span class="chat-row__time">دیروز</span>
+                        </div>
+                        <span class="chat-row__excerpt">راهنمای نصب را فرستادم.</span>
+                      </div>
+                    </div>
+
+                    <div class="app__thread">
+                      <div class="thread-head">
+                        <span class="thread-head__name">
+                          <strong>مشتری مهمان</strong>
+                          <span>گفتگوی آنلاین · ۱۰:۲۴</span>
+                        </span>
+                        <span class="thread-status thread-status--accent">
+                          <span class="dot" aria-hidden="true"></span>
+                          در انتظار پاسخ
+                        </span>
+                      </div>
+                      <div class="thread-body">
+                        <p class="bubble bubble--in">سلام، سفارش من چه زمانی ارسال می‌شود؟</p>
+                        <p class="bubble bubble--ai">
+                          <span class="bubble__by">
+                            <svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg>
+                            پیشنهاد پاسخ
+                          </span>
+                          سفارش شما دیروز ثبت شده و امروز تحویل پست می‌شود. کد رهگیری پیامک خواهد شد.
+                        </p>
+                        <p class="handoff">
+                          <svg class="icon" aria-hidden="true"><use href="#i-headset" /></svg>
+                          در صورت نیاز، همین‌جا به اپراتور واگذار کنید
+                        </p>
+                      </div>
+                      <div class="composer">
+                        <span class="composer__field">پاسخ خود را بنویسید…</span>
+                        <span class="composer__send" aria-hidden="true">
+                          <svg class="icon"><use href="#i-send" /></svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="prose">
+                  <h3>گفتگوها</h3>
+                  <p>
+                    مکالمات را جست‌وجو کنید، وضعیت خوانده‌نشده را ببینید، پاسخ دستی بدهید، مکالمه را واگذار
+                    کنید و از پیشنهاد پاسخ یا خلاصهٔ مکالمه کمک بگیرید.
+                  </p>
+                  <h3>مخاطبین</h3>
+                  <p>
+                    نام، تلفن، ایمیل و سابقهٔ مکالمهٔ مشتریان را یک‌جا نگه دارید تا در گفتگوی بعدی لازم نباشد
+                    دوباره توضیح بدهند.
+                  </p>
+                  <h3>آمار</h3>
+                  <p>
+                    روند مکالمات، زمان پاسخ و وضعیت پاسخ‌گویی را برای تصمیم‌گیری بهتر بررسی کنید؛ مثلاً بفهمید
+                    بیشترین پرسش‌ها مربوط به کدام بخش محصول است.
+                  </p>
+                  <h3>بررسی سلامت</h3>
+                  <p>
+                    پیش از انتشار، همهٔ آزمون‌های سلامت را اجرا کنید تا اتصال هوش مصنوعی، ایندکس، اعلان‌ها و
+                    webhook یک‌بار بررسی شود.
+                  </p>
+                  <p>
+                    <span class="path">
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      پاسخ‌بان
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      بررسی سلامت
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                      اجرای همه
+                    </span>
+                  </p>
+                </div>
+              </section>
+
+              <!-- 05 -->
+              <section class="doc-section" id="trouble" aria-labelledby="trouble-title">
+                <div class="doc-section__head">
+                  <p class="eyebrow">اگر مشکلی پیش آمد</p>
+                  <h2 id="trouble-title">
+                    <span class="doc-section__num">۰۵</span>
+                    عیب‌یابی استاندارد
+                  </h2>
+                  <p>پنج مورد پرتکرار و کاری که واقعاً مشکل را حل می‌کند.</p>
+                </div>
+
+                <div class="accordion">
+                  <details open>
+                    <summary>
+                      تست اتصال هوش مصنوعی خطا می‌دهد
+                      <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                    </summary>
+                    <div class="accordion__body">
+                      کلید API، نام مدل، نشانی پایه و دسترسی هاست به اینترنت را بررسی کنید. ابتدا تنظیمات را
+                      ذخیره کنید و بعد آزمایش اتصال را اجرا کنید؛ تغییرهای ذخیره‌نشده در آزمون اعمال نمی‌شوند.
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>
+                      ویجت روی سایت دیده نمی‌شود
+                      <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                    </summary>
+                    <div class="accordion__body">
+                      فعال‌بودن ویجت و چت آنلاین را بررسی کنید، کش سایت و CDN را پاک کنید و با پنجرهٔ خصوصی
+                      مرورگر تست بگیرید. اگر ویجت فقط در بعضی برگه‌ها نمایش داده می‌شود، تنظیم نمایش را بازبینی
+                      کنید.
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>
+                      تلگرام پیام نمی‌فرستد
+                      <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                    </summary>
+                    <div class="accordion__body">
+                      توکن، شناسهٔ گفتگو، عضویت ربات در گروه و یکسان‌بودن کلید مشترک را بررسی کنید. اگر سرور به
+                      تلگرام دسترسی ندارد، رلهٔ گوگل را فعال کنید و آدرسی که با
+                      <span class="code ltr">/exec</span> تمام می‌شود را وارد کنید.
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>
+                      تغییرهای رله اعمال نمی‌شود
+                      <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                    </summary>
+                    <div class="accordion__body">
+                      در اسکریپت گوگل باید از مسیر <span class="ltr">Manage deployments</span> وارد
+                      <span class="ltr">Edit</span> شوید و
+                      <span class="ltr">Version: New version</span> را انتخاب کنید. بدون این کار، آدرس فعلی
+                      همان کد قدیمی را اجرا می‌کند.
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>
+                      تنظیمات ذخیره نمی‌شود
+                      <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                    </summary>
+                    <div class="accordion__body">
+                      با کاربر مدیرکل وارد شوید، کش را پاک کنید و مطمئن شوید افزونه دوباره حذف و نصب نشده است.
+                      پیش از تغییرات مهم، از دکمهٔ خروجی تنظیمات پشتیبان بگیرید تا بازگردانی ساده باشد.
+                    </div>
+                  </details>
+                </div>
+              </section>
+
+              <!-- 06 -->
+              <section class="doc-section" id="checklist" aria-labelledby="checklist-title">
+                <div class="doc-section__head">
+                  <p class="eyebrow">قبل از انتشار</p>
+                  <h2 id="checklist-title">
+                    <span class="doc-section__num">۰۶</span>
+                    چک‌لیست انتشار
+                  </h2>
+                  <p>این شش مورد را یک‌بار انجام دهید تا راه‌اندازی خیالتان را راحت کند.</p>
+                </div>
+
+                <ul class="release-checklist">
+                  <li>آزمایش اتصال هوش مصنوعی موفق باشد.</li>
+                  <li>ایندکس دانش سایت ساخته یا به‌روزرسانی شده باشد.</li>
+                  <li>یک مکالمهٔ آزمایشی روی موبایل و دسکتاپ انجام شده باشد.</li>
+                  <li>اعلان کانال‌های فعال (تلگرام، بله، پیامک یا ایمیل) تست شده باشد.</li>
+                  <li>ساعت کاری و واگذاری مکالمه آزمایش شده باشد.</li>
+                  <li>خروجی تنظیمات (JSON) برای پشتیبان‌گیری ذخیره شده باشد.</li>
+                </ul>
+              </section>
+
+              <!-- 07 -->
+              <section class="doc-section" id="reference" aria-labelledby="reference-title">
+                <div class="doc-section__head">
+                  <p class="eyebrow">مرجع سریع</p>
+                  <h2 id="reference-title">
+                    <span class="doc-section__num">۰۷</span>
+                    جدول مرجع مسیرها
+                  </h2>
+                  <p>هر کار و مسیر دقیقش در پیشخوان؛ برای وقتی که می‌خواهید سریع به یک تنظیم برسید.</p>
+                </div>
+
+                <div class="table-wrap ref-table">
+                  <table>
+                    <caption>مسیرها بر اساس نسخهٔ ۱.۰.۱ افزونه</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">کاری که می‌خواهید انجام دهید</th>
+                        <th scope="col">مسیر در پیشخوان وردپرس</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">نصب افزونه</th>
+                        <td>
+                          <span class="path">
+                            پیشخوان
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            افزونه‌ها
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            بارگذاری افزونه
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">تنظیم اتصال هوش مصنوعی</th>
+                        <td>
+                          <span class="path">
+                            پاسخ‌بان
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            تنظیمات
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            اتصال
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">ساخت دانش سایت</th>
+                        <td>
+                          <span class="path">
+                            پاسخ‌بان
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            دستیار و دانش
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            ساخت ایندکس
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">تنظیم ظاهر ویجت</th>
+                        <td>
+                          <span class="path">
+                            پاسخ‌بان
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            ظاهر
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">ساعت کاری و واگذاری</th>
+                        <td>
+                          <span class="path">
+                            پاسخ‌بان
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            تیم
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">اعلان تلگرام یا رلهٔ گوگل</th>
+                        <td>
+                          <span class="path">
+                            پاسخ‌بان
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            تنظیمات
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            اعلان‌ها
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">ثبت webhook بله</th>
+                        <td>
+                          <span class="path">
+                            اعلان‌ها
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            بله
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            ثبت webhook
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">آزمون کامل راه‌اندازی</th>
+                        <td>
+                          <span class="path">
+                            پاسخ‌بان
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            بررسی سلامت
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            اجرای همه
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">پشتیبان‌گیری از تنظیمات</th>
+                        <td>
+                          <span class="path">
+                            تنظیمات
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            عمومی
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                            خروجی تنظیمات
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="callout callout--warn">
+                  <span class="callout__title">
+                    <svg class="icon" aria-hidden="true"><use href="#i-alert" /></svg>
+                    حذف داده‌ها
+                  </span>
+                  غیرفعال‌سازی افزونه چیزی را حذف نمی‌کند؛ اگر می‌خواهید تنظیمات، مکالمات و جدول‌های دیتابیس
+                  پاک شوند، باید افزونه را کامل حذف کنید. پیش از آن خروجی تنظیمات را بگیرید.
+                </div>
+              </section>
+
+              <nav class="doc-pager" aria-label="پیمایش پایین صفحه">
+                <a class="doc-pager__link" href="index.html">
+                  <span>بازگشت</span>
+                  <strong>
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+                    صفحهٔ محصول پاسخ‌بان
+                  </strong>
+                </a>
+                <a
+                  class="doc-pager__link"
+                  data-cta="buy"
+                  href="https://www.rtl-theme.com/"
+                  rel="noopener"
+                >
+                  <span>قدم بعدی</span>
+                  <strong>
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    مشاهدهٔ صفحهٔ فروش
+                  </strong>
+                </a>
+              </nav>
+            </article>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="index.html">
+              <span class="brand__mark" aria-hidden="true">پ</span>
+              <span class="brand__text">
+                پاسخ‌بان
+                <span class="brand__sub">افزونهٔ پشتیبانی وردپرس</span>
+              </span>
+            </a>
+            <p>
+              چت هوشمند، دانش سایت و اپراتور انسانی در یک افزونهٔ وردپرس؛ ساخته‌شده برای پاسخ‌گویی فارسی و
+              راست‌چین.
+            </p>
+          </div>
+
+          <nav class="footer-col" aria-label="فصل‌های راهنما">
+            <h3>فصل‌های راهنما</h3>
+            <ul>
+              <li><a href="#start">نصب و راه‌اندازی</a></li>
+              <li><a href="#settings">تنظیمات تب‌به‌تب</a></li>
+              <li><a href="#channels">کانال‌های اعلان</a></li>
+              <li><a href="#trouble">عیب‌یابی</a></li>
+              <li><a href="pasokhban-guide-fa.pdf" download>راهنمای PDF</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-label="پیوندهای محصول">
+            <h3>محصول</h3>
+            <ul>
+              <li><a href="index.html">صفحهٔ محصول</a></li>
+              <li><a href="index.html#features">قابلیت‌های افزونه</a></li>
+              <li><a href="index.html#faq">پرسش‌های متداول</a></li>
+              <li><a data-cta="buy" href="https://www.rtl-theme.com/" rel="noopener">صفحهٔ فروش</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span data-year>۱۴۰۵</span> پاسخ‌بان · محصول <span class="ltr">etehadwp.com</span></span>
+          <span class="cluster">
+            <span>نسخهٔ ۱.۰.۱</span>
+            <a href="https://etehadwp.com" rel="noopener">اتحاد وردپرس</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,1268 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#081a1f" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>پاسخ‌بان | چت هوشمند و پشتیبانی انسانی برای وردپرس</title>
+    <meta
+      name="description"
+      content="پاسخ‌بان یک افزونهٔ وردپرس است: هوش مصنوعی بر پایهٔ دانش سایت شما پاسخ می‌دهد و در هر لحظه لازم شد، مکالمه به اپراتور انسانی می‌رسد. نصب از پیشخوان، رابط فارسی و راست‌چین، سازگار با ووکامرس."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!--
+      نشانی صفحهٔ محصول (لینک خرید) در سه جای این فایل با data-cta="buy" مشخص شده است.
+      پیش از انتشار، نشانی واقعی صفحهٔ محصول را جایگزین کنید.
+      canonical و og:url و og:image را هم پس از مشخص‌شدن دامنه اضافه کنید.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="پاسخ‌بان" />
+    <meta property="og:title" content="پاسخ‌بان | چت هوشمند و پشتیبانی انسانی برای وردپرس" />
+    <meta
+      property="og:description"
+      content="هوش مصنوعی بر پایهٔ دانش سایت شما پاسخ می‌دهد و هر جا لازم شد، اپراتور انسانی وارد مکالمه می‌شود."
+    />
+    <meta property="og:image" content="assets/img/og-cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+    <link
+      rel="preload"
+      href="assets/fonts/vazirmatn-arabic-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/vazirmatn-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/mock.css" />
+    <link rel="stylesheet" href="assets/css/landing.css" />
+
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "پاسخ‌بان",
+            "alternateName": "Pasokhban",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "WordPress",
+            "inLanguage": "fa-IR",
+            "description": "افزونهٔ چت هوشمند و پشتیبانی آنلاین برای وردپرس؛ پاسخ بر پایهٔ دانش سایت با هوش مصنوعی و امکان ورود اپراتور انسانی به مکالمه.",
+            "featureList": [
+              "پاسخ هوش مصنوعی بر پایهٔ دانش سایت",
+              "ورود اپراتور انسانی به مکالمه",
+              "اعلان تلگرام، بله، پیامک و ایمیل",
+              "سازگار با ووکامرس",
+              "رابط فارسی و راست‌چین"
+            ],
+            "publisher": {
+              "@type": "Organization",
+              "name": "اتحاد وردپرس",
+              "url": "https://etehadwp.com"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "پاسخ‌بان برای چه سایت‌هایی مناسب است؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "برای فروشگاه‌های ووکامرس، سایت‌های خدماتی و آموزشی و هر کسب‌وکاری که با مشتری گفتگو می‌کند."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "پاسخ‌ها از کجا می‌آید؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "از دانش سایت خودتان: نوشته‌ها، برگه‌ها و محصولات در یک ایندکس ذخیره می‌شوند و پاسخ‌ها بر پایهٔ همان محتوا ساخته می‌شود."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "آیا اپراتور انسانی می‌تواند وارد گفتگو شود؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "بله. اپراتور از اینباکس پیشخوان وارد همان مکالمه می‌شود، پاسخ دستی می‌دهد یا گفتگو را به هم‌تیمی دیگری واگذار می‌کند."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "اگر سرور سایت به تلگرام دسترسی نداشته باشد چه می‌شود؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "می‌توانید رلهٔ گوگل را فعال کنید؛ پیام‌ها از مسیر Google Apps Script به تلگرام می‌رسد و فقط با یک کلید مشترک (SECRET) محافظت می‌شود."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "آیا اطلاعات هنگام غیرفعال‌سازی حذف می‌شود؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "خیر. غیرفعال‌سازی افزونه تنظیمات و مکالمات را حذف نمی‌کند."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "آیا برای استفاده دانش فنی لازم است؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "خیر. نصب از پیشخوان وردپرس انجام می‌شود و تنظیمات اصلی با راهنمای فارسی داخل افزونه قابل انجام است."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
+
+    <!-- ==================== SVG SPRITE ==================== -->
+    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="i-bolt" viewBox="0 0 24 24">
+        <path d="M13 2 5 13.5h6L11 22l8-11.5h-6z" />
+      </symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24">
+        <path d="M12 3.5l1.9 4.8 4.8 1.9-4.8 1.9L12 17l-1.9-4.9L5.3 10.2l4.8-1.9z" />
+        <path d="M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" />
+      </symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24">
+        <path d="M4 13a8 8 0 0 1 16 0" />
+        <path d="M4 13h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2z" />
+        <path d="M20 13h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1a2 2 0 0 0 2-2z" />
+        <path d="M17 19.5a2.5 2.5 0 0 1-2.5 2.5H12" />
+      </symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24">
+        <path d="M20 15a4 4 0 0 1-4 4H8l-4.5 2.5V7A4 4 0 0 1 7.5 3H16a4 4 0 0 1 4 4z" />
+        <path d="M8.5 9h7M8.5 12.5h4" />
+      </symbol>
+      <symbol id="i-send" viewBox="0 0 24 24">
+        <path d="M21 3 10.5 13.5" />
+        <path d="M21 3l-6.5 18-4-8-8-4z" />
+      </symbol>
+      <symbol id="i-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="6" rx="7" ry="3" />
+        <path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" />
+        <path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" />
+      </symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24">
+        <path d="M12 21a9 9 0 1 1 9-9c0 2-1.6 3.2-3.4 3.2h-1.8a2 2 0 0 0-1.5 3.3c.6.7.2 1.7-.7 2a9 9 0 0 1-1.6.5z" />
+        <circle cx="7.8" cy="12" r=".9" />
+        <circle cx="9.8" cy="8" r=".9" />
+        <circle cx="14.2" cy="8" r=".9" />
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7.5V12l3 2" />
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3.5" />
+        <path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+        <path d="M16.5 5.2a3.5 3.5 0 0 1 0 6.6" />
+        <path d="M18 20a6.6 6.6 0 0 0-1.6-4.4" />
+      </symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24">
+        <path d="M3 4h2l2.4 10.4A2 2 0 0 0 9.4 16h8.3a2 2 0 0 0 2-1.6L21 7H6" />
+        <circle cx="10" cy="20" r="1.4" />
+        <circle cx="17.5" cy="20" r="1.4" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 3l7 2.8V11c0 4.8-2.9 7.9-7 10-4.1-2.1-7-5.2-7-10V5.8z" />
+        <path d="M9 12l2.2 2.2L15.5 10" />
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+        <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" />
+      </symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24">
+        <path d="M6 9.5a6 6 0 0 1 12 0c0 4.5 1.8 5.5 1.8 5.5H4.2S6 14 6 9.5z" />
+        <path d="M10.2 19a2 2 0 0 0 3.6 0" />
+      </symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24">
+        <path d="M7.5 18.5h9.8a4.2 4.2 0 0 0 .6-8.4 5.6 5.6 0 0 0-10.7-1.4 4.5 4.5 0 0 0 .3 9.8z" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.5" />
+        <path d="M10.5 18.5h3" />
+      </symbol>
+      <symbol id="i-book" viewBox="0 0 24 24">
+        <path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3z" />
+        <path d="M8.5 3v18" />
+      </symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H7.5A2.5 2.5 0 0 0 5 5.5v13A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5V8z" />
+        <path d="M14 3v5h5" />
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path d="M12 3v11.5" />
+        <path d="M7.5 10 12 14.5 16.5 10" />
+        <path d="M4.5 20h15" />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="11.5" height="11.5" rx="2.5" />
+        <path d="M15 5.5V5A2 2 0 0 0 13 3H5.5A2 2 0 0 0 3.5 5v7.5a2 2 0 0 0 2 2H6" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="M4.5 12.5 9.5 17.5 19.5 6.5" />
+      </symbol>
+      <symbol id="i-check-circle" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M8 12.2l2.8 2.8L16.3 9.5" />
+      </symbol>
+      <symbol id="i-info" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 11v5.5M12 7.8v.2" />
+      </symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24">
+        <path d="M12 4.2 21 19.5H3z" />
+        <path d="M12 10v4M12 16.8v.2" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 5.5v13M5.5 12h13" />
+      </symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24">
+        <path d="M6 9.5 12 15.5 18 9.5" />
+      </symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24">
+        <path d="M19 12H5" />
+        <path d="M11 6l-6 6 6 6" />
+      </symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14" />
+        <path d="M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24">
+        <path d="M14 4h6v6" />
+        <path d="M20 4l-8.5 8.5" />
+        <path d="M18.5 14.5v4A2.5 2.5 0 0 1 16 21H6.5A2.5 2.5 0 0 1 4 18.5V9A2.5 2.5 0 0 1 6.5 6.5h4" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6 6 18" />
+      </symbol>
+    </svg>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header" data-header>
+      <div class="container">
+        <div class="site-header__inner">
+          <a class="brand" href="index.html">
+            <span class="brand__mark" aria-hidden="true">پ</span>
+            <span class="brand__text">
+              پاسخ‌بان
+              <span class="brand__sub">افزونهٔ پشتیبانی وردپرس</span>
+            </span>
+          </a>
+
+          <nav class="site-nav" aria-label="فهرست اصلی">
+            <ul>
+              <li><a href="#features">قابلیت‌ها</a></li>
+              <li><a href="#how">نحوهٔ کار</a></li>
+              <li><a href="#channels">کانال‌ها</a></li>
+              <li><a href="#faq">پرسش‌ها</a></li>
+              <li><a href="guide.html">راهنما</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <a class="button button--ghost button--sm" href="guide.html">
+              راهنمای راه‌اندازی
+            </a>
+            <a
+              class="button button--accent button--sm"
+              data-cta="buy"
+              href="https://www.rtl-theme.com/"
+              rel="noopener"
+            >
+              صفحهٔ محصول
+              <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
+            </a>
+            <button
+              class="nav-toggle"
+              type="button"
+              data-nav-toggle
+              aria-expanded="false"
+              aria-controls="nav-panel"
+            >
+              <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+              <span class="nav-toggle__label">فهرست</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-panel" id="nav-panel" data-nav-panel hidden>
+        <div class="container">
+          <ul>
+            <li><a href="#features">قابلیت‌ها</a></li>
+            <li><a href="#how">نحوهٔ کار</a></li>
+            <li><a href="#channels">کانال‌های اعلان</a></li>
+            <li><a href="#data">امنیت و داده</a></li>
+            <li><a href="#faq">پرسش‌های متداول</a></li>
+            <li><a href="guide.html">راهنمای کامل</a></li>
+          </ul>
+          <a
+            class="button button--accent button--block"
+            data-cta="buy"
+            href="https://www.rtl-theme.com/"
+            rel="noopener"
+          >
+            مشاهدهٔ صفحهٔ محصول
+            <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ==================== HERO ==================== -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__copy">
+              <p class="badge badge--accent">
+                <span class="dot" aria-hidden="true"></span>
+                افزونهٔ وردپرس پاسخ‌بان · نسخهٔ ۱.۰.۱
+              </p>
+
+              <h1 id="hero-title">
+                چت هوشمند، پاسخ انسانی،
+                <span class="accent">در یک افزونهٔ وردپرس.</span>
+              </h1>
+
+              <p class="hero__lead">
+                پاسخ‌بان روی دانش سایت خودتان کار می‌کند: پرسش‌های تکراری را هوش مصنوعی جواب می‌دهد و هر جا
+                مکالمه جدی شد، آن را به اپراتور انسانی می‌سپارد. همه‌چیز از پیشخوان وردپرس شما مدیریت می‌شود.
+              </p>
+
+              <div class="hero__actions">
+                <a
+                  class="button button--accent button--lg"
+                  data-cta="buy"
+                  href="https://www.rtl-theme.com/"
+                  rel="noopener"
+                >
+                  مشاهدهٔ صفحهٔ محصول
+                  <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
+                </a>
+                <a class="button button--ghost button--lg" href="guide.html">
+                  <svg class="icon" aria-hidden="true"><use href="#i-book" /></svg>
+                  راهنمای راه‌اندازی
+                </a>
+              </div>
+
+              <ul class="hero__meta">
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  نصب از پیشخوان وردپرس
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  رابط فارسی و راست‌چین
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  سازگار با ووکامرس
+                </li>
+              </ul>
+            </div>
+
+            <div class="hero__visual" data-reveal>
+              <!-- نمای بازسازی‌شده از پیشخوان: تزئینی/توضیحی -->
+              <div
+                class="app"
+                role="img"
+                aria-label="نمای پیشخوان پاسخ‌بان در وردپرس: فهرست گفتگوها در کنار مکالمهٔ در جریان با نشان واگذاری به اپراتور انسانی"
+              >
+                <div class="app__bar">
+                  <span class="app__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="app__title">
+                    پیشخوان وردپرس
+                    <span aria-hidden="true">·</span>
+                    پاسخ‌بان
+                    <span aria-hidden="true">·</span>
+                    گفتگوهای آنلاین
+                  </span>
+                </div>
+
+                <div class="app__body">
+                  <div class="app__rail">
+                    <span class="app__rail-brand">پیشخوان</span>
+                    <span class="app__rail-item is-active">
+                      <svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg>
+                      گفتگوها
+                    </span>
+                    <span class="app__rail-item">
+                      <svg class="icon" aria-hidden="true"><use href="#i-users" /></svg>
+                      مخاطبین
+                    </span>
+                    <span class="app__rail-item">
+                      <svg class="icon" aria-hidden="true"><use href="#i-database" /></svg>
+                      دانش سایت
+                    </span>
+                    <span class="app__rail-item">
+                      <svg class="icon" aria-hidden="true"><use href="#i-palette" /></svg>
+                      ظاهر ویجت
+                    </span>
+                    <span class="app__rail-item">
+                      <svg class="icon" aria-hidden="true"><use href="#i-bell" /></svg>
+                      اعلان‌ها
+                    </span>
+                  </div>
+
+                  <div class="app__list">
+                    <div class="app__list-head">
+                      <strong>گفتگوهای باز</strong>
+                      <span>۳ مورد</span>
+                    </div>
+                    <div class="chat-row is-active">
+                      <div class="chat-row__top">
+                        <span class="chat-row__name">مشتری مهمان</span>
+                        <span class="chat-row__time">۱۰:۲۴</span>
+                      </div>
+                      <span class="chat-row__excerpt">دربارهٔ زمان ارسال سفارش می‌پرسم…</span>
+                      <span class="chat-row__flag chat-row__flag--human">واگذار شد</span>
+                    </div>
+                    <div class="chat-row">
+                      <div class="chat-row__top">
+                        <span class="chat-row__name">کاربر فروشگاه</span>
+                        <span class="chat-row__time">۱۰:۰۵</span>
+                      </div>
+                      <span class="chat-row__excerpt">قیمت این محصول با تخفیف چقدر است؟</span>
+                      <span class="chat-row__flag chat-row__flag--ai">هوش مصنوعی</span>
+                    </div>
+                    <div class="chat-row">
+                      <div class="chat-row__top">
+                        <span class="chat-row__name">پشتیبانی پیش‌فروش</span>
+                        <span class="chat-row__time">دیروز</span>
+                      </div>
+                      <span class="chat-row__excerpt">راهنمای نصب افزونه را فرستادم.</span>
+                    </div>
+                  </div>
+
+                  <div class="app__thread">
+                    <div class="thread-head">
+                      <span class="thread-head__name">
+                        <strong>مشتری مهمان</strong>
+                        <span>گفتگوی آنلاین · ۱۰:۲۴</span>
+                      </span>
+                      <span class="thread-status">
+                        <span class="dot" aria-hidden="true"></span>
+                        اپراتور متصل
+                      </span>
+                    </div>
+
+                    <div class="thread-body">
+                      <p class="bubble bubble--in">
+                        سلام، می‌خواهم بدانم این محصول روی ووکامرس هم کار می‌کند؟
+                      </p>
+                      <p class="bubble bubble--ai">
+                        <span class="bubble__by">
+                          <svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg>
+                          پاسخ‌بان
+                        </span>
+                        بله. پاسخ‌بان با ووکامرس سازگار است و می‌تواند از اطلاعات محصولات سایت شما پاسخ بدهد.
+                      </p>
+                      <p class="handoff">
+                        <svg class="icon" aria-hidden="true"><use href="#i-headset" /></svg>
+                        اپراتور مریم به گفتگو اضافه شد
+                      </p>
+                      <p class="bubble bubble--out">
+                        برای سفارش‌های امروز می‌توانم وضعیت ارسال را همین‌جا پیگیری کنم.
+                      </p>
+                    </div>
+
+                    <div class="composer">
+                      <span class="composer__field">پاسخ خود را بنویسید…</span>
+                      <span class="composer__send" aria-hidden="true">
+                        <svg class="icon"><use href="#i-send" /></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="widget"
+                role="img"
+                aria-label="ویجت گفتگوی پاسخ‌بان روی سایت: پیام خوش‌آمد و کادر نوشتن پیام برای مشتری"
+              >
+                <div class="widget__head">
+                  <span class="widget__avatar">
+                    <svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg>
+                  </span>
+                  <span>
+                    <strong>پاسخ‌بان</strong>
+                    <small>پاسخ‌گویی آنلاین · همیشه روشن</small>
+                  </span>
+                </div>
+                <div class="widget__body">
+                  <p class="bubble bubble--in">سلام! چه سؤالی دارید؟ همین‌جا بپرسید.</p>
+                </div>
+                <div class="widget__foot">
+                  <div class="composer">
+                    <span class="composer__field">پیام خود را بنویسید…</span>
+                    <span class="composer__send" aria-hidden="true">
+                      <svg class="icon"><use href="#i-send" /></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="visual-caption">
+                نمای بازسازی‌شده از اینباکس پاسخ‌بان در پیشخوان و ویجت روی سایت
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TRUST STRIP ==================== -->
+      <section class="trust" aria-label="سازگاری و مشخصات">
+        <div class="container">
+          <div class="trust__inner">
+            <span class="trust__label">ساخته‌شده برای سایت‌هایی که پاسخ‌گویی را جدی می‌گیرند</span>
+            <ul class="trust__items">
+              <li class="trust__item">
+                <svg class="icon" aria-hidden="true"><use href="#i-check-circle" /></svg>
+                <span class="ltr">WordPress</span>
+              </li>
+              <li class="trust__item">
+                <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+                <span class="ltr">WooCommerce</span>
+              </li>
+              <li class="trust__item">
+                <svg class="icon" aria-hidden="true"><use href="#i-send" /></svg>
+                تلگرام و بله
+              </li>
+              <li class="trust__item">
+                <svg class="icon" aria-hidden="true"><use href="#i-headset" /></svg>
+                ورود اپراتور انسانی
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PROBLEM ==================== -->
+      <section class="section" id="value" aria-labelledby="value-title">
+        <div class="container">
+          <div class="section-head">
+            <div class="stack">
+              <p class="eyebrow">مسئلهٔ واقعی</p>
+              <h2 id="value-title">پشتیبانی سایت، جایی عقب می‌ماند که کسی نیست جواب بدهد.</h2>
+            </div>
+            <p class="lead">
+              سه هزینهٔ پنهان که در بیشتر سایت‌های وردپرسی تکرار می‌شود؛ نه به‌خاطر کم‌بودن تیم، بلکه به‌خاطر
+              پراکنده‌بودن ابزارها.
+            </p>
+          </div>
+
+          <div class="problem-grid">
+            <article class="problem" data-reveal>
+              <span class="figure-num">۰۱</span>
+              <h3>سؤال‌های تکراری</h3>
+              <p>
+                زمان تیم شما صرف پاسخ‌هایی می‌شود که ده‌ها بار پیش‌تر داده‌اید؛ پاسخ‌هایی که همه‌جا یکسان‌اند و
+                می‌توانند خودکار باشند.
+              </p>
+            </article>
+            <article class="problem" data-reveal data-reveal-delay="1">
+              <span class="figure-num">۰۲</span>
+              <h3>مشتری بی‌پاسخ</h3>
+              <p>
+                وقتی اپراتور آنلاین نیست، مکالمه همان‌جا می‌ماند؛ درست در لحظه‌ای که مشتری آمادهٔ خرید یا
+                پیگیری سفارش است.
+              </p>
+            </article>
+            <article class="problem" data-reveal data-reveal-delay="2">
+              <span class="figure-num">۰۳</span>
+              <h3>دانش پراکنده</h3>
+              <p>
+                قیمت، موجودی، وضعیت سفارش و محتوای سایت در چند جای مختلف پخش است؛ چیزی که پاسخ‌دادن را کند و
+                ناهماهنگ می‌کند.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SOLUTION (dark) ==================== -->
+      <section class="section section--dark" id="solution" aria-labelledby="solution-title">
+        <div class="container">
+          <div class="solution__grid">
+            <div>
+              <div class="stack">
+                <p class="eyebrow">راه‌حل پاسخ‌بان</p>
+                <h2 id="solution-title">یک مرکز پاسخ‌گویی، با دو مسیر.</h2>
+                <p class="lead">
+                  هوش مصنوعی برای پاسخ‌های سریع و اپراتور انسانی برای لحظه‌هایی که ارتباط انسانی تعیین‌کننده
+                  است؛ هر دو در همان مکالمه و همان پیشخوان.
+                </p>
+              </div>
+
+              <div class="modes">
+                <article class="mode">
+                  <h3>
+                    <svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg>
+                    پاسخ هوش مصنوعی بر پایهٔ دانش سایت
+                  </h3>
+                  <p>
+                    محتوای سایت، برگه‌ها و محصولات ووکامرس در یک ایندکس ذخیره می‌شوند و پاسخ‌ها از همان دانش
+                    ساخته می‌شود؛ نه از حدس.
+                  </p>
+                  <span class="path">
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                    دستیار و دانش
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                    ساخت ایندکس
+                  </span>
+                </article>
+
+                <article class="mode">
+                  <h3>
+                    <svg class="icon" aria-hidden="true"><use href="#i-headset" /></svg>
+                    ورود اپراتور انسانی به مکالمه
+                  </h3>
+                  <p>
+                    هر لحظه لازم شد، مکالمه را از اینباکس بردارید، پاسخ دستی بدهید یا با واگذاری نوبتی به
+                    هم‌تیمی دیگری بسپارید.
+                  </p>
+                  <span class="path">
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                    گفتگوها
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                    واگذاری مکالمه
+                  </span>
+                </article>
+              </div>
+            </div>
+
+            <div class="thread-card" data-reveal>
+              <div class="thread-card__chrome">
+                <span>همان مکالمه، ادامهٔ گفتگو با اپراتور</span>
+                <span>۱۰:۲۶</span>
+              </div>
+              <div
+                class="thread-card__panel"
+                role="img"
+                aria-label="نمونهٔ مکالمه: پاسخ هوش مصنوعی، سپس ورود اپراتور انسانی به همان گفتگو"
+              >
+                <p class="bubble bubble--ai">
+                  <span class="bubble__by">
+                    <svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg>
+                    پاسخ‌بان
+                  </span>
+                  هزینهٔ ارسال به تهران دو روز کاری زمان می‌برد.
+                </p>
+                <p class="handoff">
+                  <svg class="icon" aria-hidden="true"><use href="#i-headset" /></svg>
+                  واگذاری به اپراتور انسانی
+                </p>
+                <p class="bubble bubble--in">
+                  بسیار خوب، می‌توانید شمارهٔ پیگیری را برایم ثبت کنید؟
+                </p>
+                <p class="bubble bubble--out">
+                  <span class="bubble__by">
+                    <svg class="icon" aria-hidden="true"><use href="#i-headset" /></svg>
+                    مریم · پشتیبانی
+                  </span>
+                  ثبت شد؛ سفارش شما فردا ارسال می‌شود و کد پیگیری پیامک می‌شود.
+                </p>
+              </div>
+              <p class="thread-card__note">
+                <svg class="icon" aria-hidden="true"><use href="#i-info" /></svg>
+                تاریخچهٔ مکالمه در یک رشته باقی می‌ماند تا مشتری لازم نباشد دوباره توضیح بدهد.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURES ==================== -->
+      <section class="section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-head">
+            <div class="stack">
+              <p class="eyebrow">داخل افزونه</p>
+              <h2 id="features-title">همه‌چیز در یک پیشخوان، بدون افزونهٔ جانبی.</h2>
+            </div>
+            <p class="lead">
+              پاسخ‌بان یک افزونهٔ یکپارچه است؛ از اتصال به سرویس هوش مصنوعی تا ظاهر ویجت، تیم و ووکامرس، همه در
+              یک منو و با مسیرهای روشن.
+            </p>
+          </div>
+
+          <div class="bento">
+            <article class="card bento__item--wide" data-reveal>
+              <span class="card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-bolt" /></svg>
+              </span>
+              <h3>اتصال به سرویس هوش مصنوعی</h3>
+              <p>
+                سرویس‌دهنده، نشانی پایه، مدل، کلید API، تعداد توکن و میزان خلاقیت را تعیین کنید. پیش از انتشار،
+                ذخیره کنید و آزمایش اتصال را اجرا کنید.
+              </p>
+              <div class="card__foot">
+                <span class="path">
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                  پاسخ‌بان
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                  تنظیمات
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                  اتصال
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                  آزمایش اتصال
+                </span>
+              </div>
+            </article>
+
+            <article class="card" data-reveal data-reveal-delay="1">
+              <span class="card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-database" /></svg>
+              </span>
+              <h3>دانش سایت و ایندکس معنایی</h3>
+              <p>
+                ایندکس محتوا را بسازید یا به‌روزرسانی کنید تا پاسخ‌ها از خود سایت بیاید؛ با گزینهٔ جست‌وجوی
+                معنایی برای دقت بیشتر.
+              </p>
+            </article>
+
+            <article class="card" data-reveal data-reveal-delay="2">
+              <span class="card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg>
+              </span>
+              <h3>اینباکس و واگذاری مکالمه</h3>
+              <p>
+                جست‌وجوی گفتگوها، پیام‌های خوانده‌نشده، پاسخ دستی، پیشنهاد پاسخ و خلاصهٔ مکالمه — همراه با
+                واگذاری به هم‌تیمی.
+              </p>
+            </article>
+
+            <article class="card" data-reveal>
+              <span class="card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-palette" /></svg>
+              </span>
+              <h3>ظاهر ویجت، مطابق برند شما</h3>
+              <p>
+                رنگ، جای حباب، عرض و ارتفاع پنل، گردی گوشه‌ها، شفافیت و تم روشن یا تاریک را تنظیم کنید و پیش‌نمایش
+                بگیرید.
+              </p>
+            </article>
+
+            <article class="card" data-reveal data-reveal-delay="1">
+              <span class="card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg>
+              </span>
+              <h3>ساعت کاری و رفتار بیرون از آن</h3>
+              <p>
+                روزها و ساعت پاسخ‌گویی تیم را مشخص کنید و تعیین کنید پاسخ‌دهی هوش مصنوعی بیرون از ساعت کاری چه
+                رفتاری داشته باشد.
+              </p>
+            </article>
+
+            <article class="card" data-reveal data-reveal-delay="2">
+              <span class="card__icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+              </span>
+              <h3>سازگاری با ووکامرس</h3>
+              <p>
+                ایندکس محصولات، قیمت و موجودی به‌همراه استعلام امن سفارش؛ اطلاعات سفارش فقط پس از احراز هویت
+                مشتری نمایش داده می‌شود.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CHANNELS ==================== -->
+      <section class="section section--soft" id="channels" aria-labelledby="channels-title">
+        <div class="container">
+          <div class="section-head">
+            <div class="stack">
+              <p class="eyebrow">اعلان‌ها و کانال‌ها</p>
+              <h2 id="channels-title">خبر هر گفتگو را همان‌جا بگیرید که هستید.</h2>
+            </div>
+            <p class="lead">
+              لازم نیست برای هر مکالمه پیشخوان را باز نگه دارید؛ پاسخ‌بان می‌تواند خبر گفتگوی جدید را به کانال
+              دلخواه تیم شما بفرستد.
+            </p>
+          </div>
+
+          <div class="channels__grid">
+            <ul class="channel-list">
+              <li class="channel">
+                <span class="channel__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-send" /></svg>
+                </span>
+                <strong>تلگرام مستقیم</strong>
+                <span>ربات تلگرام با توکن و شناسهٔ گفتگو؛ مناسب سرورهایی که به تلگرام دسترسی دارند.</span>
+              </li>
+              <li class="channel">
+                <span class="channel__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-cloud" /></svg>
+                </span>
+                <strong>رلهٔ گوگل برای تلگرام</strong>
+                <span>برای سرورهای ایران که به تلگرام دسترسی ندارند؛ پیام از مسیر Google Apps Script می‌رسد.</span>
+              </li>
+              <li class="channel">
+                <span class="channel__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg>
+                </span>
+                <strong>کانال بله</strong>
+                <span>اعلان یک‌طرفه یا پاسخ دوطرفهٔ اپراتور از داخل بله، با ثبت webhook روی سایت HTTPS.</span>
+              </li>
+              <li class="channel">
+                <span class="channel__icon">
+                  <svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg>
+                </span>
+                <strong>پیامک و ایمیل</strong>
+                <span>اعلان مدیر و بازدیدکننده به‌صورت جداگانه، با فاصلهٔ زمانی برای جلوگیری از تکرار.</span>
+              </li>
+            </ul>
+
+            <div class="flow" data-reveal>
+              <p class="flow__title">
+                <svg class="icon" aria-hidden="true"><use href="#i-cloud" /></svg>
+                چطور رلهٔ گوگل کار می‌کند؟
+              </p>
+              <div class="flow__steps">
+                <div class="flow__node">
+                  <b>۱</b>
+                  <div>
+                    <strong>سایت شما در وردپرس</strong>
+                    <span>پیام گفتگوی جدید را به آدرس رله می‌فرستد.</span>
+                  </div>
+                </div>
+                <div class="flow__arrow" aria-hidden="true">
+                  <svg class="icon"><use href="#i-arrow-left" /></svg>
+                </div>
+                <div class="flow__node">
+                  <b>۲</b>
+                  <div>
+                    <strong>رلهٔ Google Apps Script</strong>
+                    <span>کلید مشترک را بررسی می‌کند و پیام را به تلگرام می‌رساند.</span>
+                  </div>
+                </div>
+                <div class="flow__arrow" aria-hidden="true">
+                  <svg class="icon"><use href="#i-arrow-left" /></svg>
+                </div>
+                <div class="flow__node">
+                  <b>۳</b>
+                  <div>
+                    <strong>گروه یا چت تلگرام</strong>
+                    <span>تیم شما اعلان را می‌بیند و از پیشخوان پاسخ می‌دهد.</span>
+                  </div>
+                </div>
+              </div>
+              <p class="flow__note">
+                سرورهای ایران معمولاً به <span class="code ltr">api.telegram.org</span> دسترسی ندارند؛ رله
+                این مسیر را باز می‌کند. مقدار <span class="code ltr">SECRET</span> را در هر دو طرف یکسان
+                بگذارید تا فقط سایت خودتان بتواند پیام بفرستد.
+              </p>
+              <a class="link-arrow" href="guide.html#channels">
+                راه‌اندازی گام‌به‌گام رله
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== HOW IT WORKS ==================== -->
+      <section class="section" id="how" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head">
+            <div class="stack">
+              <p class="eyebrow">راه‌اندازی</p>
+              <h2 id="how-title">از نصب تا اولین پاسخ، چهار گام روشن.</h2>
+            </div>
+            <p class="lead">
+              مسیر راه‌اندازی کوتاه است و برای هر گام، مسیر دقیق منو در راهنمای فارسی آمده تا لازم نباشد چیزی را
+              حدس بزنید.
+            </p>
+          </div>
+
+          <div class="steps">
+            <article class="step" data-reveal>
+              <span class="step__num">گام ۱</span>
+              <h3>نصب افزونه</h3>
+              <p>فایل افزونه را از پیشخوان وردپرس نصب و فعال کنید؛ منوی پاسخ‌بان به‌صورت خودکار ظاهر می‌شود.</p>
+              <span class="path">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                پیشخوان
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                افزونه‌ها
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                بارگذاری افزونه
+              </span>
+            </article>
+
+            <article class="step" data-reveal data-reveal-delay="1">
+              <span class="step__num">گام ۲</span>
+              <h3>اتصال هوش مصنوعی</h3>
+              <p>سرویس‌دهنده و مدل را انتخاب، کلید API را ذخیره و اتصال را آزمایش کنید.</p>
+              <span class="path">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                تنظیمات
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                اتصال
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                آزمایش اتصال
+              </span>
+            </article>
+
+            <article class="step" data-reveal data-reveal-delay="2">
+              <span class="step__num">گام ۳</span>
+              <h3>ساخت دانش سایت</h3>
+              <p>ایندکس محتوا را بسازید تا پاسخ‌ها از نوشته‌ها، برگه‌ها و محصولات خودتان بیاید.</p>
+              <span class="path">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                دستیار و دانش
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                ساخت ایندکس
+              </span>
+            </article>
+
+            <article class="step" data-reveal data-reveal-delay="3">
+              <span class="step__num">گام ۴</span>
+              <h3>فعال‌کردن ویجت</h3>
+              <p>ویجت را روی سایت فعال کنید، یک مکالمهٔ آزمایشی بسازید و پاسخ‌گویی را شروع کنید.</p>
+              <span class="path">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                چت آنلاین
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+                فعال‌سازی ویجت
+              </span>
+            </article>
+          </div>
+
+          <div class="steps__foot">
+            <a class="button" href="guide.html">
+              <svg class="icon" aria-hidden="true"><use href="#i-book" /></svg>
+              راهنمای گام‌به‌گام کامل
+            </a>
+            <a class="link-arrow" href="pasokhban-guide-fa.pdf" download>
+              دانلود راهنمای فارسی (PDF)
+              <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DATA & TRUST ==================== -->
+      <section class="section section--surface" id="data" aria-labelledby="data-title">
+        <div class="container">
+          <div class="section-head">
+            <div class="stack">
+              <p class="eyebrow">امنیت و داده</p>
+              <h2 id="data-title">داده‌های شما، سر جای خودشان می‌مانند.</h2>
+            </div>
+            <p class="lead">
+              رفتار پیش‌فرض پاسخ‌بان محافظه‌کارانه است: نه داده‌ای را بی‌اجازه بیرون می‌فرستد، نه با
+              غیرفعال‌شدن، چیزی را پاک می‌کند.
+            </p>
+          </div>
+
+          <div class="facts">
+            <div class="fact">
+              <p class="fact__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-database" /></svg>
+                بدون حذف داده با غیرفعال‌سازی
+              </p>
+              <p>
+                غیرفعال‌کردن افزونه تنظیمات و مکالمات را حذف نمی‌کند؛ حذف داده‌ها فقط با حذف کامل افزونه انجام
+                می‌شود.
+              </p>
+            </div>
+            <div class="fact">
+              <p class="fact__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-lock" /></svg>
+                استعلام سفارش فقط با احراز هویت
+              </p>
+              <p>
+                اطلاعات سفارش ووکامرس فقط پس از احراز هویت مشتری نمایش داده می‌شود؛ نه به هر بازدیدکننده‌ای.
+              </p>
+            </div>
+            <div class="fact">
+              <p class="fact__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-shield" /></svg>
+                محدودیت درخواست و نوع فایل
+              </p>
+              <p>
+                محدودیت نرخ درخواست، تعیین نوع فایل مجاز برای ارسال و پاک‌سازی مکالمات بر اساس مدت نگهداری قابل
+                تنظیم است. فایل‌های اجرایی و <span class="ltr">SVG</span> مجاز نیستند.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FAQ ==================== -->
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="faq__grid">
+            <div class="faq__aside">
+              <p class="eyebrow">پرسش‌های متداول</p>
+              <h2 id="faq-title">قبل از تصمیم، شفاف بدانید.</h2>
+              <p class="muted">
+                اگر پاسخ سؤال‌تان اینجا نبود، جزئیات فنی هر بخش در راهنمای کامل آمده است.
+              </p>
+              <a class="link-arrow" href="guide.html">
+                مطالعهٔ راهنمای کامل
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+            </div>
+
+            <div class="accordion">
+              <details open>
+                <summary>
+                  پاسخ‌بان برای چه سایت‌هایی مناسب است؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  برای فروشگاه‌های ووکامرس، سایت‌های خدماتی و آموزشی و هر کسب‌وکاری که با مشتری گفتگو می‌کند.
+                  اگر بخشی از کار شما پاسخ‌دادن به پرسش‌های تکراری است، پاسخ‌بان همان بخش را سبک می‌کند.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  پاسخ‌ها از کجا می‌آید؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  از دانش سایت خودتان. پس از ساخت ایندکس، پاسخ‌ها بر پایهٔ محتوای نوشته‌ها، برگه‌ها و محصولات
+                  ساخته می‌شود. می‌توانید دستور سیستم، دامنهٔ پاسخ‌ها و میزان خلاقیت را هم تعیین کنید.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  آیا اپراتور انسانی می‌تواند وارد گفتگو شود؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  بله. اپراتور از اینباکس پیشخوان وارد همان مکالمه می‌شود، پاسخ دستی می‌دهد و می‌تواند گفتگو را
+                  به هم‌تیمی دیگری واگذار کند. مشتری همان رشتهٔ گفتگو را ادامه می‌دهد.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  اگر سرور سایت به تلگرام دسترسی نداشته باشد چه می‌شود؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  رلهٔ گوگل را فعال کنید: یک پروژهٔ Google Apps Script می‌سازید، کلید مشترک را در هر دو طرف
+                  یکسان می‌گذارید و آدرس <span class="code ltr">/exec</span> را در تنظیمات اعلان‌ها وارد
+                  می‌کنید. پیام‌ها از مسیر گوگل به تلگرام می‌رسد.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  آیا اطلاعات هنگام غیرفعال‌سازی حذف می‌شود؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  خیر. غیرفعال‌سازی افزونه تنظیمات و مکالمات را حذف نمی‌کند. برای حذف کامل داده‌ها باید افزونه
+                  را حذف کنید. پیش از تغییرات مهم هم می‌توانید از تنظیمات خروجی بگیرید.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  آیا برای استفاده دانش فنی لازم است؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  خیر. نصب از پیشخوان وردپرس انجام می‌شود و تنظیمات اصلی با راهنمای فارسی داخل افزونه قابل
+                  انجام است. رلهٔ گوگل تنها بخشی است که چند مرحلهٔ فنی دارد و راهنمای تصویری‌اش را دارید.
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DOCS TEASER ==================== -->
+      <section class="section section--tight" id="guide" aria-labelledby="guide-title">
+        <div class="container">
+          <div class="docs-teaser">
+            <div class="docs-teaser__copy">
+              <p class="eyebrow">مستندات</p>
+              <h2 id="guide-title">راهنمای فارسی، از نصب تا عیب‌یابی.</h2>
+              <p class="muted">
+                پنج فصل مستندات پاسخ‌بان با مسیر دقیق منو، نمونهٔ تنظیم و چک‌لیست آزمون؛ همراه نسخهٔ PDF برای
+                نگه‌داشتن کنار دست.
+              </p>
+              <div class="cluster">
+                <a class="button button--accent" href="guide.html">
+                  <svg class="icon" aria-hidden="true"><use href="#i-book" /></svg>
+                  ورود به راهنما
+                </a>
+                <a class="button button--ghost" href="pasokhban-guide-fa.pdf" download>
+                  <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+                  دانلود PDF
+                </a>
+              </div>
+            </div>
+
+            <nav class="doc-list" aria-label="فصل‌های راهنما">
+              <a href="guide.html#start">
+                <span class="figure-num">۰۱</span>
+                نصب و راه‌اندازی اولیه
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+              <a href="guide.html#settings">
+                <span class="figure-num">۰۲</span>
+                تنظیمات، تب‌به‌تب
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+              <a href="guide.html#channels">
+                <span class="figure-num">۰۳</span>
+                تلگرام، بله، پیامک و ایمیل
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+              <a href="guide.html#daily">
+                <span class="figure-num">۰۴</span>
+                کار روزمره: گفتگوها، مخاطبین و آمار
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+              <a href="guide.html#trouble">
+                <span class="figure-num">۰۵</span>
+                عیب‌یابی و چک‌لیست انتشار
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FINAL CTA ==================== -->
+      <section class="section section--dark" id="buy" aria-labelledby="buy-title">
+        <div class="container">
+          <div class="cta__grid">
+            <div class="cta__copy">
+              <p class="eyebrow">قدم بعدی روشن است</p>
+              <h2 id="buy-title">پاسخ‌گویی سایتتان را از همین امروز حرفه‌ای کنید.</h2>
+              <p class="lead">
+                جزئیات فنی، شرایط خرید و اطلاعات کامل محصول در صفحهٔ فروش راست‌چین است. اگر پیش از خرید سؤالی
+                دارید، راهنما همهٔ مسیرها را نشان می‌دهد.
+              </p>
+              <p class="cta__note">پاسخ‌بان محصول اتحاد وردپرس · نسخهٔ ۱.۰.۱</p>
+            </div>
+
+            <div class="cta__actions">
+              <a
+                class="button button--on-dark button--lg"
+                data-cta="buy"
+                href="https://www.rtl-theme.com/"
+                rel="noopener"
+              >
+                مشاهدهٔ صفحهٔ محصول
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </a>
+              <a class="button button--ghost-on-dark button--lg" href="guide.html">
+                <svg class="icon" aria-hidden="true"><use href="#i-book" /></svg>
+                راهنمای راه‌اندازی
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="index.html">
+              <span class="brand__mark" aria-hidden="true">پ</span>
+              <span class="brand__text">
+                پاسخ‌بان
+                <span class="brand__sub">افزونهٔ پشتیبانی وردپرس</span>
+              </span>
+            </a>
+            <p>
+              چت هوشمند، دانش سایت و اپراتور انسانی در یک افزونهٔ وردپرس؛ ساخته‌شده برای پاسخ‌گویی فارسی و
+              راست‌چین.
+            </p>
+          </div>
+
+          <nav class="footer-col" aria-label="بخش‌های صفحه">
+            <h3>در این صفحه</h3>
+            <ul>
+              <li><a href="#features">قابلیت‌های افزونه</a></li>
+              <li><a href="#how">نحوهٔ راه‌اندازی</a></li>
+              <li><a href="#channels">کانال‌های اعلان</a></li>
+              <li><a href="#data">امنیت و داده</a></li>
+              <li><a href="#faq">پرسش‌های متداول</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-label="راهنما">
+            <h3>راهنما</h3>
+            <ul>
+              <li><a href="guide.html#start">نصب و راه‌اندازی</a></li>
+              <li><a href="guide.html#settings">تنظیمات تب‌به‌تب</a></li>
+              <li><a href="guide.html#channels">رلهٔ تلگرام و بله</a></li>
+              <li><a href="guide.html#trouble">عیب‌یابی</a></li>
+              <li><a href="pasokhban-guide-fa.pdf" download>راهنمای PDF</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span data-year>۱۴۰۵</span> پاسخ‌بان · محصول <span class="ltr">etehadwp.com</span></span>
+          <span class="cluster">
+            <span>نسخهٔ ۱.۰.۱</span>
+            <a href="https://etehadwp.com" rel="noopener">اتحاد وردپرس</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-cta" data-mobile-cta>
+      <a
+        class="button button--accent"
+        data-cta="buy"
+        href="https://www.rtl-theme.com/"
+        rel="noopener"
+      >
+        مشاهدهٔ صفحهٔ محصول
+        <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
+      </a>
+    </div>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
