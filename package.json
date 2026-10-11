@@ -1,0 +1,36 @@
+{
+  "name": "pasokhban-landing",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Persian RTL landing page for Pasokhban (WordPress AI chat & live support plugin). React + Vite + TypeScript, built as a static site.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "tsc --noEmit && vite build",
+    "build:standalone": "tsc --noEmit && STANDALONE=1 vite build --outDir dist-standalone --emptyOutDir && node scripts/standalone-html.mjs dist-standalone",
+    "package": "npm run build:standalone && node scripts/package-zip.mjs dist-standalone",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "typecheck": "tsc --noEmit",
+    "qa": "node scripts/qa.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/vazirmatn": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@types/three": "^0.170.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "axe-core": "^4.14.0",
+    "fflate": "^0.8.3",
+    "puppeteer-core": "^25.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
+  }
+}

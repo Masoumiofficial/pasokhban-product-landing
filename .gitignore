@@ -1,0 +1,7 @@
+node_modules
+dist
+dist-standalone
+.vite
+*.log
+.DS_Store
+qa-output
