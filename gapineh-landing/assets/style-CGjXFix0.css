@@ -41,7 +41,7 @@
   font-weight: 600;
   src: url(./jetbrains-mono-latin-600-normal-C8RAYTDA.woff2) format('woff2'), url(./jetbrains-mono-latin-600-normal-BfsvjouI.woff) format('woff');
 }/* =====================================================================================================
-   Pasokhban landing — design system (see design-system/pasokhban/MASTER.md)
+   Gapineh landing — design system (see design-system/gapineh/MASTER.md)
    Dark theme is the default (:root). [data-theme='light'] remaps the same tokens.
    Type scale has a 13px floor; every interactive control is at least 44px tall.
    ===================================================================================================== */
@@ -65,7 +65,7 @@
   --text: #dbe4f0;
   --text-muted: #a3b1c6;
 
-  /* Brand (cyan from the Pasokhban mark) and accents */
+  /* Brand (cyan from the Gapineh mark) and accents */
   --brand: #22d3ee;
   --brand-hover: #67e8f9;
   --brand-text: #67e8f9;
@@ -2867,7 +2867,7 @@ main,
     height: 340px;
   }
 
-  /* Comparison table becomes stacked cards so the «با پاسخ‌بان» column is visible without sideways scrolling. */
+  /* Comparison table becomes stacked cards so the «با گپینه» column is visible without sideways scrolling. */
   .table-wrap {
     overflow: visible;
   }

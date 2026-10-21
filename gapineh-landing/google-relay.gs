@@ -1,5 +1,5 @@
 /**
- * رلهٔ تلگرام پاسخ‌بان — Google Apps Script
+ * رلهٔ تلگرام گپینه — Google Apps Script
  *
  * چرا لازم است:
  *   سرورهای ایران به api.telegram.org دسترسی ندارند، ولی گوگل در دسترس است
@@ -14,7 +14,7 @@
  *      - Who has access:  Anyone
  * ۴) دکمهٔ Authorize access را بزن و اجازه بده.
  * ۵) آدرسی که می‌دهد (…/exec) را در پیشخوان وردپرس بگذار:
- *      پاسخ‌بان ← تنظیمات ← تب «اعلان‌ها» ← «رلهٔ گوگل»
+ *      گپینه ← تنظیمات ← تب «اعلان‌ها» ← «رلهٔ گوگل»
  *
  * ⚠ اگر بعداً این کد را تغییر دادی، باید Deploy ← Manage deployments ←
  *   Edit ← Version: New version را بزنی وگرنه تغییرات اعمال نمی‌شوند.
@@ -26,7 +26,7 @@
  */
 
 // ── این را عوض کن (یک رشتهٔ تصادفی بلند) ──
-var SECRET = 'پاسخ‌بان-کلید-خودت-را-اینجا-بگذار';
+var SECRET = 'گپینه-کلید-خودت-را-اینجا-بگذار';
 
 function doPost(e) {
   var p = readParams(e);
@@ -123,7 +123,7 @@ function readParams(e) {
 
 /** برای تست دستی در مرورگر. */
 function doGet(e) {
-  return json({ ok: true, message: 'Pasokhban Telegram relay is running.' });
+  return json({ ok: true, message: 'Gapineh Telegram relay is running.' });
 }
 
 function json(obj) {
