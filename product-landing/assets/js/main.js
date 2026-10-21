@@ -291,6 +291,36 @@
     }
   }
 
+  /* ------------------------------------- 09 · چرخش سه‌بعدی هسته با حرکت موس */
+  function initTilt() {
+    var stage = doc.querySelector("[data-tilt]");
+    var scene = doc.querySelector("[data-tilt-scene]");
+    if (!stage || !scene || reduceMotion) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    var raf = null;
+
+    function apply(event) {
+      var rect = stage.getBoundingClientRect();
+      var px = (event.clientX - rect.left) / rect.width - 0.5;
+      var py = (event.clientY - rect.top) / rect.height - 0.5;
+      scene.style.transform =
+        "rotateY(" + (px * 14).toFixed(2) + "deg) rotateX(" + (-py * 12).toFixed(2) + "deg)";
+    }
+
+    stage.addEventListener("mousemove", function (event) {
+      if (raf) return;
+      raf = window.requestAnimationFrame(function () {
+        apply(event);
+        raf = null;
+      });
+    });
+
+    stage.addEventListener("mouseleave", function () {
+      scene.style.transform = "";
+    });
+  }
+
   /* ------------------------------------------------------------------- راه‌اندازی */
   function init() {
     initYear();
@@ -301,6 +331,7 @@
     initCopy();
     initMobileCta();
     initDocs();
+    initTilt();
   }
 
   if (doc.readyState === "loading") {
