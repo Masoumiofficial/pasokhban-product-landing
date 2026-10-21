@@ -85,6 +85,27 @@
   gap: var(--sp-3);
 }
 
+.docs-hero__banner {
+  margin: 0;
+  max-inline-size: 24rem;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-3);
+  overflow: hidden;
+}
+
+.docs-hero__banner img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+/* — بلوک کد کامل رله (بلند و اسکرول‌خور) — */
+.code-block--tall {
+  max-block-size: 24rem;
+  overflow: auto;
+  white-space: pre;
+}
+
 /* --------------------------------------------------------------------------
    SHELL: TOC + CONTENT
    -------------------------------------------------------------------------- */

@@ -544,6 +544,31 @@
   justify-items: start;
 }
 
+.docs-teaser__media {
+  display: block;
+  max-inline-size: 21rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-3);
+  overflow: hidden;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.docs-teaser__media:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+
+.docs-teaser__media:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.docs-teaser__media img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
 .doc-list {
   display: grid;
   gap: var(--sp-2);
