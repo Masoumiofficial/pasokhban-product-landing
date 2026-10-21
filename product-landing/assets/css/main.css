@@ -1401,7 +1401,7 @@ td .code {
 /* — reveal on scroll (JS-enhanced, no-JS safe) — */
 .js [data-reveal] {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(26px) scale(0.985);
 }
 
 .js [data-reveal].is-visible {

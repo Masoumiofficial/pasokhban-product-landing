@@ -12,13 +12,16 @@
       content="پاسخ‌بان یک افزونهٔ وردپرس است: هوش مصنوعی بر پایهٔ دانش سایت شما پاسخ می‌دهد و در هر لحظه لازم شد، مکالمه به اپراتور انسانی می‌رسد. نصب از پیشخوان، رابط فارسی و راست‌چین، سازگار با ووکامرس."
     />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://etehadwp.com/pasokhban/" />
 
     <!--
-      نشانی صفحهٔ محصول (لینک خرید) در سه جای این فایل با data-cta="buy" مشخص شده است.
-      پیش از انتشار، نشانی واقعی صفحهٔ محصول را جایگزین کنید.
-      canonical و og:url و og:image را هم پس از مشخص‌شدن دامنه اضافه کنید.
+      مدل فروش پاسخ‌بان: خرید فقط از صفحهٔ فروش رسمی در راست‌چین انجام می‌شود و در این
+      صفحه هیچ قیمت یا پلنی درج نشده است (قیمت ممکن است به‌مرور تغییر کند و مرجع به‌روز
+      آن فقط همان صفحهٔ راست‌چین است). همهٔ دکمه‌های خرید با data-cta="buy" مشخص
+      شده‌اند؛ کافی است نشانی دقیق صفحهٔ محصول در راست‌چین را جای نشانی فعلی بگذارید.
     -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://etehadwp.com/pasokhban/" />
     <meta property="og:locale" content="fa_IR" />
     <meta property="og:site_name" content="پاسخ‌بان" />
     <meta property="og:title" content="پاسخ‌بان | چت هوشمند و پشتیبانی انسانی برای وردپرس" />
@@ -26,8 +29,9 @@
       property="og:description"
       content="هوش مصنوعی بر پایهٔ دانش سایت شما پاسخ می‌دهد و هر جا لازم شد، اپراتور انسانی وارد مکالمه می‌شود."
     />
-    <meta property="og:image" content="assets/img/og-cover.png" />
+    <meta property="og:image" content="https://etehadwp.com/pasokhban/assets/img/banner-wide.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://etehadwp.com/pasokhban/assets/img/banner-wide.jpg" />
 
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
@@ -128,6 +132,22 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "خیر. نصب از پیشخوان وردپرس انجام می‌شود و تنظیمات اصلی با راهنمای فارسی داخل افزونه قابل انجام است."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "کدام سرویس‌های هوش مصنوعی پشتیبانی می‌شوند؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "گپ‌جی‌پی‌تی، OpenAI، Google Gemini، Anthropic Claude و هر سرویس سازگار با قالب OpenAI. هزینهٔ مصرف سرویس هوش مصنوعی جدا از خرید افزونه است و مستقیم به همان سرویس‌دهنده پرداخت می‌شود."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "خرید و قیمت پاسخ‌بان چطور است؟",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "خرید فقط از صفحهٔ فروش رسمی پاسخ‌بان در راست‌چین انجام می‌شود. قیمت و شرایط لایسنس همیشه همان‌جا به‌روز است و به همین دلیل در این صفحه قیمت یا پلنی درج نشده است."
                 }
               }
             ]
@@ -299,7 +319,7 @@
               href="https://www.rtl-theme.com/"
               rel="noopener"
             >
-              صفحهٔ محصول
+              خرید در راست‌چین
               <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
             </a>
             <button
@@ -332,7 +352,7 @@
             href="https://www.rtl-theme.com/"
             rel="noopener"
           >
-            مشاهدهٔ صفحهٔ محصول
+            مشاهده و خرید در راست‌چین
             <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
           </a>
         </div>
@@ -367,7 +387,7 @@
                   href="https://www.rtl-theme.com/"
                   rel="noopener"
                 >
-                  مشاهدهٔ صفحهٔ محصول
+                  مشاهده و خرید در راست‌چین
                   <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
                 </a>
                 <a class="button button--ghost button--lg" href="guide.html">
@@ -523,6 +543,7 @@
                 </div>
                 <div class="widget__body">
                   <p class="bubble bubble--in">سلام! چه سؤالی دارید؟ همین‌جا بپرسید.</p>
+                  <p class="typing" aria-hidden="true"><i></i><i></i><i></i></p>
                 </div>
                 <div class="widget__foot">
                   <div class="composer">
@@ -566,6 +587,57 @@
               </li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <!-- ==================== 3D CORE ==================== -->
+      <section class="section core3d" id="core" aria-labelledby="core-title">
+        <div class="container">
+          <div class="section-head">
+            <div class="stack">
+              <p class="eyebrow">هستهٔ پاسخ‌بان</p>
+              <h2 id="core-title">یک هسته، که دانش سایت، فروشگاه و تیم شما را به هم وصل می‌کند.</h2>
+            </div>
+            <p class="lead">
+              نوشته‌ها، برگه‌ها و محصولات به هسته می‌رسند؛ پاسخ هوشمند، واگذاری به اپراتور و اعلان‌ها از آن
+              بیرون می‌روند. روی هر برچسب بزنید تا به بخش مربوطش بروید.
+            </p>
+          </div>
+
+          <div class="core3d__stage" data-tilt data-reveal>
+            <div class="core3d__scene" data-tilt-scene aria-hidden="false">
+              <span class="core3d__ring core3d__ring--1"></span>
+              <span class="core3d__ring core3d__ring--2"></span>
+              <span class="core3d__ring core3d__ring--3"></span>
+              <span class="core3d__pulse"></span>
+
+              <div class="core3d__orb">
+                <span class="core3d__orb-mark" aria-hidden="true">پ</span>
+                <strong>پاسخ‌بان</strong>
+                <small>هستهٔ پاسخ‌گویی</small>
+              </div>
+
+              <a class="core3d__chip core3d__chip--1" href="#features">
+                <svg class="icon" aria-hidden="true"><use href="#i-database" /></svg>
+                <span>دانش سایت<small>جست‌وجوی معنایی در نوشته‌ها و برگه‌ها</small></span>
+              </a>
+              <a class="core3d__chip core3d__chip--2" href="#solution">
+                <svg class="icon" aria-hidden="true"><use href="#i-headset" /></svg>
+                <span>اپراتور انسانی<small>ورود به همان مکالمه از اینباکس</small></span>
+              </a>
+              <a class="core3d__chip core3d__chip--3" href="#features">
+                <svg class="icon" aria-hidden="true"><use href="#i-cart" /></svg>
+                <span>ووکامرس<small>محصولات و استعلام امن سفارش</small></span>
+              </a>
+              <a class="core3d__chip core3d__chip--4" href="#channels">
+                <svg class="icon" aria-hidden="true"><use href="#i-bell" /></svg>
+                <span>اعلان‌ها<small>تلگرام، بله، پیامک و ایمیل</small></span>
+              </a>
+            </div>
+          </div>
+          <p class="visual-caption core3d__caption">
+            نمای تعاملی هستهٔ پاسخ‌بان؛ با حرکت موس روی دسکتاپ می‌چرخد و روی موبایل با حرکت آرام خودش دیده می‌شود.
+          </p>
         </div>
       </section>
 
@@ -797,6 +869,33 @@
               </p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <!-- ==================== SHOWCASE BANNER ==================== -->
+      <section class="showcase" aria-label="معرفی تصویری پاسخ‌بان">
+        <div class="container">
+          <figure class="showcase__figure" data-reveal>
+            <a
+              class="showcase__link"
+              data-cta="buy"
+              href="https://www.rtl-theme.com/"
+              rel="noopener"
+              aria-label="مشاهده و خرید پاسخ‌بان در راست‌چین"
+            >
+              <img
+                src="assets/img/banner-wide.webp"
+                alt="پاسخ‌بان، افزونهٔ چت و پشتیبانی وردپرس: چت هوشمند و پشتیبانی انسانی، با پاسخ بر پایهٔ دانش سایت و امکان واگذاری گفتگو به اپراتور"
+                width="1600"
+                height="710"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <figcaption class="visual-caption">
+              پاسخ‌بان در یک نگاه: اینباکس گفتگو در پیشخوان وردپرس و ویجت چت روی سایت
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -1106,6 +1205,32 @@
                   انجام است. رلهٔ گوگل تنها بخشی است که چند مرحلهٔ فنی دارد و راهنمای تصویری‌اش را دارید.
                 </div>
               </details>
+
+              <details>
+                <summary>
+                  کدام سرویس‌های هوش مصنوعی پشتیبانی می‌شوند؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  گپ‌جی‌پی‌تی، <span class="ltr">OpenAI</span>، ‏<span class="ltr">Google Gemini</span>،
+                  ‏<span class="ltr">Anthropic Claude</span> و هر سرویس سازگار با قالب
+                  <span class="ltr">OpenAI</span>. پاسخ‌بان با کلید <span class="ltr">API</span> خودتان کار
+                  می‌کند و هزینهٔ مصرف را مستقیم به همان سرویس‌دهنده می‌پردازید؛ این هزینه جدا از خرید افزونه
+                  است.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  خرید و قیمت پاسخ‌بان چطور است؟
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg>
+                </summary>
+                <div class="accordion__body">
+                  خرید فقط از صفحهٔ فروش رسمی پاسخ‌بان در راست‌چین انجام می‌شود و هیچ مسیر خرید دیگری وجود
+                  ندارد. قیمت و شرایط لایسنس همیشه همان‌جا به‌روز است؛ چون قیمت ممکن است به‌مرور تغییر کند،
+                  در این صفحه قیمت یا پلنی درج نشده است تا عدد منسوخ نبینید.
+                </div>
+              </details>
             </div>
           </div>
         </div>
@@ -1119,8 +1244,8 @@
               <p class="eyebrow">مستندات</p>
               <h2 id="guide-title">راهنمای فارسی، از نصب تا عیب‌یابی.</h2>
               <p class="muted">
-                پنج فصل مستندات پاسخ‌بان با مسیر دقیق منو، نمونهٔ تنظیم و چک‌لیست آزمون؛ همراه نسخهٔ PDF برای
-                نگه‌داشتن کنار دست.
+                هفت فصل راهنمای پاسخ‌بان با مسیر دقیق منو، توضیح ساده، نمونهٔ تنظیم و چک‌لیست آزمون؛ از نصب
+                تا عیب‌یابی و جدول مرجع مسیرها. نسخهٔ PDF هم برای نگه‌داشتن کنار دست هست.
               </p>
               <div class="cluster">
                 <a class="button button--accent" href="guide.html">
@@ -1132,6 +1257,16 @@
                   دانلود PDF
                 </a>
               </div>
+              <a class="docs-teaser__media" href="guide.html" aria-label="ورود به راهنمای کامل پاسخ‌بان">
+                <img
+                  src="assets/img/banner-square.webp"
+                  alt="پاسخ‌بان؛ پشتیبانی هوشمند برای وردپرس، پاسخ بر پایهٔ دانش سایت با امکان واگذاری به اپراتور انسانی"
+                  width="1000"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
             </div>
 
             <nav class="doc-list" aria-label="فصل‌های راهنما">
@@ -1147,17 +1282,27 @@
               </a>
               <a href="guide.html#channels">
                 <span class="figure-num">۰۳</span>
-                تلگرام، بله، پیامک و ایمیل
+                کانال‌های اعلان: تلگرام، بله، پیامک و ایمیل
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
               </a>
               <a href="guide.html#daily">
                 <span class="figure-num">۰۴</span>
-                کار روزمره: گفتگوها، مخاطبین و آمار
+                گفتگوها، مخاطبین و آمار
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
               </a>
               <a href="guide.html#trouble">
                 <span class="figure-num">۰۵</span>
-                عیب‌یابی و چک‌لیست انتشار
+                عیب‌یابی استاندارد
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+              <a href="guide.html#checklist">
+                <span class="figure-num">۰۶</span>
+                چک‌لیست انتشار
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+              </a>
+              <a href="guide.html#reference">
+                <span class="figure-num">۰۷</span>
+                جدول مرجع مسیرها
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
               </a>
             </nav>
@@ -1173,10 +1318,12 @@
               <p class="eyebrow">قدم بعدی روشن است</p>
               <h2 id="buy-title">پاسخ‌گویی سایتتان را از همین امروز حرفه‌ای کنید.</h2>
               <p class="lead">
-                جزئیات فنی، شرایط خرید و اطلاعات کامل محصول در صفحهٔ فروش راست‌چین است. اگر پیش از خرید سؤالی
-                دارید، راهنما همهٔ مسیرها را نشان می‌دهد.
+                خرید پاسخ‌بان فقط از صفحهٔ فروش رسمی آن در راست‌چین انجام می‌شود؛ قیمت، شرایط لایسنس و
+                آخرین نسخه را همان‌جا می‌بینید. چون قیمت ممکن است به‌مرور تغییر کند، در این صفحه عددی درج
+                نشده است تا همیشه قیمت به‌روز را ببینید. اگر پیش از خرید سؤالی دارید، راهنما همهٔ مسیرها را
+                نشان می‌دهد.
               </p>
-              <p class="cta__note">پاسخ‌بان · افزونهٔ پشتیبانی وردپرس</p>
+              <p class="cta__note">تنها مسیر رسمی خرید پاسخ‌بان، صفحهٔ محصول در راست‌چین است.</p>
             </div>
 
             <div class="cta__actions">
@@ -1186,7 +1333,7 @@
                 href="https://www.rtl-theme.com/"
                 rel="noopener"
               >
-                مشاهدهٔ صفحهٔ محصول
+                مشاهده و خرید در راست‌چین
                 <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
               </a>
               <a class="button button--ghost-on-dark button--lg" href="guide.html">
@@ -1253,7 +1400,7 @@
         href="https://www.rtl-theme.com/"
         rel="noopener"
       >
-        مشاهدهٔ صفحهٔ محصول
+        مشاهده و خرید در راست‌چین
         <svg class="icon icon--shift" aria-hidden="true"><use href="#i-external" /></svg>
       </a>
     </div>

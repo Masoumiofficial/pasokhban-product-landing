@@ -544,6 +544,31 @@
   justify-items: start;
 }
 
+.docs-teaser__media {
+  display: block;
+  max-inline-size: 21rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-3);
+  overflow: hidden;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.docs-teaser__media:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+
+.docs-teaser__media:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.docs-teaser__media img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
 .doc-list {
   display: grid;
   gap: var(--sp-2);
@@ -662,3 +687,288 @@
   }
 }
 
+
+/* --------------------------------------------------------------------------
+   SHOWCASE — بنر معرفی تصویری (لینک به صفحهٔ فروش راست‌چین)
+   -------------------------------------------------------------------------- */
+.showcase {
+  padding-block: var(--sp-8) 0;
+}
+
+.showcase__figure {
+  display: grid;
+  gap: var(--sp-3);
+  margin: 0;
+}
+
+.showcase__link {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: var(--r-4);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.showcase__link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3);
+}
+
+.showcase__link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.showcase__link img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3D CORE — هستهٔ تعاملی سه‌بعدی (CSS خالص، بدون کتابخانه)
+   -------------------------------------------------------------------------- */
+.core3d__stage {
+  position: relative;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-4);
+  background:
+    radial-gradient(42% 52% at 50% 46%, rgba(111, 216, 207, 0.14), transparent 70%),
+    linear-gradient(160deg, #0a2027, var(--ink-900) 58%);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+  perspective: 1100px;
+}
+
+.core3d__scene {
+  position: relative;
+  block-size: 30rem;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease-out;
+}
+
+.core3d__ring {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 50%;
+  border: 1px dashed rgba(111, 216, 207, 0.4);
+  animation: core-spin 26s linear infinite;
+  pointer-events: none;
+}
+
+.core3d__ring--1 { inline-size: 21rem; block-size: 21rem; }
+
+.core3d__ring--2 {
+  inline-size: 27rem;
+  block-size: 27rem;
+  border-style: solid;
+  border-color: rgba(111, 216, 207, 0.18);
+  animation-duration: 40s;
+  animation-direction: reverse;
+}
+
+.core3d__ring--3 {
+  inline-size: 16rem;
+  block-size: 16rem;
+  border-color: rgba(111, 216, 207, 0.55);
+  animation-duration: 18s;
+}
+
+.core3d__pulse {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  inline-size: 13rem;
+  block-size: 13rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 122, 135, 0.5), transparent 68%);
+  animation: core-pulse 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.core3d__orb {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  inline-size: 10.5rem;
+  block-size: 10.5rem;
+  border: 1px solid rgba(111, 216, 207, 0.45);
+  border-radius: 50%;
+  background:
+    radial-gradient(70% 60% at 32% 26%, rgba(111, 216, 207, 0.5), transparent 60%),
+    linear-gradient(150deg, #0e5a66, var(--ink-900) 72%);
+  box-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.55), inset 0 0 34px rgba(111, 216, 207, 0.22);
+  color: #fff;
+  text-align: center;
+  animation: orb-float 5.5s ease-in-out infinite alternate;
+}
+
+.core3d__orb-mark {
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 1.5rem;
+  font-weight: var(--w-bold);
+}
+
+.core3d__orb strong { font-size: var(--fs-h4); }
+
+.core3d__orb small {
+  color: var(--on-dark-muted);
+  font-size: var(--fs-micro);
+}
+
+.core3d__chip {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  max-inline-size: 15.5rem;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-2);
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--on-dark);
+  font-size: var(--fs-sm);
+  font-weight: var(--w-semibold);
+  line-height: 1.6;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: chip-float 5s ease-in-out infinite alternate;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.core3d__chip:hover {
+  border-color: var(--accent-on-dark);
+  background: rgba(111, 216, 207, 0.12);
+}
+
+.core3d__chip:focus-visible {
+  outline: 3px solid var(--accent-on-dark);
+  outline-offset: 3px;
+}
+
+.core3d__chip .icon {
+  inline-size: 1.25em;
+  block-size: 1.25em;
+  margin-block-start: 0.2em;
+  color: var(--accent-on-dark);
+  flex: none;
+}
+
+.core3d__chip span { display: grid; gap: 1px; }
+
+.core3d__chip small {
+  color: var(--on-dark-muted);
+  font-size: var(--fs-micro);
+  font-weight: var(--w-regular);
+  line-height: 1.7;
+}
+
+.core3d__chip--1 { inset-block-start: 9%; inset-inline-start: 5%; }
+.core3d__chip--2 { inset-block-start: 11%; inset-inline-end: 5%; animation-delay: -1.4s; }
+.core3d__chip--3 { inset-block-end: 10%; inset-inline-start: 7%; animation-delay: -2.6s; }
+.core3d__chip--4 { inset-block-end: 8%; inset-inline-end: 6%; animation-delay: -3.8s; }
+
+.core3d__caption {
+  text-align: center;
+  margin-block-start: var(--sp-4);
+}
+
+@keyframes core-spin {
+  from { transform: rotateX(68deg) rotateZ(0deg); }
+  to { transform: rotateX(68deg) rotateZ(360deg); }
+}
+
+@keyframes core-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.65; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+@keyframes orb-float {
+  from { transform: translateY(-6px); }
+  to { transform: translateY(8px); }
+}
+
+@keyframes chip-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+@media (max-width: 56rem) {
+  .core3d__scene { block-size: 34rem; }
+  .core3d__ring--1 { inline-size: 16rem; block-size: 16rem; }
+  .core3d__ring--2 { inline-size: 20rem; block-size: 20rem; }
+  .core3d__ring--3 { inline-size: 12rem; block-size: 12rem; }
+  .core3d__orb { inline-size: 8.5rem; block-size: 8.5rem; }
+  .core3d__chip { max-inline-size: 11.5rem; font-size: var(--fs-caption); padding: var(--sp-2) var(--sp-3); }
+  .core3d__chip--1 { inset-block-start: 5%; inset-inline-start: 4%; }
+  .core3d__chip--2 { inset-block-start: 6%; inset-inline-end: 4%; }
+  .core3d__chip--3 { inset-block-end: 6%; inset-inline-start: 4%; }
+  .core3d__chip--4 { inset-block-end: 5%; inset-inline-end: 4%; }
+}
+
+@media (max-width: 30rem) {
+  .core3d__chip small { display: none; }
+  .core3d__chip { max-inline-size: 9.5rem; }
+}
+
+/* — حرکت‌های هیرو: ورود پیام‌ها، شناور بودن ویجت، نشانگر تایپ — */
+.hero .thread-body > * {
+  animation: bubble-in 0.7s var(--ease) both;
+}
+
+.hero .thread-body > *:nth-child(2) { animation-delay: 0.45s; }
+.hero .thread-body > *:nth-child(3) { animation-delay: 0.95s; }
+.hero .thread-body > *:nth-child(4) { animation-delay: 1.35s; }
+
+@keyframes bubble-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero .widget {
+  animation: widget-float 6s ease-in-out infinite alternate;
+}
+
+@keyframes widget-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-9px); }
+}
+
+.typing {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-2);
+  background: var(--surface-2);
+}
+
+.typing i {
+  inline-size: 7px;
+  block-size: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: typing-bounce 1.15s ease-in-out infinite;
+}
+
+.typing i:nth-child(2) { animation-delay: 0.16s; }
+.typing i:nth-child(3) { animation-delay: 0.32s; }
+
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}

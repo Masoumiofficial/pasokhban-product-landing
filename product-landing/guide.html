@@ -13,8 +13,9 @@
     />
     <meta name="robots" content="index, follow" />
 
-    <!-- canonical را پس از مشخص‌شدن دامنهٔ نهایی اضافه کنید. -->
+    <link rel="canonical" href="https://etehadwp.com/pasokhban/guide.html" />
     <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://etehadwp.com/pasokhban/guide.html" />
     <meta property="og:locale" content="fa_IR" />
     <meta property="og:site_name" content="پاسخ‌بان" />
     <meta property="og:title" content="راهنمای پاسخ‌بان | از نصب تا عیب‌یابی" />
@@ -22,7 +23,7 @@
       property="og:description"
       content="مسیر دقیق منو، توضیح ساده، نمونهٔ تنظیم و چک‌لیست آزمون برای همهٔ بخش‌های افزونهٔ پاسخ‌بان."
     />
-    <meta property="og:image" content="assets/img/og-cover.png" />
+    <meta property="og:image" content="https://etehadwp.com/pasokhban/assets/img/banner-wide.jpg" />
 
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
@@ -299,6 +300,16 @@
                 دانلود نسخهٔ PDF
               </a>
             </div>
+            <figure class="docs-hero__banner">
+              <img
+                src="assets/img/banner-square.webp"
+                alt="پاسخ‌بان؛ پشتیبانی هوشمند برای وردپرس، پاسخ بر پایهٔ دانش سایت با امکان واگذاری به اپراتور انسانی"
+                width="1000"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </div>
       </section>
@@ -318,7 +329,7 @@
                   <li><a href="#start">نصب و راه‌اندازی اولیه</a></li>
                   <li><a href="#settings">تنظیمات، تب‌به‌تب</a></li>
                   <li><a href="#channels">کانال‌های اعلان</a></li>
-                  <li><a href="#daily">کار روزمره: گفتگوها و مخاطبین</a></li>
+                  <li><a href="#daily">گفتگوها، مخاطبین و آمار</a></li>
                   <li><a href="#trouble">عیب‌یابی استاندارد</a></li>
                   <li><a href="#checklist">چک‌لیست انتشار</a></li>
                   <li><a href="#reference">جدول مرجع مسیرها</a></li>
@@ -451,7 +462,10 @@
                     </div>
                     <p>
                       سرویس‌دهنده، کلید API، نشانی پایه، مدل، دستور سیستم، تعداد توکن و میزان خلاقیت را تعیین
-                      کنید. بعد از هر تغییر ابتدا ذخیره و سپس آزمایش اتصال را اجرا کنید.
+                      کنید. بعد از هر تغییر ابتدا ذخیره و سپس آزمایش اتصال را اجرا کنید. سرویس‌های
+                      پشتیبانی‌شده: گپ‌جی‌پی‌تی (پیش‌فرض)، <span class="ltr">OpenAI</span>،
+                      <span class="ltr">Google Gemini</span>، <span class="ltr">Anthropic Claude</span> و هر
+                      سرویس سازگار با قالب <span class="ltr">OpenAI</span>.
                     </p>
                     <span class="path">
                       <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
@@ -683,6 +697,157 @@
                       </div>
                     </div>
 
+
+                    <div class="doc-code">
+                      <span class="doc-code__label">
+                        <svg class="icon" aria-hidden="true"><use href="#i-doc" /></svg>
+                        کد کامل فایل google-relay.gs (همان فایل همراه افزونه)
+                      </span>
+                      <pre class="code-block code-block--tall"><code id="relay-code">/**
+ * رلهٔ تلگرام پاسخ‌بان — Google Apps Script
+ *
+ * چرا لازم است:
+ *   سرورهای ایران به api.telegram.org دسترسی ندارند، ولی گوگل در دسترس است
+ *   و سرور گوگل می‌تواند به تلگرام برسد. پلاگین پیام را به این اسکریپت
+ *   می‌فرستد و این اسکریپت آن را به تلگرام می‌رساند.
+ *
+ * ─── راهنمای نصب ───
+ * ۱) برو به https://script.google.com و یک پروژهٔ جدید بساز.
+ * ۲) کل محتوای این فایل را جای کد پیش‌فرض بگذار و ذخیره کن.
+ * ۳) Deploy ← New deployment ← نوع: Web app
+ *      - Execute as:  Me
+ *      - Who has access:  Anyone
+ * ۴) دکمهٔ Authorize access را بزن و اجازه بده.
+ * ۵) آدرسی که می‌دهد (…/exec) را در پیشخوان وردپرس بگذار:
+ *      پاسخ‌بان ← تنظیمات ← تب «اعلان‌ها» ← «رلهٔ گوگل»
+ *
+ * ⚠ اگر بعداً این کد را تغییر دادی، باید Deploy ← Manage deployments ←
+ *   Edit ← Version: New version را بزنی وگرنه تغییرات اعمال نمی‌شوند.
+ *
+ * ─── امنیت ───
+ * این Web App برای همه باز است (چون وردپرس نمی‌تواند لاگین گوگل داشته باشد).
+ * برای اینکه غریبه‌ها نتوانند از آن سوءاستفاده کنند، یک «کلید مشترک» تعریف
+ * شده: SECRET را پایین عوض کن و همان را در وردپرس هم وارد کن.
+ */
+
+// ── این را عوض کن (یک رشتهٔ تصادفی بلند) ──
+var SECRET = 'پاسخ‌بان-کلید-خودت-را-اینجا-بگذار';
+
+function doPost(e) {
+  var p = readParams(e);
+
+  if (p.secret !== SECRET) {
+    return json({ ok: false, error: 'unauthorized' });
+  }
+
+  if (!p.token || !p.chat_id || !p.text) {
+    return json({ ok: false, error: 'missing token / chat_id / text' });
+  }
+
+  try {
+    var url = 'https://api.telegram.org/bot' + encodeURIComponent(p.token) + '/sendMessage';
+
+    var res = UrlFetchApp.fetch(url, {
+      method: 'post',
+      muteHttpExceptions: true,
+      payload: {
+        chat_id: p.chat_id,
+        text: p.text,
+        parse_mode: p.parse_mode || '',
+        disable_web_page_preview: true
+      }
+    });
+
+    var code = res.getResponseCode();
+    var body = res.getContentText();
+
+    if (code === 200) {
+      return json({ ok: true });
+    }
+
+    // خطای تلگرام را برگردان تا در وردپرس قابل دیباگ باشد
+    var parsed;
+    try { parsed = JSON.parse(body); } catch (err) { parsed = null; }
+
+    return json({
+      ok: false,
+      error: (parsed &amp;&amp; parsed.description) ? parsed.description : ('telegram http ' + code + ': ' + body.slice(0, 200))
+    });
+
+  } catch (err) {
+    return json({ ok: false, error: String(err) });
+  }
+}
+
+/**
+ * پشتیبانی از هر دو قالب: فرم (e.parameter) و JSON خام (e.postData.contents).
+ */
+function readParams(e) {
+  var out = { token: '', chat_id: '', text: '', parse_mode: '', secret: '' };
+
+  if (e &amp;&amp; e.parameter &amp;&amp; e.parameter.chat_id) {
+    out.token = e.parameter.token || '';
+    out.chat_id = e.parameter.chat_id || '';
+    out.text = e.parameter.text || '';
+    out.parse_mode = e.parameter.parse_mode || '';
+    out.secret = e.parameter.secret || '';
+    return out;
+  }
+
+  if (e &amp;&amp; e.postData &amp;&amp; e.postData.contents) {
+    var raw = e.postData.contents;
+    var data = null;
+    try { data = JSON.parse(raw); } catch (err) { data = null; }
+
+    if (data) {
+      out.token = data.token || '';
+      out.chat_id = data.chat_id || '';
+      out.text = data.text || '';
+      out.parse_mode = data.parse_mode || '';
+      out.secret = data.secret || '';
+      return out;
+    }
+
+    // فرم urlencoded خام
+    var pairs = raw.split('&amp;');
+    for (var i = 0; i &lt; pairs.length; i++) {
+      var kv = pairs[i].split('=');
+      if (kv.length &lt; 2) continue;
+      var k = decodeURIComponent(kv[0]);
+      var v = decodeURIComponent(kv.slice(1).join('=').replace(/\+/g, ' '));
+      if (k === 'token') out.token = v;
+      if (k === 'chat_id') out.chat_id = v;
+      if (k === 'text') out.text = v;
+      if (k === 'parse_mode') out.parse_mode = v;
+      if (k === 'secret') out.secret = v;
+    }
+  }
+
+  return out;
+}
+
+/** برای تست دستی در مرورگر. */
+function doGet(e) {
+  return json({ ok: true, message: 'Pasokhban Telegram relay is running.' });
+}
+
+function json(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}</code><button class="code-copy" type="button" data-copy="#relay-code"><svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>کپی کل کد</button></pre>
+                      <div class="cluster">
+                        <a class="button button--ghost button--sm" href="google-relay.gs" download>
+                          <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+                          دانلود فایل google-relay.gs
+                        </a>
+                      </div>
+                      <p class="prose prose--tight">
+                        کافی است متن بالا را کپی و در پروژهٔ گوگل جای کد پیش‌فرض بگذارید؛ فقط مقدار
+                        <span class="code ltr">SECRET</span> را عوض کنید و همان را در وردپرس هم وارد کنید.
+                      </p>
+                    </div>
+
                     <div class="callout callout--warn">
                       <span class="callout__title">
                         <svg class="icon" aria-hidden="true"><use href="#i-alert" /></svg>
@@ -720,7 +885,10 @@
                       <h3>پیامک و ایمیل</h3>
                     </div>
                     <ol class="steps-list">
-                      <li>ارائه‌دهندهٔ پیامک را انتخاب کنید.</li>
+                      <li>
+                        ارائه‌دهندهٔ پیامک را انتخاب کنید: کاوه‌نگار، ملی‌پیامک یا
+                        <span class="ltr">SMS.ir</span>.
+                      </li>
                       <li>کلید API، شمارهٔ فرستنده و شمارهٔ مدیر را وارد کنید.</li>
                       <li>اعلان مدیر و بازدیدکننده را جداگانه فعال کنید.</li>
                       <li>فاصلهٔ زمانی اعلان‌ها را برای جلوگیری از ارسال تکراری تعیین کنید.</li>
