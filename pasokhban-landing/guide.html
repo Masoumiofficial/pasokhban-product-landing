@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>راهنمای پاسخ‌بان | نصب، تنظیمات، کانال‌ها و عیب‌یابی</title>
+    <meta name="description" content="راهنمای فارسی پاسخ‌بان: نصب افزونه، تنظیم اتصال هوش مصنوعی، ساخت دانش سایت، اعلان تلگرام و بله، کار روزمره با گفتگوها و عیب‌یابی استاندارد." />
+    <meta name="theme-color" content="#0b1120" />
+    <link rel="canonical" href="https://etehadwp.com/pasokhban/guide.html" />
+    <link rel="icon" type="image/svg+xml" href="./pasokhban-mark.svg" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="پاسخ‌بان" />
+    <meta property="og:title" content="راهنمای پاسخ‌بان | از نصب تا عیب‌یابی" />
+    <meta property="og:description" content="مسیر دقیق منو، توضیح ساده، نمونه‌ی تنظیم و چک‌لیست آزمون برای همه‌ی بخش‌های افزونه‌ی پاسخ‌بان." />
+    <meta property="og:url" content="https://etehadwp.com/pasokhban/guide.html" />
+    <meta property="og:image" content="https://etehadwp.com/pasokhban/assets/banner-wide.jpg" />
+    <link rel="stylesheet" href="./assets/style-CGjXFix0.css" />
+    <style>
+      html { scroll-behavior: smooth; }
+      .g-header { position: sticky; top: 0; z-index: 50; background: var(--header-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+      .g-header__in { display: flex; align-items: center; gap: 18px; min-height: var(--header-h); flex-wrap: wrap; padding-block: 8px; }
+      .g-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text-strong); text-decoration: none; font-weight: 800; font-size: var(--fs-lg); }
+      .g-brand img { width: 34px; height: 34px; }
+      .g-brand small { display: block; font-size: var(--fs-xs); color: var(--text-muted); font-weight: 500; }
+      .g-nav { display: flex; gap: 4px; flex-wrap: wrap; margin-inline-start: auto; }
+      .g-nav a { color: var(--text); text-decoration: none; font-size: var(--fs-sm); font-weight: 600; padding: 9px 12px; border-radius: 10px; }
+      .g-nav a:hover { background: var(--brand-soft); color: var(--text-strong); }
+      .g-hero { padding: 72px 0 56px; background: radial-gradient(46% 60% at 82% 8%, var(--hero-glow-1), transparent 70%), radial-gradient(38% 52% at 8% 18%, var(--hero-glow-2), transparent 70%); }
+      .g-hero__grid { display: grid; gap: 40px; align-items: center; }
+      @media (min-width: 960px) { .g-hero__grid { grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); } }
+      .g-hero h1 { font-size: var(--fs-h1); line-height: 1.35; color: var(--text-strong); margin: 14px 0 16px; }
+      .g-hero h1 .hl { background: linear-gradient(90deg, var(--hl-from), var(--hl-to)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .g-hero__lead { font-size: var(--fs-lg); color: var(--text); line-height: 2; margin: 0 0 22px; }
+      .g-chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0 0 26px; }
+      .g-chips li { padding: 7px 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font-size: var(--fs-sm); }
+      .g-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .g-hero__banner { margin: 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); }
+      .g-hero__banner img { display: block; width: 100%; height: auto; }
+      .g-shell { display: grid; gap: 36px; align-items: start; padding: 56px 0 88px; }
+      @media (min-width: 1080px) { .g-shell { grid-template-columns: 272px minmax(0,1fr); } }
+      .g-toc { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: 18px; }
+      @media (min-width: 1080px) { .g-toc { position: sticky; top: calc(var(--header-h) + 18px); } }
+      .g-toc h2 { font-size: var(--fs-md); color: var(--text-strong); margin: 0 0 12px; }
+      .g-toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+      .g-toc a { display: block; padding: 9px 12px; border-radius: 10px; color: var(--text); text-decoration: none; font-size: var(--fs-sm); }
+      .g-toc a:hover { background: var(--brand-soft); color: var(--text-strong); }
+      .g-toc__dl { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); display: grid; gap: 8px; }
+      .g-sec { scroll-margin-top: calc(var(--header-h) + 24px); margin-bottom: 56px; }
+      .g-sec__head { margin-bottom: 22px; }
+      .g-sec__num { display: inline-flex; padding: 3px 12px; border-radius: 999px; background: var(--brand-soft); border: 1px solid var(--brand-border); color: var(--brand-text); font-size: var(--fs-xs); font-weight: 700; margin-bottom: 10px; }
+      .g-sec h2 { font-size: var(--fs-h2); color: var(--text-strong); margin: 0 0 10px; }
+      .g-sec__head p, .g-prose { color: var(--text-muted); line-height: 2; }
+      .g-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+      .g-card { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: 20px; box-shadow: var(--shadow-card); }
+      .g-card h3 { margin: 0 0 8px; font-size: var(--fs-h3); color: var(--text-strong); }
+      .g-card p { margin: 0 0 12px; color: var(--text-muted); line-height: 1.95; font-size: var(--fs-md); }
+      .g-card p:last-child { margin-bottom: 0; }
+      .g-step__no { display: inline-block; font-size: var(--fs-xs); font-weight: 800; color: var(--brand-text); background: var(--brand-soft); border: 1px solid var(--brand-border); padding: 2px 10px; border-radius: 999px; margin-bottom: 10px; }
+      .g-path { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; }
+      .g-path__sep { color: var(--brand-text); }
+      .g-path .ltr, .ltr { direction: ltr; unicode-bidi: isolate; }
+      code.mono, .g-code-inline { padding: 0 6px; border-radius: 6px; background: var(--surface-3); color: var(--text-strong); font-family: var(--font-mono); font-size: .86em; white-space: nowrap; }
+      .g-notice { border: 1px solid var(--info-border); background: var(--info-soft); color: var(--text); border-radius: var(--radius-md); padding: 16px 20px; line-height: 2; margin-top: 18px; }
+      .g-notice--warn { border-color: var(--warn-border); background: var(--warn-soft); }
+      .g-notice strong { color: var(--text-strong); }
+      .g-block { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: 24px; margin-bottom: 16px; }
+      .g-block > h3 { margin: 0 0 12px; font-size: var(--fs-h3); color: var(--text-strong); }
+      .g-steps { margin: 0; padding-inline-start: 22px; color: var(--text); line-height: 2.05; }
+      .g-code { position: relative; margin-top: 14px; }
+      .g-code pre { direction: ltr; text-align: left; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.75; background: #070d1a; color: #c9e7ee; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; max-height: 430px; overflow: auto; white-space: pre; margin: 0; }
+      .g-copy { position: absolute; top: 10px; right: 10px; direction: rtl; background: var(--surface-3); color: var(--text-strong); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 14px; font: inherit; font-size: var(--fs-xs); font-weight: 700; cursor: pointer; }
+      .g-copy:hover { border-color: var(--brand); }
+      details.g-faq { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); margin-bottom: 12px; overflow: hidden; }
+      details.g-faq summary { cursor: pointer; padding: 17px 20px; font-weight: 700; color: var(--text-strong); list-style: none; }
+      details.g-faq summary::-webkit-details-marker { display: none; }
+      details.g-faq .g-faq__body { padding: 0 20px 18px; color: var(--text-muted); line-height: 2; }
+      .g-check { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+      .g-check li { border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-md); padding: 15px 18px; color: var(--text); }
+      .g-check li::before { content: "✓"; color: var(--success-text); font-weight: 900; margin-inline-end: 10px; }
+      .g-tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); }
+      table.g-table { width: 100%; border-collapse: collapse; background: var(--surface); min-width: 560px; }
+      .g-table th, .g-table td { padding: 13px 16px; text-align: right; border-bottom: 1px solid var(--border); font-size: var(--fs-sm); color: var(--text); vertical-align: top; }
+      .g-table thead th { color: var(--text-strong); background: var(--surface-2); }
+      .g-cta { border: 1px solid var(--brand-border); border-radius: var(--radius-lg); background: linear-gradient(140deg, var(--brand-soft), transparent 55%), var(--surface); padding: 34px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+      .g-cta h2 { margin: 0 0 8px; color: var(--text-strong); font-size: var(--fs-h2); }
+      .g-cta p { margin: 0; color: var(--text-muted); line-height: 1.95; max-width: 52ch; }
+      .g-footer { border-top: 1px solid var(--border); background: var(--footer-bg); padding: 34px 0; color: var(--text-muted); }
+      .g-footer__in { display: flex; flex-wrap: wrap; gap: 14px 26px; align-items: center; justify-content: space-between; }
+      .g-footer a { color: var(--text); text-decoration: none; }
+      .g-footer a:hover { color: var(--brand-text); }
+      a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"راهنمای پاسخ‌بان: از نصب تا اولین پاسخ","inLanguage":"fa-IR","description":"راهنمای نصب، تنظیمات، کانال‌های اعلان و عیب‌یابی افزونه‌ی پاسخ‌بان برای وردپرس.","author":{"@type":"Organization","name":"اتحاد وردپرس"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"صفحه‌ی محصول","item":"https://etehadwp.com/pasokhban/"},{"@type":"ListItem","position":2,"name":"راهنمای کامل","item":"https://etehadwp.com/pasokhban/guide.html"}]}]}
+    </script>
+  </head>
+  <body>
+    <header class="g-header">
+      <div class="container g-header__in">
+        <a class="g-brand" href="./index.html">
+          <img src="./pasokhban-mark.svg" alt="" width="34" height="34" />
+          <span>پاسخ‌بان<small>راهنمای رسمی افزونه</small></span>
+        </a>
+        <nav class="g-nav" aria-label="فهرست راهنما">
+          <a href="#start">شروع سریع</a>
+          <a href="#settings">تنظیمات</a>
+          <a href="#channels">کانال‌ها</a>
+          <a href="#trouble">عیب‌یابی</a>
+          <a href="#reference">مرجع مسیرها</a>
+        </nav>
+        <a class="btn btn--ghost btn--sm" href="./index.html">صفحه‌ی محصول</a>
+        <a class="btn btn--primary btn--sm" href="https://www.rtl-theme.com/" target="_blank" rel="noopener" data-cta="purchase">خرید از راست‌چین</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="g-hero">
+        <div class="container g-hero__grid">
+          <div>
+            <span class="section__eyebrow">راهنمای فارسی پاسخ‌بان</span>
+            <h1>از نصب تا اولین پاسخ، <span class="hl">قدم‌به‌قدم کنار شما.</span></h1>
+            <p class="g-hero__lead">این راهنما همه‌ی بخش‌های پاسخ‌بان را با مسیر دقیق منو، توضیح ساده، نمونه‌ی تنظیم و چک‌لیست آزمون پوشش می‌دهد؛ لازم نیست چیزی را حدس بزنید. همین محتوا در نسخه‌ی PDF هم هست.</p>
+            <ul class="g-chips">
+              <li>مناسب مبتدی تا حرفه‌ای</li>
+              <li>راه‌اندازی پایه: حدود ۱۰ دقیقه</li>
+              <li>بدون حذف اطلاعات در غیرفعال‌سازی</li>
+            </ul>
+            <div class="g-actions">
+              <a class="btn btn--primary" href="#start">شروع از فصل ۰۱</a>
+              <a class="btn btn--ghost" href="./pasokhban-guide-fa.pdf" download>دانلود نسخه‌ی PDF</a>
+            </div>
+          </div>
+          <figure class="g-hero__banner">
+            <img src="./assets/banner-square.webp" alt="پاسخ‌بان؛ پشتیبانی هوشمند برای وردپرس، پاسخ بر پایه‌ی دانش سایت با امکان واگذاری به اپراتور انسانی" width="1000" height="1000" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <div class="container g-shell">
+        <aside class="g-toc" aria-label="فهرست فصل‌های راهنما">
+          <h2>فهرست راهنما</h2>
+          <ol>
+            <li><a href="#start">۰۱ · نصب و راه‌اندازی اولیه</a></li>
+            <li><a href="#settings">۰۲ · تنظیمات، تب‌به‌تب</a></li>
+            <li><a href="#channels">۰۳ · کانال‌های اعلان</a></li>
+            <li><a href="#daily">۰۴ · گفتگوها، مخاطبین و آمار</a></li>
+            <li><a href="#trouble">۰۵ · عیب‌یابی استاندارد</a></li>
+            <li><a href="#checklist">۰۶ · چک‌لیست انتشار</a></li>
+            <li><a href="#reference">۰۷ · جدول مرجع مسیرها</a></li>
+          </ol>
+          <div class="g-toc__dl">
+            <a class="btn btn--light btn--sm" href="./pasokhban-guide-fa.pdf" download>دانلود PDF راهنما</a>
+            <a class="btn btn--light btn--sm" href="./google-relay.gs" download>دانلود فایل رله‌ی گوگل</a>
+            <a class="btn btn--light btn--sm" href="./index.html">بازگشت به صفحه‌ی محصول</a>
+          </div>
+        </aside>
+
+        <article>
+          <section class="g-sec" id="start">
+            <div class="g-sec__head">
+              <span class="g-sec__num">فصل ۰۱</span>
+              <h2>نصب و راه‌اندازی اولیه</h2>
+              <p>چهار گام تا اولین پاسخ. ترتیب را رعایت کنید؛ هر گام پیش‌نیاز گام بعدی است.</p>
+            </div>
+            <div class="g-grid">
+              <div class="g-card"><span class="g-step__no">گام ۱</span><h3>بارگذاری فایل افزونه</h3><p>فایل ZIP افزونه را از پیشخوان نصب کنید.</p><span class="g-path"><span>پیشخوان</span><span class="g-path__sep">←</span><span>افزونه‌ها</span><span class="g-path__sep">←</span><span>افزودن</span><span class="g-path__sep">←</span><span>بارگذاری افزونه</span></span></div>
+              <div class="g-card"><span class="g-step__no">گام ۲</span><h3>فعال‌سازی افزونه</h3><p>پس از نصب، فعال‌سازی را بزنید تا منوی پاسخ‌بان در پیشخوان ظاهر شود.</p><span class="g-path"><span>افزونه‌ها</span><span class="g-path__sep">←</span><span>فعال‌سازی</span></span></div>
+              <div class="g-card"><span class="g-step__no">گام ۳</span><h3>تنظیم اتصال هوش مصنوعی</h3><p>سرویس‌دهنده و مدل را انتخاب، کلید API را ذخیره و اتصال را آزمایش کنید.</p><span class="g-path"><span>تنظیمات</span><span class="g-path__sep">←</span><span>اتصال</span><span class="g-path__sep">←</span><span>آزمایش اتصال</span></span></div>
+              <div class="g-card"><span class="g-step__no">گام ۴</span><h3>فعال‌کردن چت آنلاین</h3><p>ویجت را فعال کنید و یک مکالمه‌ی آزمایشی روی سایت بسازید.</p><span class="g-path"><span>چت آنلاین</span><span class="g-path__sep">←</span><span>فعال‌سازی ویجت</span></span></div>
+            </div>
+            <div class="g-notice"><strong>نکته‌ی مهم درباره‌ی داده‌ها:</strong> غیرفعال‌کردن افزونه تنظیمات، مکالمات و جدول‌های دیتابیس را حذف نمی‌کند. حذف داده‌ها فقط با حذف کامل افزونه انجام می‌شود.</div>
+          </section>
+
+          <section class="g-sec" id="settings">
+            <div class="g-sec__head">
+              <span class="g-sec__num">فصل ۰۲</span>
+              <h2>تنظیمات، تب‌به‌تب</h2>
+              <p>هر تب یک بخش از رفتار پاسخ‌بان را کنترل می‌کند. مسیر دقیق هر بخش زیر عنوان آمده است.</p>
+            </div>
+            <div class="g-grid">
+              <div class="g-card"><h3>عمومی</h3><p>زبان رابط، تقویم شمسی، نمایش ارقام فارسی، فعال‌سازی ویجت و خروجی‌گرفتن یا بازگردانی تنظیمات.</p><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>تنظیمات</span><span class="g-path__sep">←</span><span>عمومی</span></span></div>
+              <div class="g-card"><h3>اتصال هوش مصنوعی</h3><p>سرویس‌دهنده، کلید <span class="ltr">API</span>، نشانی پایه، مدل، دستور سیستم، تعداد توکن و میزان خلاقیت را تعیین کنید. بعد از هر تغییر ابتدا ذخیره و سپس آزمایش اتصال را اجرا کنید. سرویس‌های پشتیبانی‌شده: گپ‌جی‌پی‌تی (پیش‌فرض)، <span class="ltr">OpenAI</span>، <span class="ltr">Google Gemini</span>، <span class="ltr">Anthropic Claude</span> و هر سرویس سازگار با قالب <span class="ltr">OpenAI</span>.</p><span class="g-path"><span>اتصال</span><span class="g-path__sep">←</span><span>انتخاب سرویس</span><span class="g-path__sep">←</span><span>ذخیره</span><span class="g-path__sep">←</span><span>آزمایش اتصال</span></span></div>
+              <div class="g-card"><h3>دستیار و دانش سایت</h3><p>پاسخ بر اساس محتوای سایت را فعال کنید. برای دقت بیشتر، پرس‌وجوی معنایی را روشن کنید، مدل و ابعاد جای‌گذاری را انتخاب کنید و ساخت ایندکس را اجرا کنید.</p><span class="g-path"><span>دستیار و دانش</span><span class="g-path__sep">←</span><span>ساخت / به‌روزرسانی ایندکس</span></span></div>
+              <div class="g-card"><h3>چت آنلاین</h3><p>عنوان، نام اپراتور، پیام خوش‌آمد، متن جای‌نگهدار، فرم پیش از گفتگو، ارسال فایل، پیام صوتی، تاریخچه و حالت انسان را تنظیم کنید.</p><span class="g-path"><span>چت آنلاین</span><span class="g-path__sep">←</span><span>ذخیره</span><span class="g-path__sep">←</span><span>تست از سایت</span></span></div>
+              <div class="g-card"><h3>ظاهر</h3><p>حالت چت یا مغز، رنگ، جای حباب، عرض و ارتفاع پنل، گردی گوشه‌ها، شفافیت، تم روشن یا تاریک و پابرگ را کنترل کنید.</p><span class="g-path"><span>ظاهر</span><span class="g-path__sep">←</span><span>پیش‌نمایش دسکتاپ و موبایل</span></span></div>
+              <div class="g-card"><h3>تیم و ساعت کاری</h3><p>اپراتور پاسخ‌بان، واگذاری نوبتی، محدودکردن تعداد مکالمات هر اپراتور، روزها، ساعت شروع و پایان و رفتار هوش مصنوعی بیرون از ساعت کاری.</p><span class="g-path"><span>تیم</span><span class="g-path__sep">←</span><span>ساخت نقش و آزمایش واگذاری</span></span></div>
+              <div class="g-card"><h3>ووکامرس</h3><p>ایندکس محصول، قیمت، موجودی و استعلام امن سفارش را فعال کنید. اطلاعات سفارش فقط بعد از احراز هویت مشتری نمایش داده می‌شود.</p><span class="g-path"><span>دستیار و دانش</span><span class="g-path__sep">←</span><span>ووکامرس</span></span></div>
+              <div class="g-card"><h3>امنیت و داده</h3><p>محدودیت نرخ درخواست، مدت نگهداری مکالمات، نوع فایل مجاز و سیاست پاک‌سازی را تنظیم کنید. فایل‌های <span class="ltr">SVG</span> و اجرایی مجاز نیستند.</p><span class="g-path"><span>امنیت و داده</span><span class="g-path__sep">←</span><span>محدودیت و نگهداری</span></span></div>
+            </div>
+          </section>
+
+          <section class="g-sec" id="channels">
+            <div class="g-sec__head">
+              <span class="g-sec__num">فصل ۰۳</span>
+              <h2>کانال‌های اعلان</h2>
+              <p>هر کانال را می‌توانید جداگانه فعال کنید. برای همه‌ی کانال‌ها، ابتدا تنظیمات را ذخیره و سپس آزمون بگیرید.</p>
+            </div>
+
+            <div class="g-block">
+              <h3>تلگرام مستقیم</h3>
+              <ol class="g-steps">
+                <li>در <span class="ltr">BotFather</span> ربات بسازید و توکن را بگیرید.</li>
+                <li>ربات را به گروه اضافه کنید و دسترسی لازم را بدهید.</li>
+                <li>توکن و شناسه‌ی گفتگو (<span class="ltr">Chat ID</span>) را در تب اعلان‌ها وارد کنید.</li>
+                <li>ذخیره کنید و تست اتصال را اجرا کنید.</li>
+              </ol>
+              <p><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>تنظیمات</span><span class="g-path__sep">←</span><span>اعلان‌ها</span><span class="g-path__sep">←</span><span>تلگرام</span></span></p>
+            </div>
+
+            <div class="g-block">
+              <h3>رله‌ی گوگل برای تلگرام</h3>
+              <p class="g-prose">سرورهای ایران معمولاً به <span class="g-code-inline ltr">api.telegram.org</span> دسترسی ندارند؛ رله‌ی گوگل این پیام‌ها را از مسیر در دسترس عبور می‌دهد. وردپرس پیام را به اسکریپت گوگل می‌فرستد و اسکریپت آن را به تلگرام می‌رساند.</p>
+              <ol class="g-steps">
+                <li>در <span class="ltr">script.google.com</span> یک پروژه‌ی جدید بسازید.</li>
+                <li>کل محتوای فایل <span class="g-code-inline ltr">google-relay.gs</span> همراه افزونه را جای کد پیش‌فرض بگذارید.</li>
+                <li>مقدار <span class="g-code-inline ltr">SECRET</span> را با یک رشته‌ی تصادفی بلند عوض کنید.</li>
+                <li>از مسیر <span class="ltr">Deploy</span> گزینه‌ی <span class="ltr">New deployment</span> و نوع <span class="ltr">Web app</span> را انتخاب کنید.</li>
+                <li><span class="ltr">Execute as</span> را روی <span class="ltr">Me</span> و <span class="ltr">Who has access</span> را روی <span class="ltr">Anyone</span> بگذارید و دسترسی‌ها را تأیید کنید.</li>
+                <li>آدرس پایان‌یافته با <span class="g-code-inline ltr">/exec</span> را در تنظیمات وردپرس و در بخش «اعلان‌ها، رله‌ی گوگل» وارد کنید.</li>
+                <li>همان <span class="g-code-inline ltr">SECRET</span> را در وردپرس هم وارد کنید.</li>
+                <li>پس از هر تغییر در کد، در اسکریپت گوگل از مسیر <span class="ltr">Manage deployments ← Edit ← New version</span> نسخه‌ی جدید بسازید.</li>
+              </ol>
+              <div class="g-code">
+                <pre><code id="relay-code">/**
+ * رلهٔ تلگرام پاسخ‌بان — Google Apps Script
+ *
+ * چرا لازم است:
+ *   سرورهای ایران به api.telegram.org دسترسی ندارند، ولی گوگل در دسترس است
+ *   و سرور گوگل می‌تواند به تلگرام برسد. پلاگین پیام را به این اسکریپت
+ *   می‌فرستد و این اسکریپت آن را به تلگرام می‌رساند.
+ *
+ * ─── راهنمای نصب ───
+ * ۱) برو به https://script.google.com و یک پروژهٔ جدید بساز.
+ * ۲) کل محتوای این فایل را جای کد پیش‌فرض بگذار و ذخیره کن.
+ * ۳) Deploy ← New deployment ← نوع: Web app
+ *      - Execute as:  Me
+ *      - Who has access:  Anyone
+ * ۴) دکمهٔ Authorize access را بزن و اجازه بده.
+ * ۵) آدرسی که می‌دهد (…/exec) را در پیشخوان وردپرس بگذار:
+ *      پاسخ‌بان ← تنظیمات ← تب «اعلان‌ها» ← «رلهٔ گوگل»
+ *
+ * ⚠ اگر بعداً این کد را تغییر دادی، باید Deploy ← Manage deployments ←
+ *   Edit ← Version: New version را بزنی وگرنه تغییرات اعمال نمی‌شوند.
+ *
+ * ─── امنیت ───
+ * این Web App برای همه باز است (چون وردپرس نمی‌تواند لاگین گوگل داشته باشد).
+ * برای اینکه غریبه‌ها نتوانند از آن سوءاستفاده کنند، یک «کلید مشترک» تعریف
+ * شده: SECRET را پایین عوض کن و همان را در وردپرس هم وارد کن.
+ */
+
+// ── این را عوض کن (یک رشتهٔ تصادفی بلند) ──
+var SECRET = 'پاسخ‌بان-کلید-خودت-را-اینجا-بگذار';
+
+function doPost(e) {
+  var p = readParams(e);
+
+  if (p.secret !== SECRET) {
+    return json({ ok: false, error: 'unauthorized' });
+  }
+
+  if (!p.token || !p.chat_id || !p.text) {
+    return json({ ok: false, error: 'missing token / chat_id / text' });
+  }
+
+  try {
+    var url = 'https://api.telegram.org/bot' + encodeURIComponent(p.token) + '/sendMessage';
+
+    var res = UrlFetchApp.fetch(url, {
+      method: 'post',
+      muteHttpExceptions: true,
+      payload: {
+        chat_id: p.chat_id,
+        text: p.text,
+        parse_mode: p.parse_mode || '',
+        disable_web_page_preview: true
+      }
+    });
+
+    var code = res.getResponseCode();
+    var body = res.getContentText();
+
+    if (code === 200) {
+      return json({ ok: true });
+    }
+
+    // خطای تلگرام را برگردان تا در وردپرس قابل دیباگ باشد
+    var parsed;
+    try { parsed = JSON.parse(body); } catch (err) { parsed = null; }
+
+    return json({
+      ok: false,
+      error: (parsed &amp;&amp; parsed.description) ? parsed.description : ('telegram http ' + code + ': ' + body.slice(0, 200))
+    });
+
+  } catch (err) {
+    return json({ ok: false, error: String(err) });
+  }
+}
+
+/**
+ * پشتیبانی از هر دو قالب: فرم (e.parameter) و JSON خام (e.postData.contents).
+ */
+function readParams(e) {
+  var out = { token: '', chat_id: '', text: '', parse_mode: '', secret: '' };
+
+  if (e &amp;&amp; e.parameter &amp;&amp; e.parameter.chat_id) {
+    out.token = e.parameter.token || '';
+    out.chat_id = e.parameter.chat_id || '';
+    out.text = e.parameter.text || '';
+    out.parse_mode = e.parameter.parse_mode || '';
+    out.secret = e.parameter.secret || '';
+    return out;
+  }
+
+  if (e &amp;&amp; e.postData &amp;&amp; e.postData.contents) {
+    var raw = e.postData.contents;
+    var data = null;
+    try { data = JSON.parse(raw); } catch (err) { data = null; }
+
+    if (data) {
+      out.token = data.token || '';
+      out.chat_id = data.chat_id || '';
+      out.text = data.text || '';
+      out.parse_mode = data.parse_mode || '';
+      out.secret = data.secret || '';
+      return out;
+    }
+
+    // فرم urlencoded خام
+    var pairs = raw.split('&amp;');
+    for (var i = 0; i &lt; pairs.length; i++) {
+      var kv = pairs[i].split('=');
+      if (kv.length &lt; 2) continue;
+      var k = decodeURIComponent(kv[0]);
+      var v = decodeURIComponent(kv.slice(1).join('=').replace(/\+/g, ' '));
+      if (k === 'token') out.token = v;
+      if (k === 'chat_id') out.chat_id = v;
+      if (k === 'text') out.text = v;
+      if (k === 'parse_mode') out.parse_mode = v;
+      if (k === 'secret') out.secret = v;
+    }
+  }
+
+  return out;
+}
+
+/** برای تست دستی در مرورگر. */
+function doGet(e) {
+  return json({ ok: true, message: 'Pasokhban Telegram relay is running.' });
+}
+
+function json(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}</code></pre>
+                <button class="g-copy" type="button" data-copy="#relay-code">کپی کل کد</button>
+              </div>
+              <p style="margin-top:14px"><a class="btn btn--light btn--sm" href="./google-relay.gs" download>دانلود فایل google-relay.gs</a></p>
+              <div class="g-notice g-notice--warn"><strong>دو اشتباه رایج:</strong> اول، گذاشتن آدرسی که به <span class="g-code-inline ltr">/exec</span> ختم نمی‌شود. دوم، تغییر کد بدون ساخت نسخه‌ی جدید؛ در این حالت تغییرات روی آدرس فعلی اعمال نمی‌شود.</div>
+            </div>
+
+            <div class="g-block">
+              <h3>کانال بله</h3>
+              <ol class="g-steps">
+                <li>توکن ربات بله و شناسه‌ی گفتگو را وارد کنید.</li>
+                <li>اعلان یک‌طرفه یا پاسخ دوطرفه‌ی اپراتور را انتخاب کنید.</li>
+                <li>سایت باید روی <span class="ltr">HTTPS</span> عمومی در دسترس باشد.</li>
+                <li>ثبت <span class="ltr">webhook</span> را اجرا و نتیجه را آزمون کنید.</li>
+              </ol>
+              <p><span class="g-path"><span>اعلان‌ها</span><span class="g-path__sep">←</span><span>بله</span><span class="g-path__sep">←</span><span>ثبت webhook</span></span></p>
+            </div>
+
+            <div class="g-block">
+              <h3>پیامک و ایمیل</h3>
+              <ol class="g-steps">
+                <li>ارائه‌دهنده‌ی پیامک را انتخاب کنید: کاوه‌نگار، ملی‌پیامک یا <span class="ltr">SMS.ir</span>.</li>
+                <li>کلید <span class="ltr">API</span>، شماره‌ی فرستنده و شماره‌ی مدیر را وارد کنید.</li>
+                <li>اعلان مدیر و بازدیدکننده را جداگانه فعال کنید.</li>
+                <li>فاصله‌ی زمانی اعلان‌ها را برای جلوگیری از ارسال تکراری تعیین کنید.</li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="g-sec" id="daily">
+            <div class="g-sec__head">
+              <span class="g-sec__num">فصل ۰۴</span>
+              <h2>گفتگوها، مخاطبین و آمار</h2>
+              <p>سه بخشی که هر روز با آن‌ها کار می‌کنید، همه داخل پیشخوان وردپرس.</p>
+            </div>
+            <div class="g-grid">
+              <div class="g-card"><h3>گفتگوها</h3><p>مکالمات را جست‌وجو کنید، وضعیت خوانده‌نشده را ببینید، پاسخ دستی بدهید، مکالمه را واگذار کنید و از پیشنهاد پاسخ یا خلاصه‌ی مکالمه کمک بگیرید.</p></div>
+              <div class="g-card"><h3>مخاطبین</h3><p>نام، تلفن، ایمیل و سابقه‌ی مکالمه‌ی مشتریان را یک‌جا نگه دارید تا در گفتگوی بعدی لازم نباشد دوباره توضیح بدهند.</p></div>
+              <div class="g-card"><h3>آمار</h3><p>روند مکالمات، زمان پاسخ و وضعیت پاسخ‌گویی را برای تصمیم‌گیری بهتر بررسی کنید؛ مثلاً بفهمید بیشترین پرسش‌ها مربوط به کدام بخش محصول است.</p></div>
+              <div class="g-card"><h3>بررسی سلامت</h3><p>پیش از انتشار، همه‌ی آزمون‌های سلامت را اجرا کنید تا اتصال هوش مصنوعی، ایندکس، اعلان‌ها و <span class="ltr">webhook</span> یک‌بار بررسی شود.</p><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>بررسی سلامت</span><span class="g-path__sep">←</span><span>اجرای همه</span></span></div>
+            </div>
+          </section>
+
+          <section class="g-sec" id="trouble">
+            <div class="g-sec__head">
+              <span class="g-sec__num">فصل ۰۵</span>
+              <h2>عیب‌یابی استاندارد</h2>
+              <p>پنج مورد پرتکرار و کاری که واقعاً مشکل را حل می‌کند.</p>
+            </div>
+            <details class="g-faq" open><summary>تست اتصال هوش مصنوعی خطا می‌دهد</summary><div class="g-faq__body">کلید <span class="ltr">API</span>، نام مدل، نشانی پایه و دسترسی هاست به اینترنت را بررسی کنید. ابتدا تنظیمات را ذخیره کنید و بعد آزمایش اتصال را اجرا کنید؛ تغییرهای ذخیره‌نشده در آزمون اعمال نمی‌شوند.</div></details>
+            <details class="g-faq"><summary>ویجت روی سایت دیده نمی‌شود</summary><div class="g-faq__body">فعال‌بودن ویجت و چت آنلاین را بررسی کنید، کش سایت و <span class="ltr">CDN</span> را پاک کنید و با پنجره‌ی خصوصی مرورگر تست بگیرید. اگر ویجت فقط در بعضی برگه‌ها نمایش داده می‌شود، تنظیم نمایش را بازبینی کنید.</div></details>
+            <details class="g-faq"><summary>تلگرام پیام نمی‌فرستد</summary><div class="g-faq__body">توکن، شناسه‌ی گفتگو، عضویت ربات در گروه و یکسان‌بودن کلید مشترک را بررسی کنید. اگر سرور به تلگرام دسترسی ندارد، رله‌ی گوگل را فعال کنید و آدرسی که با <span class="g-code-inline ltr">/exec</span> تمام می‌شود را وارد کنید.</div></details>
+            <details class="g-faq"><summary>تغییرهای رله اعمال نمی‌شود</summary><div class="g-faq__body">در اسکریپت گوگل باید از مسیر <span class="ltr">Manage deployments</span> وارد <span class="ltr">Edit</span> شوید و <span class="ltr">Version: New version</span> را انتخاب کنید. بدون این کار، آدرس فعلی همان کد قدیمی را اجرا می‌کند.</div></details>
+            <details class="g-faq"><summary>تنظیمات ذخیره نمی‌شود</summary><div class="g-faq__body">با کاربر مدیرکل وارد شوید، کش را پاک کنید و مطمئن شوید افزونه دوباره حذف و نصب نشده است. پیش از تغییرات مهم، از دکمه‌ی خروجی تنظیمات پشتیبان بگیرید تا بازگردانی ساده باشد.</div></details>
+          </section>
+
+          <section class="g-sec" id="checklist">
+            <div class="g-sec__head">
+              <span class="g-sec__num">فصل ۰۶</span>
+              <h2>چک‌لیست انتشار</h2>
+              <p>این شش مورد را یک‌بار انجام دهید تا راه‌اندازی خیالتان را راحت کند.</p>
+            </div>
+            <ul class="g-check">
+              <li>آزمایش اتصال هوش مصنوعی موفق باشد.</li>
+              <li>ایندکس دانش سایت ساخته یا به‌روزرسانی شده باشد.</li>
+              <li>یک مکالمه‌ی آزمایشی روی موبایل و دسکتاپ انجام شده باشد.</li>
+              <li>اعلان کانال‌های فعال (تلگرام، بله، پیامک یا ایمیل) تست شده باشد.</li>
+              <li>ساعت کاری و واگذاری مکالمه آزمایش شده باشد.</li>
+              <li>خروجی تنظیمات (<span class="ltr">JSON</span>) برای پشتیبان‌گیری ذخیره شده باشد.</li>
+            </ul>
+          </section>
+
+          <section class="g-sec" id="reference">
+            <div class="g-sec__head">
+              <span class="g-sec__num">فصل ۰۷</span>
+              <h2>جدول مرجع مسیرها</h2>
+              <p>هر کار و مسیر دقیقش در پیشخوان؛ برای وقتی که می‌خواهید سریع به یک تنظیم برسید.</p>
+            </div>
+            <div class="g-tablewrap">
+              <table class="g-table">
+                <thead><tr><th>کاری که می‌خواهید انجام دهید</th><th>مسیر در پیشخوان وردپرس</th></tr></thead>
+                <tbody>
+                  <tr><td>نصب افزونه</td><td><span class="g-path"><span>پیشخوان</span><span class="g-path__sep">←</span><span>افزونه‌ها</span><span class="g-path__sep">←</span><span>بارگذاری افزونه</span></span></td></tr>
+                  <tr><td>تنظیم اتصال هوش مصنوعی</td><td><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>تنظیمات</span><span class="g-path__sep">←</span><span>اتصال</span></span></td></tr>
+                  <tr><td>ساخت دانش سایت</td><td><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>دستیار و دانش</span><span class="g-path__sep">←</span><span>ساخت ایندکس</span></span></td></tr>
+                  <tr><td>تنظیم ظاهر ویجت</td><td><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>ظاهر</span></span></td></tr>
+                  <tr><td>ساعت کاری و واگذاری</td><td><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>تیم</span></span></td></tr>
+                  <tr><td>اعلان تلگرام یا رله‌ی گوگل</td><td><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>تنظیمات</span><span class="g-path__sep">←</span><span>اعلان‌ها</span></span></td></tr>
+                  <tr><td>ثبت webhook بله</td><td><span class="g-path"><span>اعلان‌ها</span><span class="g-path__sep">←</span><span>بله</span><span class="g-path__sep">←</span><span>ثبت webhook</span></span></td></tr>
+                  <tr><td>آزمون کامل راه‌اندازی</td><td><span class="g-path"><span>پاسخ‌بان</span><span class="g-path__sep">←</span><span>بررسی سلامت</span><span class="g-path__sep">←</span><span>اجرای همه</span></span></td></tr>
+                  <tr><td>پشتیبان‌گیری از تنظیمات</td><td><span class="g-path"><span>تنظیمات</span><span class="g-path__sep">←</span><span>عمومی</span><span class="g-path__sep">←</span><span>خروجی تنظیمات</span></span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="g-notice g-notice--warn"><strong>حذف داده‌ها:</strong> غیرفعال‌سازی افزونه چیزی را حذف نمی‌کند؛ اگر می‌خواهید تنظیمات، مکالمات و جدول‌های دیتابیس پاک شوند، باید افزونه را کامل حذف کنید. پیش از آن خروجی تنظیمات را بگیرید.</div>
+          </section>
+
+          <div class="g-cta">
+            <div>
+              <h2>هنوز پاسخ‌بان را نگرفته‌اید؟</h2>
+              <p>خرید افزونه فقط از صفحه‌ی فروش رسمی پاسخ‌بان در راست‌چین انجام می‌شود؛ قیمت به‌روز و شرایط لایسنس همان‌جاست.</p>
+            </div>
+            <div class="g-actions">
+              <a class="btn btn--primary" href="https://www.rtl-theme.com/" target="_blank" rel="noopener" data-cta="purchase">خرید از راست‌چین</a>
+              <a class="btn btn--ghost" href="./index.html">بازگشت به صفحه‌ی محصول</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="g-footer">
+      <div class="container g-footer__in">
+        <span>© <span id="g-year">۱۴۰۵</span> پاسخ‌بان · افزونه‌ی چت هوشمند و پشتیبانی انسانی برای وردپرس</span>
+        <span>
+          <a href="./index.html">صفحه‌ی محصول</a> ·
+          <a href="#start">شروع سریع</a> ·
+          <a href="./pasokhban-guide-fa.pdf" download>راهنمای PDF</a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var year = document.getElementById("g-year");
+        try {
+          var d = new Intl.DateTimeFormat("fa-IR", { year: "numeric" }).format(new Date()).replace(/[^۰-۹]/g, "");
+          if (d.length === 4) year.textContent = d;
+        } catch (e) {}
+        document.querySelectorAll("[data-copy]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var el = document.querySelector(btn.getAttribute("data-copy"));
+            if (!el) return;
+            var text = el.textContent;
+            function done() {
+              btn.textContent = "کپی شد ✓";
+              setTimeout(function () { btn.textContent = "کپی کل کد"; }, 2200);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(done).catch(function () { fallback(); });
+            } else { fallback(); }
+            function fallback() {
+              var ta = document.createElement("textarea");
+              ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+              document.body.appendChild(ta); ta.select();
+              try { document.execCommand("copy"); done(); } catch (e) {}
+              document.body.removeChild(ta);
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
