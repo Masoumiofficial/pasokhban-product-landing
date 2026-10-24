@@ -3,7 +3,7 @@
  * Plugin Name:       گپینه | لندینگ و راهنما
  * Plugin URI:        https://etehadwp.com/gapineh/
  * Description:       لندینگ و راهنمای گپینه را روی آدرس /gapineh/ سایت منتشر می‌کند. شامل شورت‌کد [gapineh] (و [gapineh_landing]) برای نمایش داخل برگه‌های المنتور و دو قالب برگهٔ تمام‌صفحه (لندینگ و راهنما).
- * Version:           1.2.0
+ * Version:           1.3.0
  * Author:            etehadwp.com
  * License:           GPL-2.0-or-later
  * Text Domain:       gapineh-landing
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GAPINEH_LANDING_VERSION', '1.2.0');
+define('GAPINEH_LANDING_VERSION', '1.3.0');
 define('GAPINEH_LANDING_DIR', plugin_dir_path(__FILE__));
 define('GAPINEH_APP_DIR', GAPINEH_LANDING_DIR . 'app/');
 define('GAPINEH_APP_SLUG', 'gapineh');
@@ -132,6 +132,29 @@ add_action('template_redirect', function () {
     }
 }, 0);
 
+/*
+ * یک لندینگ اصلی: برگه‌های تکراری (مثلاً برگهٔ المنتوری قبلی با نامک
+ * gapineh-landing) با ریدایرکت دائمی 301 به /gapineh/ می‌روند تا فقط
+ * یک صفحهٔ لندینگ داشته باشید. از تنظیمات ← لندینگ گپینه قابل خاموش‌کردن است.
+ */
+add_action('template_redirect', function () {
+    if (is_admin()) {
+        return;
+    }
+    if ((string) get_option('gapineh_landing_redirect_dup', '1') !== '1') {
+        return;
+    }
+    $request = isset($GLOBALS['wp']->request) ? trim((string) $GLOBALS['wp']->request, '/') : '';
+    if ($request === '' || $request === GAPINEH_APP_SLUG) {
+        return;
+    }
+    $slugs = preg_split('/[\s,]+/', (string) get_option('gapineh_landing_duplicate_slugs', 'gapineh-landing'), -1, PREG_SPLIT_NO_EMPTY);
+    if ($slugs && in_array($request, $slugs, true)) {
+        wp_safe_redirect(home_url('/' . GAPINEH_APP_SLUG . '/'), 301);
+        exit;
+    }
+}, 1);
+
 /* -------------------------------------------------------------------------
  * ۲) رندر مستقیم در قالب برگه (بدون آی‌فریم) — برای قالب‌های تمام‌صفحه
  * ---------------------------------------------------------------------- */
@@ -218,6 +241,13 @@ function gapineh_landing_inject_site_hooks($html) {
         $html = str_replace('</body>', $foot . "
 </body>", $html);
     }
+    // استایل‌های سایت/ویجت‌ها نباید فونت طراحی لندینگ (وزیرمتن) را عوض کنند.
+    $guard = '<style id="gapineh-landing-font-guard">'
+        . 'html body,html body h1,html body h2,html body h3,html body h4,html body button,html body input,html body select,html body textarea'
+        . '{font-family:\'Vazirmatn Variable\',Vazirmatn,Tahoma,system-ui,sans-serif;}'
+        . 'html body h1,html body h2{font-weight:800;}html body h3,html body h4{font-weight:700;}'
+        . '</style>';
+    $html = str_replace('</body>', $guard . "\n</body>", $html);
     return $html;
 }
 
@@ -302,9 +332,14 @@ function gapineh_landing_admin_page() {
             $new_mode = 'footer';
         }
         update_option('gapineh_landing_hooks', $new_mode);
-        echo '<div class="notice notice-success"><p>تنظیم نمایش ویجت‌ها ذخیره شد.</p></div>';
+        update_option('gapineh_landing_redirect_dup', isset($_POST['gapineh_redirect_dup']) ? '1' : '0');
+        $slugs_in = isset($_POST['gapineh_duplicate_slugs']) ? sanitize_text_field(wp_unslash($_POST['gapineh_duplicate_slugs'])) : 'gapineh-landing'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        update_option('gapineh_landing_duplicate_slugs', $slugs_in);
+        echo '<div class="notice notice-success"><p>تنظیمات ذخیره شد.</p></div>';
     }
     $hooks_mode = gapineh_landing_hooks_mode();
+    $redirect_dup = (string) get_option('gapineh_landing_redirect_dup', '1');
+    $duplicate_slugs = (string) get_option('gapineh_landing_duplicate_slugs', 'gapineh-landing');
     ?>
     <div class="wrap">
         <h1>لندینگ گپینه</h1>
@@ -324,7 +359,11 @@ function gapineh_landing_admin_page() {
             <label><input type="radio" name="gapineh_hooks" value="footer" <?php checked($hooks_mode, 'footer'); ?>> <strong>فقط فوتر (پیشنهادی)</strong> — اسکریپت‌ها و ویجت‌هایی که در فوتر سایت لود می‌شوند</label><br>
             <label><input type="radio" name="gapineh_hooks" value="head_footer" <?php checked($hooks_mode, 'head_footer'); ?>> <strong>هدر و فوتر کامل</strong> — اگر ویجت با حالت قبل نیامد (استایل‌های بیشتری از سایت لود می‌شود)</label><br>
             <label><input type="radio" name="gapineh_hooks" value="off" <?php checked($hooks_mode, 'off'); ?>> <strong>خاموش</strong> — لندینگ کاملاً مستقل، بدون هیچ ابزار سراسری</label>
-            <p><button class="button button-primary" name="gapineh_hooks_save" value="1">ذخیرهٔ تنظیم</button></p>
+            <hr>
+            <p><strong>یک صفحهٔ لندینگ اصلی:</strong> برگه‌های تکراری (مثل برگهٔ المنتوری قبلی) به لندینگ اصلی <code><?php echo esc_html('/' . GAPINEH_APP_SLUG . '/'); ?></code> ریدایرکت شوند تا فقط یک لندینگ داشته باشید و لینک‌های قدیمی هم خراب نشوند.</p>
+            <label><input type="checkbox" name="gapineh_redirect_dup" value="1" <?php checked($redirect_dup, '1'); ?>> ریدایرکت دائمی (301) برگه‌های تکراری به لندینگ اصلی</label><br>
+            <label>نامک برگه‌های تکراری: <input type="text" name="gapineh_duplicate_slugs" value="<?php echo esc_attr($duplicate_slugs); ?>" style="width:280px" dir="ltr"></label> <span class="description">با فاصله یا ویرگول جدا کنید؛ مثلاً: gapineh-landing</span>
+            <p><button class="button button-primary" name="gapineh_hooks_save" value="1">ذخیرهٔ تنظیمات</button></p>
         </form>
         <?php if (is_dir(ABSPATH . GAPINEH_APP_SLUG)) : ?>
         <div class="notice notice-warning inline"><p>⚠️ پوشه‌ای به نام <code>gapineh</code> در ریشهٔ هاست (public_html) وجود دارد و روی نشانی <code>/gapineh/</code> بر افزونه اولویت می‌گیرد. اگر داخلش ناقص است (مثلاً فقط index.html بدون پوشهٔ assets)، صفحه خطای «کامل بارگذاری نشد» می‌دهد. یا محتویات کامل بسته را همان‌جا بریزید، یا پوشه را حذف/تغییرنام دهید تا افزونه خودش صفحه را سرو کند.</p></div>
