@@ -3,7 +3,7 @@
  * Plugin Name:       گپینه | لندینگ و راهنما
  * Plugin URI:        https://etehadwp.com/gapineh/
  * Description:       لندینگ و راهنمای گپینه را روی آدرس /gapineh/ سایت منتشر می‌کند. شامل شورت‌کد [gapineh] (و [gapineh_landing]) برای نمایش داخل برگه‌های المنتور و دو قالب برگهٔ تمام‌صفحه (لندینگ و راهنما).
- * Version:           1.1.0
+ * Version:           1.2.0
  * Author:            etehadwp.com
  * License:           GPL-2.0-or-later
  * Text Domain:       gapineh-landing
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GAPINEH_LANDING_VERSION', '1.1.0');
+define('GAPINEH_LANDING_VERSION', '1.2.0');
 define('GAPINEH_LANDING_DIR', plugin_dir_path(__FILE__));
 define('GAPINEH_APP_DIR', GAPINEH_LANDING_DIR . 'app/');
 define('GAPINEH_APP_SLUG', 'gapineh');
@@ -98,12 +98,30 @@ function gapineh_landing_serve($raw_path) {
 
     status_header(200);
     header('Content-Type: ' . $mimes[$ext]);
-    header('Content-Length: ' . filesize($file));
     if ($ext === 'html') {
         header('Cache-Control: no-cache');
-    } else {
-        header('Cache-Control: public, max-age=604800');
+        $html = gapineh_landing_inject_site_hooks(file_get_contents($file));
+        header('Content-Length: ' . strlen($html));
+        echo $html;
+        exit;
     }
+    header('Cache-Control: public, max-age=604800');
+    $mtime = (int) filemtime($file);
+    $etag = '"' . md5($file . '|' . $mtime . '|' . filesize($file)) . '"';
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT');
+    header('ETag: ' . $etag);
+    $not_modified = false;
+    if (!empty($_SERVER['HTTP_IF_NONE_MATCH']) && trim((string) $_SERVER['HTTP_IF_NONE_MATCH']) === $etag) {
+        $not_modified = true;
+    }
+    if (!$not_modified && !empty($_SERVER['HTTP_IF_MODIFIED_SINCE']) && strtotime((string) $_SERVER['HTTP_IF_MODIFIED_SINCE']) >= $mtime) {
+        $not_modified = true;
+    }
+    if ($not_modified) {
+        status_header(304);
+        exit;
+    }
+    header('Content-Length: ' . filesize($file));
     readfile($file);
     exit;
 }
@@ -138,6 +156,7 @@ function gapineh_landing_render($file) {
         }
     }
 
+    $html = gapineh_landing_inject_site_hooks($html);
     status_header(200);
     header('Content-Type: text/html; charset=utf-8');
     echo $html;
@@ -162,6 +181,45 @@ add_filter('template_include', function ($template) {
     }
     return $template;
 });
+
+/* -------------------------------------------------------------------------
+ * ۲.۵) تزریق هوک‌های وردپرس روی خروجی لندینگ
+ * تا ویجت‌های سراسری سایت (مثل چت گپینه) روی صفحات لندینگ هم دیده شوند.
+ * حالت پیش‌فرض «footer» است و از تنظیمات ← لندینگ گپینه قابل تغییر است.
+ * ---------------------------------------------------------------------- */
+
+function gapineh_landing_hooks_mode() {
+    $mode = (string) get_option('gapineh_landing_hooks', 'footer');
+    return in_array($mode, array('off', 'footer', 'head_footer'), true) ? $mode : 'footer';
+}
+
+function gapineh_landing_inject_site_hooks($html) {
+    $mode = gapineh_landing_hooks_mode();
+    if ($mode === 'off') {
+        return $html;
+    }
+    if (!did_action('wp_enqueue_scripts')) {
+        do_action('wp_enqueue_scripts');
+    }
+    if ($mode === 'head_footer') {
+        ob_start();
+        wp_print_styles();
+        wp_print_head_scripts();
+        $head = ob_get_clean();
+        if (trim($head) !== '') {
+            $html = str_replace('</head>', $head . "
+</head>", $html);
+        }
+    }
+    ob_start();
+    wp_footer();
+    $foot = ob_get_clean();
+    if (trim($foot) !== '') {
+        $html = str_replace('</body>', $foot . "
+</body>", $html);
+    }
+    return $html;
+}
 
 /* -------------------------------------------------------------------------
  * ۳) شورت‌کد برای المنتور: [gapineh] و [gapineh_landing]
@@ -196,8 +254,18 @@ function gapineh_landing_shortcode($atts) {
         . '<iframe src="' . $url . '" title="لندینگ گپینه" loading="eager" allowfullscreen style="' . esc_attr($style) . '"></iframe>'
         . '</div>';
 }
-add_shortcode('gapineh', 'gapineh_landing_shortcode');
 add_shortcode('gapineh_landing', 'gapineh_landing_shortcode');
+
+/*
+ * شورت‌کد [gapineh] ذاتاً متعلق به ویجت چتِ افزونهٔ گپینه است؛ فقط وقتی آن را
+ * به لندینگ وصل می‌کنیم که افزونهٔ دیگری (مثل خودِ چت گپینه) قبلاً ثبتش نکرده
+ * باشد، تا تداخلی پیش نیاید و ویجت چت همه‌جا درست کار کند.
+ */
+add_action('init', function () {
+    if (!shortcode_exists('gapineh')) {
+        add_shortcode('gapineh', 'gapineh_landing_shortcode');
+    }
+}, 100);
 
 /* -------------------------------------------------------------------------
  * ۴) صفحهٔ راهنما در پیشخوان: تنظیمات ← لندینگ گپینه
@@ -228,6 +296,15 @@ function gapineh_landing_admin_page() {
     }
     $landing = home_url('/' . GAPINEH_APP_SLUG . '/');
     $guide   = home_url('/' . GAPINEH_APP_SLUG . '/guide/');
+    if (isset($_POST['gapineh_hooks_save']) && check_admin_referer('gapineh_landing_settings')) {
+        $new_mode = isset($_POST['gapineh_hooks']) ? sanitize_key(wp_unslash($_POST['gapineh_hooks'])) : 'footer'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+        if (!in_array($new_mode, array('off', 'footer', 'head_footer'), true)) {
+            $new_mode = 'footer';
+        }
+        update_option('gapineh_landing_hooks', $new_mode);
+        echo '<div class="notice notice-success"><p>تنظیم نمایش ویجت‌ها ذخیره شد.</p></div>';
+    }
+    $hooks_mode = gapineh_landing_hooks_mode();
     ?>
     <div class="wrap">
         <h1>لندینگ گپینه</h1>
@@ -239,6 +316,23 @@ function gapineh_landing_admin_page() {
                 <tr><td><strong>شورت‌کد المنتور</strong></td><td><input type="text" readonly value="[gapineh]" onclick="this.select()" style="width:260px"> <input type="text" readonly value="[gapineh_landing]" onclick="this.select()" style="width:260px"></td></tr>
             </tbody>
         </table>
+
+        <h2>نمایش ویجت چت و ابزارهای سراسری سایت روی صفحات لندینگ</h2>
+        <p>صفحات لندینگ (نشانی <code>/gapineh/</code> و قالب‌های تمام‌صفحه) جدا از قالب سایت رندر می‌شوند؛ برای اینکه ویجت چت گپینه و بقیهٔ ابزارهای سراسری روی آن‌ها هم دیده شوند، خروجی وردپرس به انتهای صفحه تزریق می‌شود:</p>
+        <form method="post">
+            <?php wp_nonce_field('gapineh_landing_settings'); ?>
+            <label><input type="radio" name="gapineh_hooks" value="footer" <?php checked($hooks_mode, 'footer'); ?>> <strong>فقط فوتر (پیشنهادی)</strong> — اسکریپت‌ها و ویجت‌هایی که در فوتر سایت لود می‌شوند</label><br>
+            <label><input type="radio" name="gapineh_hooks" value="head_footer" <?php checked($hooks_mode, 'head_footer'); ?>> <strong>هدر و فوتر کامل</strong> — اگر ویجت با حالت قبل نیامد (استایل‌های بیشتری از سایت لود می‌شود)</label><br>
+            <label><input type="radio" name="gapineh_hooks" value="off" <?php checked($hooks_mode, 'off'); ?>> <strong>خاموش</strong> — لندینگ کاملاً مستقل، بدون هیچ ابزار سراسری</label>
+            <p><button class="button button-primary" name="gapineh_hooks_save" value="1">ذخیرهٔ تنظیم</button></p>
+        </form>
+        <?php if (is_dir(ABSPATH . GAPINEH_APP_SLUG)) : ?>
+        <div class="notice notice-warning inline"><p>⚠️ پوشه‌ای به نام <code>gapineh</code> در ریشهٔ هاست (public_html) وجود دارد و روی نشانی <code>/gapineh/</code> بر افزونه اولویت می‌گیرد. اگر داخلش ناقص است (مثلاً فقط index.html بدون پوشهٔ assets)، صفحه خطای «کامل بارگذاری نشد» می‌دهد. یا محتویات کامل بسته را همان‌جا بریزید، یا پوشه را حذف/تغییرنام دهید تا افزونه خودش صفحه را سرو کند.</p></div>
+        <?php endif; ?>
+        <?php global $shortcode_tags; if (!empty($shortcode_tags['gapineh']) && $shortcode_tags['gapineh'] !== 'gapineh_landing_shortcode') : ?>
+        <div class="notice notice-info inline"><p>ℹ️ شورت‌کد <code>[gapineh]</code> روی این سایت توسط افزونهٔ چت گپینه برای <strong>ویجت گفتگو</strong> ثبت شده و دست نخورده باقی می‌ماند؛ برای نمایش لندینگ داخل المنتور از <code>[gapineh_landing]</code> استفاده کنید.</p></div>
+        <?php endif; ?>
+        <p>عیب‌یابی سریع: اگر پیام «صفحه کامل بارگذاری نشد» دیدید، اول کش افزونهٔ کش و CDN (مثل ابر آروان) را کامل پاک کنید و با پنجرهٔ خصوصی دوباره باز کنید؛ این پیام فقط وقتی می‌آید که فایل جاوااسکریپت لندینگ واقعاً لود نشود.</p>
 
         <h2>نمایش داخل برگهٔ المنتور</h2>
         <ol style="line-height:2">

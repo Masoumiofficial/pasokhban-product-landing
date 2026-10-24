@@ -4,7 +4,7 @@ Tags: landing, elementor, gapineh, چت‌بات
 Requires at least: 5.8
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 
 لندینگ و راهنمای گپینه روی /gapineh/ + شورت‌کد [gapineh] برای المنتور.
@@ -15,7 +15,9 @@ License: GPLv2 or later
 
 * لندینگ: yoursite.com/gapineh/
 * راهنما: yoursite.com/gapineh/guide/
-* شورت‌کد [gapineh] برای نمایش لندینگ داخل برگه‌های المنتور (ابزارک کد کوتاه)؛ [gapineh_landing] هم پشتیبانی می‌شود
+* شورت‌کد [gapineh_landing] برای نمایش لندینگ داخل برگه‌های المنتور (ابزارک کد کوتاه)
+* شورت‌کد [gapineh] فقط وقتی به لندینگ وصل می‌شود که افزونهٔ چت گپینه آن را برای ویجت نگرفته باشد
+* تزریق قابل تنظیم هوک‌های وردپرس روی صفحات لندینگ تا ویجت چت روی لندینگ هم دیده شود
 * دو قالب برگهٔ تمام‌صفحه برای نمایش مستقیم بدون آی‌فریم
 
 راهنمای نصب کامل داخل فایل INSTALL.txt افزونه است.
