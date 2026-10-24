@@ -36,21 +36,11 @@
           var el = document.getElementById('boot-error');
           if (el) el.hidden = false;
         }
-        var bundleFailed = false;
         window.addEventListener('error', function (e) {
           var el = e && e.target;
-          if (el && el.tagName === 'SCRIPT' && el.src && el.src.indexOf('/assets/index-') !== -1) { bundleFailed = true; fail(); }
+          if (el && el.tagName === 'SCRIPT') fail();
         }, true);
-        window.addEventListener('load', function () {
-          var tries = 0;
-          (function check() {
-            if (d.getAttribute('data-app') === 'ready') return;
-            if (bundleFailed) { fail(); return; }
-            tries += 1;
-            if (tries >= 7) { fail(); return; }
-            setTimeout(check, 2500);
-          })();
-        });
+        window.addEventListener('load', function () { setTimeout(fail, 4000); });
       })();
     </script>
     <style>

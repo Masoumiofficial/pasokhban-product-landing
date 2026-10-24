@@ -3,7 +3,7 @@
  * Plugin Name:       گپینه | لندینگ و راهنما
  * Plugin URI:        https://etehadwp.com/gapineh/
  * Description:       لندینگ و راهنمای گپینه را روی آدرس /gapineh/ سایت منتشر می‌کند. شامل شورت‌کد [gapineh] (و [gapineh_landing]) برای نمایش داخل برگه‌های المنتور و دو قالب برگهٔ تمام‌صفحه (لندینگ و راهنما).
- * Version:           1.3.6
+ * Version:           1.3.7
  * Author:            etehadwp.com
  * License:           GPL-2.0-or-later
  * Text Domain:       gapineh-landing
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GAPINEH_LANDING_VERSION', '1.3.6');
+define('GAPINEH_LANDING_VERSION', '1.3.7');
 define('GAPINEH_LANDING_DIR', plugin_dir_path(__FILE__));
 define('GAPINEH_APP_DIR', GAPINEH_LANDING_DIR . 'app/');
 define('GAPINEH_APP_SLUG', 'gapineh');
