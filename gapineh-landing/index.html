@@ -37,17 +37,35 @@
           if (el) el.hidden = false;
         }
         var bundleFailed = false;
+        var retryUsed = false;
+        function retryBundle() {
+          var tag = document.querySelector('script[src*="/assets/index-"]');
+          if (!tag) { fail(); return; }
+          var src = tag.getAttribute('src');
+          var el = document.createElement('script');
+          el.src = src + (src.indexOf('?') === -1 ? '?' : '&') + 'gv=' + Date.now();
+          el.defer = true;
+          document.head.appendChild(el);
+        }
+        document.addEventListener('click', function (e) {
+          if (e && e.target && e.target.id === 'boot-retry') window.location.reload();
+        });
         window.addEventListener('error', function (e) {
           var el = e && e.target;
-          if (el && el.tagName === 'SCRIPT' && el.src && el.src.indexOf('/assets/index-') !== -1) { bundleFailed = true; fail(); }
+          if (el && el.tagName === 'SCRIPT' && el.src && el.src.indexOf('/assets/index-') !== -1) {
+            bundleFailed = true;
+            // یک بار با دورزدن کش دوباره تلاش کن؛ اگر باز هم نشد، خطا را نشان بده.
+            if (!retryUsed) { retryUsed = true; setTimeout(retryBundle, 800); }
+            else { fail(); }
+          }
         }, true);
         window.addEventListener('load', function () {
           var tries = 0;
           (function check() {
             if (d.getAttribute('data-app') === 'ready') return;
-            if (bundleFailed) { fail(); return; }
+            if (!document.getElementById('boot-error')) return;
             tries += 1;
-            if (tries >= 7) { fail(); return; }
+            if (tries >= 12) { fail(); return; }
             setTimeout(check, 2500);
           })();
         });
@@ -82,6 +100,7 @@
           <strong>صفحه کامل بارگذاری نشد.</strong>
           اگر مدیر این سایت هستید: به‌جای فایل‌های سورس پروژه (پوشه‌ی src و package.json)، محتویات خروجی بیلد را
           آپلود کنید؛ یعنی فایل index.html و پوشه‌ی assets از داخل فایل zip آماده.
+          <br><button type="button" id="boot-retry" style="margin-top:10px;padding:8px 22px;border-radius:10px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer">تلاش دوباره</button>
         </div>
       </div>
     </div>
