@@ -3083,3 +3083,35 @@ main,
   flex-wrap: wrap;
   gap: 12px;
 }
+
+
+/* ——— Mobile hardening: buy card stacking + anti-overflow (appended) ——— */
+@media (max-width: 640px) {
+  .buy-card {
+    padding: 20px;
+  }
+
+  .buy-card__actions {
+    width: 100%;
+  }
+
+  .buy-card__actions .btn {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .buy-banner {
+    margin-bottom: 20px;
+  }
+
+  .sim,
+  .chat-layout,
+  .ws,
+  .roi,
+  .buy-card,
+  .buy-card__copy,
+  .sim__panel,
+  .mock {
+    min-width: 0;
+  }
+}

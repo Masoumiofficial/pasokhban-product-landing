@@ -4,7 +4,7 @@ Tags: landing, elementor, gapineh, چت‌بات
 Requires at least: 5.8
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 
 لندینگ و راهنمای گپینه روی /gapineh/ + شورت‌کد [gapineh] برای المنتور.
