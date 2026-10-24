@@ -3,7 +3,7 @@
  * Plugin Name:       گپینه | لندینگ و راهنما
  * Plugin URI:        https://etehadwp.com/gapineh/
  * Description:       لندینگ و راهنمای گپینه را روی آدرس /gapineh/ سایت منتشر می‌کند. شامل شورت‌کد [gapineh] (و [gapineh_landing]) برای نمایش داخل برگه‌های المنتور و دو قالب برگهٔ تمام‌صفحه (لندینگ و راهنما).
- * Version:           1.3.3
+ * Version:           1.3.4
  * Author:            etehadwp.com
  * License:           GPL-2.0-or-later
  * Text Domain:       gapineh-landing
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GAPINEH_LANDING_VERSION', '1.3.3');
+define('GAPINEH_LANDING_VERSION', '1.3.4');
 define('GAPINEH_LANDING_DIR', plugin_dir_path(__FILE__));
 define('GAPINEH_APP_DIR', GAPINEH_LANDING_DIR . 'app/');
 define('GAPINEH_APP_SLUG', 'gapineh');
@@ -105,7 +105,7 @@ function gapineh_landing_serve($raw_path) {
         echo $html;
         exit;
     }
-    header('Cache-Control: public, max-age=604800');
+    header('Cache-Control: public, max-age=86400');
     $mtime = (int) filemtime($file);
     $etag = '"' . md5($file . '|' . $mtime . '|' . filesize($file)) . '"';
     header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT');
@@ -218,9 +218,7 @@ function gapineh_landing_hooks_mode() {
 
 function gapineh_landing_inject_site_hooks($html) {
     $mode = gapineh_landing_hooks_mode();
-    if ($mode === 'off') {
-        return $html;
-    }
+    if ($mode !== 'off') {
     if (!did_action('wp_enqueue_scripts')) {
         do_action('wp_enqueue_scripts');
     }
@@ -241,6 +239,7 @@ function gapineh_landing_inject_site_hooks($html) {
         $html = str_replace('</body>', $foot . "
 </body>", $html);
     }
+    }
     // استایل‌های سایت/ویجت‌ها نباید فونت و پالت رنگ طراحی لندینگ را عوض کنند:
     // همهٔ توکن‌های تم تیره/روشن و فونت وزیرمتن، بعد از خروجی وردپرس دوباره تثبیت می‌شوند
     // تا مثلاً تعریف دوبارهٔ --bg یا --text در قالب، حالت تیره را خراب نکند.
@@ -249,6 +248,13 @@ function gapineh_landing_inject_site_hooks($html) {
         . '[data-theme=\'light\']{--bg: #f4f7fb;--bg-2: #eaf0f7;--surface: #ffffff;--surface-2: #f3f6fa;--surface-3: #e8eef6;--border: #d6dfea;--border-strong: #b4c2d4;--footer-bg: #e6edf5;--header-bg: rgba(255, 255, 255, 0.9);--text-strong: #0b1324;--text: #1f2a3c;--text-muted: #46566c;--brand: #0e7490;--brand-hover: #155e75;--brand-text: #0a5c72;--on-brand: #ffffff;--brand-soft: rgba(14, 116, 144, 0.08);--brand-border: rgba(14, 116, 144, 0.4);--violet: #6d28d9;--violet-soft: rgba(109, 40, 217, 0.08);--success-text: #166534;--success-soft: rgba(22, 163, 74, 0.09);--success-border: rgba(22, 163, 74, 0.4);--warn-text: #8a3c0a;--warn-strong: #7c2d12;--warn-soft: rgba(217, 119, 6, 0.09);--warn-border: rgba(217, 119, 6, 0.45);--danger-text: #991b1b;--danger-soft: rgba(220, 38, 38, 0.07);--danger-border: rgba(220, 38, 38, 0.45);--info-text: #0c4a6e;--info-soft: rgba(2, 132, 199, 0.07);--info-border: rgba(2, 132, 199, 0.35);--focus: #0e7490;--hero-glow-1: rgba(14, 116, 144, 0.13);--hero-glow-2: rgba(109, 40, 217, 0.09);--grid-line: rgba(15, 23, 42, 0.05);--label-bg: rgba(255, 255, 255, 0.92);--label-border: #c3cfdd;--hl-from: #0e7490;--hl-to: #6d28d9;--shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 10px 26px -14px rgba(15, 23, 42, 0.18);--shadow-glow: 0 0 0 1px rgba(14, 116, 144, 0.28), 0 22px 50px -26px rgba(14, 116, 144, 0.4);color-scheme:light;}'
         . 'html{direction:rtl;}'
         . 'html body{direction:rtl;text-align:right;background:var(--bg);color:var(--text);}'
+        . 'html body h1,html body h2,html body h3,html body h4{color:var(--text-strong);}'
+        . 'html body a{color:var(--brand-text);}'
+        . 'html body .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:12px;border:1px solid transparent;font-weight:700;line-height:1.4;text-decoration:none;max-width:100%;box-sizing:border-box;}'
+        . 'html body .btn--primary{background:var(--brand);color:var(--on-brand);}'
+        . 'html body .btn--ghost{background:transparent;color:var(--text-strong);border-color:var(--border-strong);}'
+        . 'html body .buy-card__actions{display:flex;flex-wrap:wrap;gap:12px;min-width:0;max-width:100%;}'
+        . '@media (max-width:640px){html body .buy-card__actions{width:100%;}html body .buy-card__actions .btn{flex:1 1 100%;width:100%;white-space:normal;}}'
         . 'html body,html body h1,html body h2,html body h3,html body h4,html body button,html body input,html body select,html body textarea'
         . '{font-family:\'Vazirmatn Variable\',Vazirmatn,Tahoma,system-ui,sans-serif;}'
         . 'html body h1,html body h2{font-weight:800;}html body h3,html body h4{font-weight:700;}'
