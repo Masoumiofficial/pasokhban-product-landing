@@ -3,7 +3,7 @@
  * Plugin Name:       گپینه | لندینگ و راهنما
  * Plugin URI:        https://etehadwp.com/gapineh/
  * Description:       لندینگ و راهنمای گپینه را روی آدرس /gapineh/ سایت منتشر می‌کند. شامل شورت‌کد [gapineh] (و [gapineh_landing]) برای نمایش داخل برگه‌های المنتور و دو قالب برگهٔ تمام‌صفحه (لندینگ و راهنما).
- * Version:           1.3.8
+ * Version:           1.3.9
  * Author:            etehadwp.com
  * License:           GPL-2.0-or-later
  * Text Domain:       gapineh-landing
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GAPINEH_LANDING_VERSION', '1.3.8');
+define('GAPINEH_LANDING_VERSION', '1.3.9');
 define('GAPINEH_LANDING_DIR', plugin_dir_path(__FILE__));
 define('GAPINEH_APP_DIR', GAPINEH_LANDING_DIR . 'app/');
 define('GAPINEH_APP_SLUG', 'gapineh');
@@ -100,7 +100,7 @@ function gapineh_landing_serve($raw_path) {
     header('Content-Type: ' . $mimes[$ext]);
     if ($ext === 'html') {
         header('Cache-Control: no-cache');
-        $html = gapineh_landing_inject_site_hooks(file_get_contents($file));
+        $html = gapineh_landing_page_output(file_get_contents($file), $rel);
         header('Content-Length: ' . strlen($html));
         echo $html;
         exit;
@@ -141,7 +141,7 @@ function gapineh_landing_render($file) {
         }
     }
 
-    $html = gapineh_landing_inject_site_hooks($html);
+    $html = gapineh_landing_page_output($html, $file);
     status_header(200);
     header('Content-Type: text/html; charset=utf-8');
     echo $html;
@@ -178,7 +178,17 @@ function gapineh_landing_hooks_mode() {
     return in_array($mode, array('off', 'footer', 'head_footer'), true) ? $mode : 'footer';
 }
 
-function gapineh_landing_inject_site_hooks($html) {
+function gapineh_landing_is_inner() {
+    return isset($_GET['gapineh_inner']) && (string) $_GET['gapineh_inner'] === '1'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+}
+
+/*
+ * قاب بیرونی لندینگ: خود صفحهٔ گپینه داخل یک آی‌فریم هم‌مبدأ اجرا می‌شود تا
+ * هیچ استایل قالب یا افزونه‌ای به سند لندینگ نرسد و رنگ‌ها و چیدمانش دقیقاً
+ * مثل نسخهٔ مستقل بماند؛ خروجی هوک‌های وردپرس (ویجت چت و ابزارهای سراسری)
+ * در سند بیرونی می‌نشیند و روی قاب شناور می‌ماند.
+ */
+function gapineh_landing_shell($html, $inner_url) {
     $mode = gapineh_landing_hooks_mode();
     if ($mode === 'off') {
         return $html;
@@ -186,24 +196,51 @@ function gapineh_landing_inject_site_hooks($html) {
     if (!did_action('wp_enqueue_scripts')) {
         do_action('wp_enqueue_scripts');
     }
+    $head = '';
     if ($mode === 'head_footer') {
         ob_start();
         wp_print_styles();
         wp_print_head_scripts();
         $head = ob_get_clean();
-        if (trim($head) !== '') {
-            $html = str_replace('</head>', $head . "
-</head>", $html);
-        }
     }
     ob_start();
     wp_footer();
     $foot = ob_get_clean();
-    if (trim($foot) !== '') {
-        $html = str_replace('</body>', $foot . "
-</body>", $html);
+    $title = 'گپینه';
+    if (preg_match('/<title>(.*?)<\/title>/is', $html, $m) && trim($m[1]) !== '') {
+        $title = $m[1];
     }
-    return $html;
+    return '<!doctype html>' . "\n"
+        . '<html lang="fa" dir="rtl"><head><meta charset="utf-8">'
+        . '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        . '<title>' . $title . '</title>'
+        . '<style>html,body{margin:0;padding:0;height:100%;background:#0b1120}iframe{display:block;border:0;width:100%;height:100%}</style>'
+        . $head
+        . '</head><body>'
+        . '<iframe id="gapineh-frame" src="' . esc_url($inner_url) . '" title="گپینه" allowfullscreen></iframe>'
+        . '<script>if(location.hash){var gf=document.getElementById("gapineh-frame");gf.src=gf.src+location.hash;}</script>'
+        . $foot
+        . '</body></html>';
+}
+
+/*
+ * داخل قاب: کلیک روی لینک‌های بین لندینگ و راهنما، قاب بیرونی را جابه‌جا می‌کند
+ * تا همیشه فقط یک سطح قاب داشته باشیم و ویجت چت روی هر دو صفحه بماند.
+ * (فایل‌های خود اپ دست‌نخورده‌اند؛ این اسکریپت فقط هنگام سرو اضافه می‌شود.)
+ */
+function gapineh_landing_inner_patch($html) {
+    $home  = home_url('/' . GAPINEH_APP_SLUG . '/');
+    $guide = home_url('/' . GAPINEH_APP_SLUG . '/guide/');
+    $js = '<script>document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("a"):null;if(!a){return}var h=a.getAttribute("href")||"";var m=h.match(/(?:^|\/)(guide|index)\.html(#.*)?$/);if(m){e.preventDefault();window.top.location.href=(m[1]==="guide"?' . wp_json_encode($guide) . ':' . wp_json_encode($home) . ')+(m[2]||"");}});</script>';
+    return str_replace('</body>', $js . "\n</body>", $html);
+}
+
+function gapineh_landing_page_output($html, $file) {
+    if (gapineh_landing_is_inner()) {
+        return gapineh_landing_inner_patch($html);
+    }
+    $inner = home_url('/' . GAPINEH_APP_SLUG . '/' . $file . '?gapineh_inner=1');
+    return gapineh_landing_shell($html, $inner);
 }
 
 /* -------------------------------------------------------------------------
