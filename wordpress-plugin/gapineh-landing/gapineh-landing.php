@@ -3,7 +3,7 @@
  * Plugin Name:       گپینه | لندینگ و راهنما
  * Plugin URI:        https://etehadwp.com/gapineh/
  * Description:       لندینگ و راهنمای گپینه را روی آدرس /gapineh/ سایت منتشر می‌کند. شامل شورت‌کد [gapineh] (و [gapineh_landing]) برای نمایش داخل برگه‌های المنتور و دو قالب برگهٔ تمام‌صفحه (لندینگ و راهنما).
- * Version:           1.3.5
+ * Version:           1.3.6
  * Author:            etehadwp.com
  * License:           GPL-2.0-or-later
  * Text Domain:       gapineh-landing
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GAPINEH_LANDING_VERSION', '1.3.5');
+define('GAPINEH_LANDING_VERSION', '1.3.6');
 define('GAPINEH_LANDING_DIR', plugin_dir_path(__FILE__));
 define('GAPINEH_APP_DIR', GAPINEH_LANDING_DIR . 'app/');
 define('GAPINEH_APP_SLUG', 'gapineh');
@@ -105,7 +105,7 @@ function gapineh_landing_serve($raw_path) {
         echo $html;
         exit;
     }
-    header('Cache-Control: public, max-age=86400');
+    header('Cache-Control: public, max-age=604800');
     $mtime = (int) filemtime($file);
     $etag = '"' . md5($file . '|' . $mtime . '|' . filesize($file)) . '"';
     header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT');
@@ -218,7 +218,9 @@ function gapineh_landing_hooks_mode() {
 
 function gapineh_landing_inject_site_hooks($html) {
     $mode = gapineh_landing_hooks_mode();
-    if ($mode !== 'off') {
+    if ($mode === 'off') {
+        return $html;
+    }
     if (!did_action('wp_enqueue_scripts')) {
         do_action('wp_enqueue_scripts');
     }
@@ -239,30 +241,8 @@ function gapineh_landing_inject_site_hooks($html) {
         $html = str_replace('</body>', $foot . "
 </body>", $html);
     }
-    }
-    // استایل‌های سایت/ویجت‌ها نباید فونت و پالت رنگ طراحی لندینگ را عوض کنند:
-    // همهٔ توکن‌های تم تیره/روشن و فونت وزیرمتن، بعد از خروجی وردپرس دوباره تثبیت می‌شوند
-    // تا مثلاً تعریف دوبارهٔ --bg یا --text در قالب، حالت تیره را خراب نکند.
-    $guard = '<style id="gapineh-landing-theme-guard">'
-        . ':root{--bg: #0b1120;--bg-2: #0e1729;--surface: #111a2e;--surface-2: #17223b;--surface-3: #1e2b48;--border: #263552;--border-strong: #3a4c70;--footer-bg: #070c18;--header-bg: rgba(11, 17, 32, 0.88);--text-strong: #f8fafc;--text: #dbe4f0;--text-muted: #a3b1c6;--brand: #22d3ee;--brand-hover: #67e8f9;--brand-text: #67e8f9;--on-brand: #04252d;--brand-soft: rgba(34, 211, 238, 0.12);--brand-border: rgba(34, 211, 238, 0.42);--violet: #c4b5fd;--violet-soft: rgba(167, 139, 250, 0.14);--success-text: #86efac;--success-soft: rgba(34, 197, 94, 0.12);--success-border: rgba(74, 222, 128, 0.45);--warn-text: #fcd34d;--warn-strong: #fde68a;--warn-soft: rgba(245, 158, 11, 0.12);--warn-border: rgba(245, 158, 11, 0.5);--danger-text: #fca5a5;--danger-soft: rgba(239, 68, 68, 0.12);--danger-border: rgba(248, 113, 113, 0.55);--info-text: #bae6fd;--info-soft: rgba(56, 189, 248, 0.1);--info-border: rgba(56, 189, 248, 0.42);--focus: #67e8f9;--hero-glow-1: rgba(34, 211, 238, 0.2);--hero-glow-2: rgba(167, 139, 250, 0.16);--grid-line: rgba(148, 163, 184, 0.07);--label-bg: rgba(11, 17, 32, 0.8);--label-border: rgba(148, 163, 184, 0.38);--hl-from: #67e8f9;--hl-to: #c4b5fd;--fs-xs: 0.8125rem;--fs-sm: 0.875rem;--fs-md: 0.9375rem;--fs-base: 1rem;--fs-lg: 1.125rem;--fs-h3: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);--fs-h2: clamp(1.625rem, 1.2rem + 1.5vw, 2.25rem);--fs-h1: clamp(2rem, 1.35rem + 2.6vw, 3.25rem);--radius-sm: 8px;--radius-md: 14px;--radius-lg: 20px;--shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 32px -18px rgba(0, 0, 0, 0.7);--shadow-glow: 0 0 0 1px rgba(34, 211, 238, 0.3), 0 24px 60px -26px rgba(34, 211, 238, 0.45);--container: 1200px;--header-h: 68px;color-scheme:dark;}'
-        . '[data-theme=\'light\']{--bg: #f4f7fb;--bg-2: #eaf0f7;--surface: #ffffff;--surface-2: #f3f6fa;--surface-3: #e8eef6;--border: #d6dfea;--border-strong: #b4c2d4;--footer-bg: #e6edf5;--header-bg: rgba(255, 255, 255, 0.9);--text-strong: #0b1324;--text: #1f2a3c;--text-muted: #46566c;--brand: #0e7490;--brand-hover: #155e75;--brand-text: #0a5c72;--on-brand: #ffffff;--brand-soft: rgba(14, 116, 144, 0.08);--brand-border: rgba(14, 116, 144, 0.4);--violet: #6d28d9;--violet-soft: rgba(109, 40, 217, 0.08);--success-text: #166534;--success-soft: rgba(22, 163, 74, 0.09);--success-border: rgba(22, 163, 74, 0.4);--warn-text: #8a3c0a;--warn-strong: #7c2d12;--warn-soft: rgba(217, 119, 6, 0.09);--warn-border: rgba(217, 119, 6, 0.45);--danger-text: #991b1b;--danger-soft: rgba(220, 38, 38, 0.07);--danger-border: rgba(220, 38, 38, 0.45);--info-text: #0c4a6e;--info-soft: rgba(2, 132, 199, 0.07);--info-border: rgba(2, 132, 199, 0.35);--focus: #0e7490;--hero-glow-1: rgba(14, 116, 144, 0.13);--hero-glow-2: rgba(109, 40, 217, 0.09);--grid-line: rgba(15, 23, 42, 0.05);--label-bg: rgba(255, 255, 255, 0.92);--label-border: #c3cfdd;--hl-from: #0e7490;--hl-to: #6d28d9;--shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 10px 26px -14px rgba(15, 23, 42, 0.18);--shadow-glow: 0 0 0 1px rgba(14, 116, 144, 0.28), 0 22px 50px -26px rgba(14, 116, 144, 0.4);color-scheme:light;}'
-        . 'html{direction:rtl;}'
-        . 'html body{direction:rtl;text-align:right;background:var(--bg) !important;color:var(--text) !important;}'
-        . 'html body h1,html body h2,html body h3,html body h4{color:var(--text-strong) !important;}'
-        . 'html body a{color:var(--brand-text);}'
-        . 'html body .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:12px;border:1px solid transparent;font-weight:700;line-height:1.4;text-decoration:none;max-width:100%;box-sizing:border-box;}'
-        . 'html body .btn--primary{background:var(--brand) !important;color:var(--on-brand) !important;}'
-        . 'html body .btn--ghost{background:transparent;color:var(--text-strong);border-color:var(--border-strong);}'
-        . 'html body .btn--sm{min-height:44px;padding:8px 16px;font-size:var(--fs-sm);border-radius:10px;}'
-        . 'html body .btn--light{background:var(--surface-2);color:var(--text-strong);border-color:var(--border);}'
-        . 'html body .btn--onbrand{background:#ffffff;color:#0b3a4a;}'
-        . 'html body .btn--block{width:100%;}'
-        . 'html body .header-actions{flex:none;}html body .site-nav{min-width:0;}'
-        . 'html body #root h1,html body #root h2,html body #root h3,html body #root h4{color:var(--text-strong) !important;}'
-        . 'html body #root .btn--primary{background:var(--brand) !important;color:var(--on-brand) !important;}'
-        . 'html body #root .btn--ghost{color:var(--text-strong) !important;}'
-        . 'html body .buy-card__actions{display:flex;flex-wrap:wrap;gap:12px;min-width:0;max-width:100%;}'
-        . '@media (max-width:640px){html body .buy-card__actions{width:100%;}html body .buy-card__actions .btn{flex:1 1 100%;width:100%;white-space:normal;}}'
+    // استایل‌های سایت/ویجت‌ها نباید فونت طراحی لندینگ (وزیرمتن) را عوض کنند.
+    $guard = '<style id="gapineh-landing-font-guard">'
         . 'html body,html body h1,html body h2,html body h3,html body h4,html body button,html body input,html body select,html body textarea'
         . '{font-family:\'Vazirmatn Variable\',Vazirmatn,Tahoma,system-ui,sans-serif;}'
         . 'html body h1,html body h2{font-weight:800;}html body h3,html body h4{font-weight:700;}'
@@ -275,43 +255,6 @@ function gapineh_landing_inject_site_hooks($html) {
  * ۳) شورت‌کد برای المنتور: [gapineh] و [gapineh_landing]
  *    داخل ابزارک «کد کوتاه» یا «HTML» المنتور بگذارید.
  * ---------------------------------------------------------------------- */
-
-
-/* -------------------------------------------------------------------------
- * ۲.۷) محافظت در برابر بهینه‌سازها (WP Rocket و مشابه)
- * صفحات گپینه خروجی آماده و مستقل‌اند؛ کش‌کردن HTML یا مینیفای/حذف CSS آن‌ها
- * توسط افزونه‌های بهینه‌ساز باعث به‌هم‌ریختگی تم و دکمه‌ها می‌شود، پس فقط
- * برای نشانی‌های خود گپینه از کش صفحه و بهینه‌سازی فایل‌ها کنار گذاشته می‌شوند.
- * ---------------------------------------------------------------------- */
-
-$gapineh_req = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
-if (strpos($gapineh_req, '/' . GAPINEH_APP_SLUG . '/') !== false || strpos($gapineh_req, '/' . GAPINEH_APP_SLUG . '?') !== false) {
-    if (!defined('DONOTCACHEPAGE')) {
-        define('DONOTCACHEPAGE', true);
-    }
-    if (!defined('DONOTMINIFY')) {
-        define('DONOTMINIFY', true);
-    }
-}
-
-add_filter('rocket_exclude_css', function ($files) {
-    $files[] = 'style-gapineh135.css';
-    $files[] = 'style-gapineh134.css';
-    $files[] = 'style-CGjXFix0.css';
-    return $files;
-});
-add_filter('rocket_exclude_js', function ($files) {
-    $files[] = 'index-gapineh135.js';
-    $files[] = 'index-gapineh134.js';
-    $files[] = 'index-CFLuRUfX.js';
-    return $files;
-});
-add_filter('rocket_delay_js_exclusions', function ($excluded) {
-    $excluded[] = 'index-gapineh135.js';
-    $excluded[] = 'index-gapineh134.js';
-    $excluded[] = 'index-CFLuRUfX.js';
-    return $excluded;
-});
 
 function gapineh_landing_shortcode($atts) {
     $atts = shortcode_atts(
