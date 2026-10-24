@@ -3,7 +3,7 @@
  * Plugin Name:       گپینه | لندینگ و راهنما
  * Plugin URI:        https://etehadwp.com/gapineh/
  * Description:       لندینگ و راهنمای گپینه را روی آدرس /gapineh/ سایت منتشر می‌کند. شامل شورت‌کد [gapineh] (و [gapineh_landing]) برای نمایش داخل برگه‌های المنتور و دو قالب برگهٔ تمام‌صفحه (لندینگ و راهنما).
- * Version:           1.3.0
+ * Version:           1.3.1
  * Author:            etehadwp.com
  * License:           GPL-2.0-or-later
  * Text Domain:       gapineh-landing
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GAPINEH_LANDING_VERSION', '1.3.0');
+define('GAPINEH_LANDING_VERSION', '1.3.1');
 define('GAPINEH_LANDING_DIR', plugin_dir_path(__FILE__));
 define('GAPINEH_APP_DIR', GAPINEH_LANDING_DIR . 'app/');
 define('GAPINEH_APP_SLUG', 'gapineh');
@@ -241,8 +241,13 @@ function gapineh_landing_inject_site_hooks($html) {
         $html = str_replace('</body>', $foot . "
 </body>", $html);
     }
-    // استایل‌های سایت/ویجت‌ها نباید فونت طراحی لندینگ (وزیرمتن) را عوض کنند.
-    $guard = '<style id="gapineh-landing-font-guard">'
+    // استایل‌های سایت/ویجت‌ها نباید فونت و پالت رنگ طراحی لندینگ را عوض کنند:
+    // همهٔ توکن‌های تم تیره/روشن و فونت وزیرمتن، بعد از خروجی وردپرس دوباره تثبیت می‌شوند
+    // تا مثلاً تعریف دوبارهٔ --bg یا --text در قالب، حالت تیره را خراب نکند.
+    $guard = '<style id="gapineh-landing-theme-guard">'
+        . ':root{--bg: #0b1120;--bg-2: #0e1729;--surface: #111a2e;--surface-2: #17223b;--surface-3: #1e2b48;--border: #263552;--border-strong: #3a4c70;--footer-bg: #070c18;--header-bg: rgba(11, 17, 32, 0.88);--text-strong: #f8fafc;--text: #dbe4f0;--text-muted: #a3b1c6;--brand: #22d3ee;--brand-hover: #67e8f9;--brand-text: #67e8f9;--on-brand: #04252d;--brand-soft: rgba(34, 211, 238, 0.12);--brand-border: rgba(34, 211, 238, 0.42);--violet: #c4b5fd;--violet-soft: rgba(167, 139, 250, 0.14);--success-text: #86efac;--success-soft: rgba(34, 197, 94, 0.12);--success-border: rgba(74, 222, 128, 0.45);--warn-text: #fcd34d;--warn-strong: #fde68a;--warn-soft: rgba(245, 158, 11, 0.12);--warn-border: rgba(245, 158, 11, 0.5);--danger-text: #fca5a5;--danger-soft: rgba(239, 68, 68, 0.12);--danger-border: rgba(248, 113, 113, 0.55);--info-text: #bae6fd;--info-soft: rgba(56, 189, 248, 0.1);--info-border: rgba(56, 189, 248, 0.42);--focus: #67e8f9;--hero-glow-1: rgba(34, 211, 238, 0.2);--hero-glow-2: rgba(167, 139, 250, 0.16);--grid-line: rgba(148, 163, 184, 0.07);--label-bg: rgba(11, 17, 32, 0.8);--label-border: rgba(148, 163, 184, 0.38);--hl-from: #67e8f9;--hl-to: #c4b5fd;--fs-xs: 0.8125rem;--fs-sm: 0.875rem;--fs-md: 0.9375rem;--fs-base: 1rem;--fs-lg: 1.125rem;--fs-h3: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);--fs-h2: clamp(1.625rem, 1.2rem + 1.5vw, 2.25rem);--fs-h1: clamp(2rem, 1.35rem + 2.6vw, 3.25rem);--radius-sm: 8px;--radius-md: 14px;--radius-lg: 20px;--shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 32px -18px rgba(0, 0, 0, 0.7);--shadow-glow: 0 0 0 1px rgba(34, 211, 238, 0.3), 0 24px 60px -26px rgba(34, 211, 238, 0.45);--container: 1200px;--header-h: 68px;color-scheme:dark;}'
+        . '[data-theme=\'light\']{--bg: #f4f7fb;--bg-2: #eaf0f7;--surface: #ffffff;--surface-2: #f3f6fa;--surface-3: #e8eef6;--border: #d6dfea;--border-strong: #b4c2d4;--footer-bg: #e6edf5;--header-bg: rgba(255, 255, 255, 0.9);--text-strong: #0b1324;--text: #1f2a3c;--text-muted: #46566c;--brand: #0e7490;--brand-hover: #155e75;--brand-text: #0a5c72;--on-brand: #ffffff;--brand-soft: rgba(14, 116, 144, 0.08);--brand-border: rgba(14, 116, 144, 0.4);--violet: #6d28d9;--violet-soft: rgba(109, 40, 217, 0.08);--success-text: #166534;--success-soft: rgba(22, 163, 74, 0.09);--success-border: rgba(22, 163, 74, 0.4);--warn-text: #8a3c0a;--warn-strong: #7c2d12;--warn-soft: rgba(217, 119, 6, 0.09);--warn-border: rgba(217, 119, 6, 0.45);--danger-text: #991b1b;--danger-soft: rgba(220, 38, 38, 0.07);--danger-border: rgba(220, 38, 38, 0.45);--info-text: #0c4a6e;--info-soft: rgba(2, 132, 199, 0.07);--info-border: rgba(2, 132, 199, 0.35);--focus: #0e7490;--hero-glow-1: rgba(14, 116, 144, 0.13);--hero-glow-2: rgba(109, 40, 217, 0.09);--grid-line: rgba(15, 23, 42, 0.05);--label-bg: rgba(255, 255, 255, 0.92);--label-border: #c3cfdd;--hl-from: #0e7490;--hl-to: #6d28d9;--shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 10px 26px -14px rgba(15, 23, 42, 0.18);--shadow-glow: 0 0 0 1px rgba(14, 116, 144, 0.28), 0 22px 50px -26px rgba(14, 116, 144, 0.4);color-scheme:light;}'
+        . 'html body{background:var(--bg);color:var(--text);}'
         . 'html body,html body h1,html body h2,html body h3,html body h4,html body button,html body input,html body select,html body textarea'
         . '{font-family:\'Vazirmatn Variable\',Vazirmatn,Tahoma,system-ui,sans-serif;}'
         . 'html body h1,html body h2{font-weight:800;}html body h3,html body h4{font-weight:700;}'
